@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app";
+import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
+import history from "./history";
+import { getConfig } from "./config";
 
 import "./index.css";
 
@@ -16,27 +19,42 @@ import "./index.css";
 
 import { BrowserRouter } from "react-router-dom";
 
-window.LoginWidget = class LoginWidget {
-  init(opts) {
-    const pageConfig = opts.pageConfig;
-    if (!pageConfig) {
-      throw new Error("pageConfig must be provided in opts");
-    }
+// window.LoginWidget = class LoginWidget {
+//   init(opts) {
+//     const pageConfig = opts.pageConfig;
+//     if (!pageConfig) {
+//       throw new Error("pageConfig must be provided in opts");
+//     }
 
-    ReactDOM.render(
-      <BrowserRouter>
-        <App pageConfig={pageConfig} />
-      </BrowserRouter>,
-      document.getElementById("root")
-    );
-  }
+//     ReactDOM.render(
+//       <BrowserRouter>
+//         <App pageConfig={pageConfig} />
+//       </BrowserRouter>,
+//       document.getElementById("root")
+//     );
+//   }
+// };
+const onRedirectCallback = (appState) => {
+  history.push(
+    appState && appState.returnTo ? appState.returnTo : window.location.pathname
+  );
 };
-// ReactDOM.render(
-//   <BrowserRouter>
-//     <App pageConfig={{ clientName: "Custom Client Name" }} />
-//   </BrowserRouter>,
-//   document.getElementById("root")
-// );
+const config = getConfig();
+const providerConfig = {
+  domain: "atul-mcafee.us.auth0.com",
+  clientId: "m9Z6cOg7yBDgbtQ4ljH3Hln9as3wWoAB",
+  ...(config.audience ? { audience: config.audience } : null),
+  redirectUri: window.location.origin,
+  onRedirectCallback,
+};
+ReactDOM.render(
+  <BrowserRouter>
+    <Auth0Provider {...providerConfig}>
+      <App pageConfig={{ clientName: "Custom Client Name" }} />
+    </Auth0Provider>
+  </BrowserRouter>,
+  document.getElementById("root")
+);
 
 window.PasswordResetWidget = class PasswordResetWidget {
   init(opts) {
