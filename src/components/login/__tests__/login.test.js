@@ -1,5 +1,11 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  fireEvent,
+  act,
+} from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import { BrowserRouter as Router } from "react-router-dom";
@@ -10,12 +16,12 @@ import { AccountProvider } from "../../../providers/AccountContext";
 import { TrackingProvider } from "../../../providers/TrackingProvider";
 import { SettingProvider } from "../../../providers/SettingProvider";
 
-// import axios from "axios";
-import SignupUI from "../SignupUI";
-import SignupContainer from "../../../containers/signupContainer";
+import axios from "axios";
+import LoginUI from "../loginUi";
+import LoginContainer from "../../../containers/loginContainer";
 
 beforeAll(() => {
-  console.log = () => {};
+  console.log = () => { };
 });
 
 jest.mock("axios");
@@ -24,7 +30,7 @@ const setUp = (props) => {
   render(
     <Router>
       <TrackingProvider config={props.pageConfig}>
-        <SettingProvider config={props.locale.current}>
+        <SettingProvider>
           <CommonDataProvider config={props.pageConfig}>
             <AppProvider>
               <LanguageProvider locale={props.locale.current}>
@@ -32,9 +38,9 @@ const setUp = (props) => {
                   config={props.pageConfig}
                   locale={props.locale.current}
                 >
-                  <SignupContainer {...props}>
-                    <SignupUI />
-                  </SignupContainer>
+                  <LoginContainer {...props}>
+                    <LoginUI />
+                  </LoginContainer>
                 </AccountProvider>
               </LanguageProvider>
             </AppProvider>
@@ -45,7 +51,7 @@ const setUp = (props) => {
   );
 };
 
-describe("<SignUp/>", () => {
+describe("<LogIn/>", () => {
   const props = {
     locale: { current: "en-us" },
     pageConfig: {
@@ -63,47 +69,48 @@ describe("<SignUp/>", () => {
       },
     },
   };
-  test("should check if the signup component is rendered properly", () => {
+
+  test("should check if the login component is rendered properly", () => {
     setUp(props);
-    const signupScreenText = screen.getByText("Create your McAfee account");
-    screen.debug(signupScreenText,100000);
-    expect(signupScreenText).toBeInTheDocument();
+    screen.debug();
+    const loginScreenText = screen.getByText("Sign into your McAfee account");
+    expect(loginScreenText).toBeInTheDocument();
   });
-  test("should check if the signup component sub-heading is rendered properly", () => {
+
+  test("should check if the login component sub-heading is rendered properly", () => {
     setUp(props);
-    const signupScreenText = screen.getByText(
-      "Enter your email address, set a password and we’ll create your account."
+    const loginScreenText = screen.getByText(
+      "Choose your sign in method to continue"
     );
-    expect(signupScreenText).toBeInTheDocument();
+    expect(loginScreenText).toBeInTheDocument();
   });
-  test("should check if the signup component Login page link is rendered properly", () => {
+
+  test("should check if Signup page link is rendered properly", () => {
     setUp(props);
-    const signupScreenText = screen.getByText("Sign in now");
-    expect(signupScreenText).toBeInTheDocument();
+    const loginScreenText = screen.getByText("Create one now");
+    expect(loginScreenText).toBeInTheDocument();
   });
-  test("should check if the signup form email field is rendered properly", () => {
+
+  test("should check if the login form email field is rendered properly", () => {
     setUp(props);
-    const signupScreenText = screen.getByPlaceholderText("Email");
-    expect(signupScreenText).toBeInTheDocument();
+    const loginScreenText = screen.getByPlaceholderText("Email");
+    expect(loginScreenText).toBeInTheDocument();
   });
-  test("should check if the signup form password field is rendered properly", () => {
+
+  test("should check if the login form password field is rendered properly", () => {
     setUp(props);
-    const signupScreenText = screen.getByPlaceholderText("Password");
-    expect(signupScreenText).toBeInTheDocument();
+    const loginScreenText = screen.getByPlaceholderText("Password");
+    expect(loginScreenText).toBeInTheDocument();
   });
-  test("should check if the signup form confirm password field is rendered properly", () => {
+
+  test("should check if the login form submit button is rendered properly", async () => {
     setUp(props);
-    const signupScreenText = screen.getByPlaceholderText("Confirm password");
-    expect(signupScreenText).toBeInTheDocument();
-  });
-  test("should check if the signup form submit button is rendered properly", () => {
-    setUp(props);
-    const signupScreenText = screen.getByText("Create my Account");
-    expect(signupScreenText).toBeInTheDocument();
+    const loginScreenText = screen.getByText("Sign in");
+    expect(loginScreenText).toBeInTheDocument();
   });
 });
 
-describe("Signup Form testing", () => {
+describe("LOGIN Form testing", () => {
   const props = {
     locale: { current: "en-us" },
     pageConfig: {
@@ -121,6 +128,7 @@ describe("Signup Form testing", () => {
       },
     },
   };
+
   test("should check if email field value is updated", () => {
     setUp(props);
     const emailInput = screen.getByPlaceholderText("Email");
@@ -131,17 +139,10 @@ describe("Signup Form testing", () => {
       screen.getByDisplayValue("test-email@dispostable.com")
     ).toBeInTheDocument();
   });
+
   test("should check if Password field value is updated", () => {
     setUp(props);
     const emailInput = screen.getByPlaceholderText("Password");
-    fireEvent.change(emailInput, {
-      target: { value: "Mcafee123" },
-    });
-    expect(screen.getByDisplayValue("Mcafee123")).toBeInTheDocument();
-  });
-  test("should check if Confirm password field value is updated", () => {
-    setUp(props);
-    const emailInput = screen.getByPlaceholderText("Confirm password");
     fireEvent.change(emailInput, {
       target: { value: "Mcafee123" },
     });
