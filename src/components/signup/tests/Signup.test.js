@@ -98,7 +98,7 @@ describe("<SignUp/>", () => {
   });
   test("should check if the signup form submit button is rendered properly", () => {
     setUp(props);
-    const signupScreenText = screen.getByText("Create my Account");
+    const signupScreenText = screen.getByText("Create my account");
     expect(signupScreenText).toBeInTheDocument();
   });
 });
