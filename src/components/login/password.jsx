@@ -24,7 +24,10 @@ const PasswordFlow = (props) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div 
+        style={{ display: "flex", flexDirection: "column" }}
+        data-testid = "login-input-container-email"
+      >
         <div className={styles.LoginInputContainer}>
           {LoginForm.email !== "" ? (
             <div
@@ -104,6 +107,7 @@ const PasswordFlow = (props) => {
       <>
         <div
           className={styles.LoginInputContainerPassword}
+          data-testid = "login-input-container-password"
           style={{
             border:
               LoginError.errorCode &&

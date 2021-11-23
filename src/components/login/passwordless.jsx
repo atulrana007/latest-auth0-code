@@ -25,7 +25,10 @@ const PasswordLessFlow = (props) => {
     <>
       {!hideEmail && (
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div className={styles.LoginInputContainer}>
+          <div 
+            className={styles.LoginInputContainer}
+            
+            >
             {LoginForm.email !== "" ? (
               <div
                 className={styles.LoginInputLabel}
@@ -61,6 +64,7 @@ const PasswordLessFlow = (props) => {
                   <input
                     type="email"
                     id="email"
+                    data-testid = "login-passwordless-email"
                     name="email"
                     value={LoginForm.email}
                     placeholder={msg}
@@ -89,7 +93,10 @@ const PasswordLessFlow = (props) => {
       )}
 
       {LoginForm.otpAvailable && (
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div 
+          style={{ display: "flex", flexDirection: "column" }}
+          data-testid = "one-time-passcode"
+        >
           <div
             className={styles.LoginInputContainer}
             style={{ border: `1px solid ${otpValid ? "#848faa" : "red"}` }}

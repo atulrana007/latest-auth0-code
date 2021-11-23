@@ -107,6 +107,7 @@ const LoginUI = (props) => {
           <div>{translate("Do_not_have_an_account")}</div>
           <div
             className={styles.Loginpagelink}
+            data-testid = "sign-up-page-link-button"
             onClick={() => {
               changePage();
             }}
@@ -271,11 +272,12 @@ const LoginUI = (props) => {
             <div className={styles.LoginLeftWrapper}>
               <div className={styles.LoginWelcomeContainer}>
                 <McAfeeLogo className={styles.Logo} />
-                <div className={styles.LoginIntro}>
+                <div className={styles.LoginIntro} data-testid = "login-intro-heading">
                   {translate(LoginText.title)}
                 </div>
                 <div
                   className={styles.LoginIntroSubHeading}
+                  data-testid = "login-intro-subheading"
                   style={{
                     display:
                       blockScreenState.otpBlock &&
