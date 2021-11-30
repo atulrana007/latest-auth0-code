@@ -479,7 +479,8 @@ export default function LoginContainer(props) {
         setLoginError({
           ...LoginError,
           databaseError: `passwordless.${err?.description}`,
-          errorCode: "sorry_no_account_found",
+          errorCode: "passwordless.bad.email",
+          isEmailError: true,
         });
         setLoginForm({
           ...LoginForm,
@@ -579,6 +580,7 @@ export default function LoginContainer(props) {
     onSubmit,
     LoginForm,
     LoginError,
+    setLoginError,
     Continue,
     validateEmail,
     onPressContinue,

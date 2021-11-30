@@ -40,6 +40,7 @@ const LoginUI = (props) => {
     onlyOTPLock,
     resendingCode,
     handleClickResendCode,
+    setLoginError,
   } = props;
   const { LoginText, utagData, locale } = useContext(CommonDataContext);
 
@@ -234,6 +235,7 @@ const LoginUI = (props) => {
               locale={locale}
               resendingCode={resendingCode}
               handleClickResendCode={handleClickResendCode}
+              setLoginError={setLoginError}
             />
           </div>
         );
@@ -264,6 +266,7 @@ const LoginUI = (props) => {
             locale={locale}
             resendingCode={resendingCode}
             handleClickResendCode={handleClickResendCode}
+            setLoginError={setLoginError}
           />
         </div>
       );
