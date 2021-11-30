@@ -78,7 +78,7 @@ const PasswordFlow = (props) => {
                 />
               )}
             </FormattedMessage>
-
+{/* 
             {validateEmail(LoginForm.email) &&
             LoginText.title === "Looks_like_you_already_have_an_account" ? (
               <TickIcon
@@ -89,7 +89,7 @@ const PasswordFlow = (props) => {
                   marginRight: "0.2rem",
                 }}
               />
-            ) : null}
+            ) : null} */}
             {LoginError.errorCode &&
               LoginError.errorCode !== "login.password_lock" &&
               LoginError.errorCode !== "passwordless.passcode_lock" && (

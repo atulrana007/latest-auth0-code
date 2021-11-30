@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TealiumTagValueConstans } from "../../constants/TealiumConstants";
 import translate from "../../localization/translate";
 import styles from "./style.module.css";
 import { ReactComponent as OutlineMail } from "../../svg/mailIcon.svg";
 import { ReactComponent as TickIcon } from "../../svg/tickIcon.svg";
+import { ReactComponent as PasswordCross } from "../../svg/errorCross.svg";
 import { FormattedMessage } from "react-intl";
 
 const PasswordLessFlow = (props) => {
   const {
     onChange,
     LoginError,
+    setLoginError,
     LoginForm,
     validateEmail,
     getOtp,
@@ -23,6 +25,19 @@ const PasswordLessFlow = (props) => {
     handleClickResendCode,
   } = props;
 
+  useEffect(() => {
+
+    return () => {
+
+      console.log("Destrying passwordless error")
+      setLoginError({
+        ...LoginError,
+        isEmailError:false
+      })
+    }
+
+  }, [])
+
   return (
     <>
       {!hideEmail && (
@@ -32,7 +47,13 @@ const PasswordLessFlow = (props) => {
               <div
                 className={styles.LoginInputLabel}
                 style={{
-                  color: validateEmail(LoginForm.email) ? "#0CA77D" : "red",
+                  //color: validateEmail(LoginForm.email) ? "#0CA77D" : "red",
+                  color:
+                  LoginError.isEmailError === true
+                    ? "red"
+                    : validateEmail(LoginForm.email)
+                    ? "#0CA77D"
+                    : "#848faa",
                 }}
               >
                 {translate("email")}
@@ -60,7 +81,7 @@ const PasswordLessFlow = (props) => {
               />
               <FormattedMessage id="email">
                 {(msg) => (
-                  <input
+                  <input style={{color: LoginError.isEmailError?"red":""}}
                     type="email"
                     id="email"
                     name="email"
@@ -71,6 +92,9 @@ const PasswordLessFlow = (props) => {
                   />
                 )}
               </FormattedMessage>
+              {LoginError.isEmailError ? (
+                <PasswordCross className={styles.cancel} />
+              ) : null}
               {validateEmail(LoginForm.email) &&
               LoginText.title === "Looks_like_you_already_have_an_account" ? (
                 <TickIcon

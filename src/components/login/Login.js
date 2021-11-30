@@ -4,6 +4,7 @@ import translate from "../../localization/translate";
 import PasswordFlow from "./password";
 import PasswordLessFlow from "./passwordless";
 import { CommonDataContext } from "../../providers/CommonDataContext";
+import { set } from "lodash";
 
 const Login = (props) => {
   const {
@@ -25,6 +26,7 @@ const Login = (props) => {
     locale,
     resendingCode,
     handleClickResendCode,
+    setLoginError,
   } = props;
   const { utagData } = useContext(CommonDataContext);
 
@@ -64,6 +66,7 @@ const Login = (props) => {
             onToggle={onToggle}
             resendingCode={resendingCode}
             handleClickResendCode={handleClickResendCode}
+            setLoginError={setLoginError}
           />
         )}
       </form>
