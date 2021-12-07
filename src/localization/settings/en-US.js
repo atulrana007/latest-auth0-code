@@ -25,7 +25,6 @@ const en = {
 
     affiliates: {
       105: {
-        affiliate_name: "Dell",
         country: "United States",
         OptinFields: {
           SpecialPromo: {

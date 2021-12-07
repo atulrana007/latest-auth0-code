@@ -29,10 +29,10 @@ function Main() {
     let updatedUtagData;
     updatedUtagData = {
       ...utagData,
-      [TealiumTagKeyConstants.TEALIUM_AFFILIATE_NAME]: setting?.affiliate_name,
       [TealiumTagKeyConstants.TEALIUM_GLOBAL_COUNTRY]: setting?.country,
       [TealiumTagKeyConstants.TEALIUM_PAGE_NAME]:
-        TealiumTagValueConstans.BASE_PAGE_NAME + TealiumTagValueConstans.LOGIN_PAGE_NAME,
+        TealiumTagValueConstans.BASE_PAGE_NAME +
+        TealiumTagValueConstans.LOGIN_PAGE_NAME,
       [TealiumTagKeyConstants.TEALIUM_SITESECTION]:
         TealiumTagValueConstans.LOGIN_PAGE_NAME,
     };
