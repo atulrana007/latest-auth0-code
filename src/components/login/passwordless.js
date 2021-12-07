@@ -120,7 +120,7 @@ const PasswordLessFlow = (props) => {
           <div
             className={styles.LoginOtpResendContainer}
             onClick={handleClickResendCode}
-            data-navelement="Resend OTP"
+            data-nav-element-click="Resend OTP | Failure"
           >
             <div
               className={`${styles.LoginResendBtn} ${
