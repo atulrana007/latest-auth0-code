@@ -90,21 +90,21 @@ const SignupUI = (props) => {
         <div className={styles.SignupWrapper}>
           <div className={styles.leftContainer}>
             {isAffiliateLogo ? (
-              <div class="container-header">
-                <span id="n_McafeeLogo" class="container-logo">
+              <div className="container-header">
+                <span id="n_McafeeLogo" className="container-logo">
                   <img
                     id="mcafeeLogo"
                     alt="McAfee"
                     title="McAfee"
                     src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-odrplat-auth0-ui/public/images/McAfee-Document-Logo1.png"
-                    class="logo"
+                    className="logo"
                   />
                 </span>
                 <span
                   id="n_AffiliateLogo"
-                  class="container-logo aff-logo-container"
+                  className="container-logo aff-logo-container"
                 >
-                  <span class="logo-seperator">| </span>
+                  <span className="logo-seperator">| </span>
                   <img
                     id="affiliateLogo"
                     alt="McAfee"

@@ -35,12 +35,12 @@ function ForgotPasswordEmail(props) {
         <div className="ForgotPasswordLeftContainer" style={{ height: "100%" }}>
           <div>
           {isAffiliateLogo?
-                (<div class="container-header">
-                <span class="container-logo" >
-                    <img  alt="McAfee" title="McAfee" src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-odrplat-auth0-ui/public/images/McAfee-Document-Logo1.png" class="logo"/>
+                (<div className="container-header">
+                <span className="container-logo" >
+                    <img  alt="McAfee" title="McAfee" src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-odrplat-auth0-ui/public/images/McAfee-Document-Logo1.png" className="logo"/>
                 </span>
-                    <span class="container-logo aff-logo-container">
-                        <span class="logo-seperator">| </span><img  alt="McAfee" title="Dell" src="https://secureimages.mcafee.com/common/affiliateImages/dell/logo_dell_new_58x59.gif" width="20" 
+                    <span className="container-logo aff-logo-container">
+                        <span className="logo-seperator">| </span><img  alt="McAfee" title="Dell" src="https://secureimages.mcafee.com/common/affiliateImages/dell/logo_dell_new_58x59.gif" width="20" 
                 height="20"/>
                     </span>
             </div>): (<img

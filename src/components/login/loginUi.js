@@ -167,7 +167,7 @@ const LoginUI = (props) => {
               onClick={(e) => {
                 changePage(e);
               }}
-              data-navelement="Create one now"
+              data-navelement="Create Account"
             >
               {translate("Create_one_now")}
             </div>
@@ -233,7 +233,7 @@ const LoginUI = (props) => {
                 onClick={(e) => {
                   changePage(e);
                 }}
-                navElement="Create one now"
+                navElement="Create Account"
               >
                 {translate("Create_one_now")}
               </div>
@@ -338,17 +338,17 @@ const LoginUI = (props) => {
             <div className={styles.LoginLeftWrapper}>
               <div className={styles.LoginWelcomeContainer}>
                 {isAffiliateLogo ? (
-                  <div class="container-header">
-                    <span class="container-logo">
+                  <div className="container-header">
+                    <span className="container-logo">
                       <img
                         alt="McAfee"
                         title="McAfee"
                         src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-odrplat-auth0-ui/public/images/McAfee-Document-Logo1.png"
-                        class="logo"
+                        className="logo"
                       />
                     </span>
-                    <span class="container-logo aff-logo-container">
-                      <span class="logo-seperator">| </span>
+                    <span className="container-logo aff-logo-container">
+                      <span className="logo-seperator">| </span>
                       <img
                         alt="McAfee"
                         title="Dell"

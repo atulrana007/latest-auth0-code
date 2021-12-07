@@ -38,7 +38,7 @@ const Timer = (props) => {
           <div
             className="resend-passcode"
             onClick={getOtp}
-            data-nav-element-click="resend-otp"
+            data-nav-element-click="Resend OTP | Expired"
           >
             {translate("Send_new_code")}
           </div>

@@ -585,7 +585,7 @@ export default function LoginContainer(props) {
   const getOtp = async (e) => {
     try {
       e.preventDefault();
-      trackClickEvent("submitting-for-resend-otp");
+      trackClickEvent("Resend OTP");
       await otpStart(LoginForm.email);
       setTimer({
         minutes: 3,

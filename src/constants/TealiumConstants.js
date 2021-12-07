@@ -15,11 +15,11 @@ const TealiumTagValueConstans = {
   OTP_PAGE_NAME: "Otp",
   SIGNUP_PAGE_NAME: "Signup",
   FORGOT_PASSWORD_PAGE_NAME: "Forgotpassword",
-  SIGNIN_CONTINUE_BUTTON: "Signin-Continue",
+  SIGNIN_CONTINUE_BUTTON: "Signin Continue",
   SIGNIN_BUTTON: "Signin",
   BASE_PAGE_NAME: "[consumer:web]|Auth0|",
-  LOGIN_OTP_SUCCESS: "Login-Otp-Success",
-  LOGIN_PASSWORD_SUCCESS: "Login-Password-Success"
+  LOGIN_OTP_SUCCESS: "Login Otp Success",
+  LOGIN_PASSWORD_SUCCESS: "Login Password Success"
 };
 
 export { TealiumTagKeyConstants, TealiumTagValueConstans };

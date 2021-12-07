@@ -406,7 +406,7 @@ const Signup = (props) => {
                 : styles.SubmitButton
             }
             onClick={onSubmit}
-            data-nav-element-click="Create My Account"
+            data-nav-element-click="Create My Account | Submit"
           >
             {translate("Create_my_Account")}
           </button>
