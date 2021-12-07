@@ -6,7 +6,7 @@ const SettingContext = React.createContext({});
 
 const SettingProvider = (props) => {
   const [setting, setSetting] = useState(null);
-  const [affiliate_name, setAffiliateName] = useState(null);
+  const [settingFinal, setFinalSetting] = useState(null);
   const [localizedContent, setLocalizedContent] = useState(null);
 
   const [optinFields, setOptinFields] = useState();
@@ -62,6 +62,7 @@ const SettingProvider = (props) => {
         //   `"https://d1aza67fhfglew.cloudfront.net/settings/${props.locale}.json`
         // );
         const settingResponse = { data: settings[props.locale] };
+        setFinalSetting(settingResponse.data);
         if (
           settingResponse.data?.affiliates &&
           typeof settingResponse.data.affiliates === "object"
@@ -69,9 +70,6 @@ const SettingProvider = (props) => {
           setSetting(settingResponse.data.affiliates[props.affiliateId]);
           console.log(
             "getting something",
-            settingResponse.data.affiliates[props.affiliateId].affiliate_name
-          );
-          setAffiliateName(
             settingResponse.data.affiliates[props.affiliateId].affiliate_name
           );
         }
@@ -95,7 +93,7 @@ const SettingProvider = (props) => {
 
   return (
     <SettingContext.Provider
-      value={{ setting, localizedContent, optinFields, affiliate_name }}
+      value={{ setting, localizedContent, optinFields, settingFinal }}
     >
       {props.children}
     </SettingContext.Provider>

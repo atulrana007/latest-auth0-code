@@ -118,20 +118,40 @@ const CommonDataProvider = (props) => {
 const populateCustomizationData = (location) => {
   const client = getClient(location);
   const clientCustomization = getClientCustomizations(client);
-  const queryCustomization = JSON.parse(getQueryCustomization(location));
-  const customization =
-    queryCustomization !== null && queryCustomization !== undefined
-      ? queryCustomization
-      : clientCustomization !== null && clientCustomization !== undefined
-      ? clientCustomization
-      : "";
+
+  const queryCustomization = getQueryCustomization(location);
+  let customization = "";
+  if (queryCustomization !== null && queryCustomization !== undefined) {
+    customization = { ...clientCustomization, ...queryCustomization };
+  } else if (
+    clientCustomization !== null &&
+    clientCustomization !== undefined
+  ) {
+    customization = clientCustomization;
+  }
+  console.log("customization", customization);
   return customization;
 };
 
 const getQueryCustomization = (location) => {
   const parsedHash = new URLSearchParams(window.location.hash.substr(1));
   let query = new URLSearchParams(location);
-  let cc = query.get("cc") ?? parsedHash.get("cc");
+  let aai;
+  let cc;
+  if (query.get("aai")) {
+    aai = query.get("aai");
+  } else if (parsedHash.get("aai")) {
+    aai = parsedHash.get("aai");
+  } else {
+    aai = "";
+  }
+  try {
+    cc = JSON.parse(aai).cc;
+  } catch {
+    cc = "";
+  }
+  //let cc = JSON.parse(aai).cc;
+  console.log("cc", cc);
   return cc;
 };
 
@@ -153,7 +173,7 @@ const possibleCustomizationPaths = {
 const getAffiliate = (location) => {
   const parsedHash = new URLSearchParams(window.location.hash.substr(1));
   let query = new URLSearchParams(location);
-  let affiliate = query.get("affid") ?? parsedHash.get("affid");
+  let affiliate = query.get("aff_id") ?? parsedHash.get("aff_id");
   return affiliate;
 };
 

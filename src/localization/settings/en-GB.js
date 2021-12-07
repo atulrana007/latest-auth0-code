@@ -2,6 +2,7 @@ import { LOCALES } from "../constants";
 
 const en_gb = {
   [LOCALES.United_Kingdom]: {
+    country: "United Kingdom",
     OptinFields: {
       VirusThreats: {
         id: "1",

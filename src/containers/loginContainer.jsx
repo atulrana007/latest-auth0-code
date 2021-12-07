@@ -425,7 +425,7 @@ export default function LoginContainer(props) {
         isSubmitting: false,
       });
       settingCookies();
-      trackClickEvent("email-password-login-failure");
+      trackClickEvent("Login With Password Failure");
     }
     setLoader(false);
   };
@@ -550,7 +550,7 @@ export default function LoginContainer(props) {
       }
       setOtpTimer(false);
       settingCookies();
-      trackClickEvent("otp-login-failure");
+      trackClickEvent("OTP Login Failure");
     }
   };
 
@@ -585,7 +585,6 @@ export default function LoginContainer(props) {
   const getOtp = async (e) => {
     try {
       e.preventDefault();
-      trackClickEvent("Resend OTP");
       await otpStart(LoginForm.email);
       setTimer({
         minutes: 3,
@@ -604,7 +603,7 @@ export default function LoginContainer(props) {
         isSubmitting: false,
       });
     } catch (err) {
-      trackClickEvent("resend-otp-failure");
+      trackClickEvent("Resend OTP Failure");
       setLoginError({
         ...LoginError,
         databaseError: err?.description,

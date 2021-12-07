@@ -422,7 +422,7 @@ const LoginUI = (props) => {
                             <strong
                               className={styles.important}
                               onClick={getOtp}
-                              data-nav-element-click="requesting-otp-for-login"
+                              data-nav-element-click="Resend OTP | Failure"
                             >
                               {chunks}
                             </strong>
