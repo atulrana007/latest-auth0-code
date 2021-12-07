@@ -6,6 +6,7 @@ const lModules = assets.entrypoints.map((f) => path.resolve(basePath, f));
 
 module.exports = {
   mode: "production",
+  context: path.resolve(__dirname, 'build'),
   entry: {
     main: lModules,
   },
@@ -41,7 +42,7 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "file-loader",
+        loader: "url-loader?limit=100000",
       },
     ],
   },
