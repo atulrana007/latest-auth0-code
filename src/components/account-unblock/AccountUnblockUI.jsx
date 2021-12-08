@@ -55,7 +55,9 @@ function AccountUnblockUI(props) {
           ) : (
             <>
               <div className="ForgotPasswordIntro">
-                {translate("Link_Expired")}
+                {message.current === "This URL can be used only once"
+                  ? translate("Link_already_used")
+                  : translate("Link_Expired")}
               </div>
               <div className="ForgotPasswordIntroSubHeading">
                 <FormattedMessage
@@ -82,7 +84,7 @@ function AccountUnblockUI(props) {
                 <button
                   className={"emailMeBtn"}
                   style={{ width: "100%", maxWidth: "350px" }}
-                    onClick={handleEmailMe}
+                  onClick={handleEmailMe}
                   data-navelement="Signin-With-password"
                 >
                   <div>{translate("Reset_Password")}</div>
