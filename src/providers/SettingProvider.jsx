@@ -51,6 +51,12 @@ const SettingProvider = (props) => {
       sorry_no_account_found:
         "Sorry, we couldn't find an account with this email address.",
       Email_is_not_valid: "Email is not valid",
+      Your_account_unlocked: "Your account has been unlocked",
+      Signin_to_start_using_protection:
+        "Signin in to start using your protection.",
+      Link_Expired: "Link expired",
+      Reset_password_to_unlock_account:
+        "Reset your password or <a_contact_support>Contact Support</a_contact_support> to unlock your account.",
     };
   };
 

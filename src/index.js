@@ -40,7 +40,6 @@ ReactDOM.render(
 
 window.PasswordResetWidget = class PasswordResetWidget {
   init(opts) {
-    console.log("locally: rishi singhal");
     console.log(opts);
     const passwordResetConfig = opts.passwordResetConfig;
     if (!passwordResetConfig) {
