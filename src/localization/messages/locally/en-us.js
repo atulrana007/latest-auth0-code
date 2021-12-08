@@ -18,7 +18,7 @@ const en = {
       "You've reached the maximum number of password change attempts. Wait a few minutes and try again.",
     "signUp.export_restriction":
       "We can’t create an account for <b>{email}</b> because your email is from a country subject to US export restrictions, or your company is on a list of prohibited organizations, either by the US or foreign government agency.",
-    Welcome_back_to: "Welcome back to Mcafee!",
+    Welcome_back_to: "Welcome back to McAfee!",
     fallback_error: "We're sorry, something went wrong",
     email: "Email",
     password: "Password",
@@ -32,7 +32,7 @@ const en = {
     continue: "Continue",
     Do_not_have_an_account: "Don't have an Account?",
     Enter_your_email_address_set_password_and_well_get_your_account_created:
-      "Enter your email address, set a password and we’ll create your account.",
+      "Enter your email address and set a password to create an account.",
     Already_have_an_account: "Already have an account?",
     confirm_password: "Confirm password",
     ResendCode: "Resend code",
@@ -60,7 +60,7 @@ const en = {
     We_will_send_you_a_otp_subtitle: "Enter your email address to continue.",
     Send_new_code: "Send new code",
     By_clicking_Create_my_Account_you_accept_McAfee_License_Agreement_and_Privacy_Notice:
-      "By clicking <b>Create my Account</b> you accept <a_McAfee_License>McAfee’s License Agreement</a_McAfee_License> and <a_privacy_notice>Privacy Notice</a_privacy_notice>",
+      "By clicking <b>Create my account</b> you accept <a_McAfee_License>McAfee’s License Agreement</a_McAfee_License> and <a_privacy_notice>Privacy Notice</a_privacy_notice>",
     We_are_sorry_but_we_could_not_create_your_account:
       "We’re sorry, but we couldn’t create your account",
     Email_us_at:
@@ -96,15 +96,15 @@ const en = {
     Close_tab_to_previous_page_to_signin:
       "Close this tab to return to the previous page and sign in.",
     "passwordless.invalid_user_password":
-      "We couldn’t sign you with this passcode. <a_rotp>Try again or resend code.</a_rotp>",
+      "We couldn’t sign you with this passcode. Try again or <a_rotp>resend code</a_rotp>.",
     "passwordless.passcode_lock":
-      "For your security, passcode sign in for <b>{email}</b> has been locked due to too many sign in attempts.",
+      "For your security, we’ve locked password sign in for <b>{email}</b>",
     Need_help: "Need help?",
     Contact_support: "Contact support",
     login_lock_title:
       "We’ve temporarily locked your account to protect your identity",
     login_lock_subtitle:
-      "We sent an email to <b>{email}</b> to unlock your account. Or you can <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support</a_contact_support> to verify your identity and unlock your account.",
+      "We sent a link to  <b>{email}</b> to unlock your account. Or you can <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support</a_contact_support> to verify your identity and unlock your account.",
     otp_lock_bottom_Message:
       "You may sign in with a password, try <a_reset_pass>resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
     optin_VirusThreats:
@@ -130,6 +130,7 @@ const en = {
     Link_Expired: "Link expired",
     Reset_password_to_unlock_account:
       "Reset your password or <a_contact_support>Contact Support</a_contact_support> to unlock your account.",
+    "Password_successfully_reset!": "Password successfully reset!",
   },
 };
 export default en;
