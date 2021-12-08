@@ -6,33 +6,27 @@ import auth0 from "auth0-js";
 
 function AccountUnblockContainer(props) {
 
-  const webAuth = new auth0.WebAuth({
-    domain: "live-from.us.auth0.com",
-    clientID: "23PlMK9EFDLbO0bxIfKoYLr8M39qS78E",
-    responseType: "token id_token",
-    redirectUri: "http://localhost:4040/authorize",
-  });
 
   const query = useQuery();
   const parsedHash = new URLSearchParams(window.location.hash.substr(1));
   const message = useRef(query.get("message") || parsedHash.get("message"));
   const success = useRef(query.get("success") || parsedHash.get("success"));
   const email = useRef(query.get("email") || parsedHash.get("email"));
-  console.log(email)
+  const clientId = useRef(query.get("clientId") || parsedHash.get("clientId"));
+  const domain = useRef(query.get("domain") || parsedHash.get("domain"));
 
-  // const { sendForgotPasswordLink } = useContext(AccountContext);
-  const [emailDetails, updateEmailDetails] = useState({
-    email: "",
-    emailError: "",
-    emailSent: false,
+  
+  const webAuth = new auth0.WebAuth({
+    domain: domain.current,
+    clientID: clientId.current,
   });
 
   const sendForgotPasswordLink = (email) => {
     return new Promise((resolve, reject) => {
       webAuth.changePassword(
         {
-          // connection: "AV-Password-Authentication",
-          connection: "Username-Password-Authentication",
+          connection: "AV-Password-Authentication",
+          // connection: "Username-Password-Authentication",
           // connection: "Test-CustomDB",
           email: email,
         },
@@ -50,10 +44,15 @@ function AccountUnblockContainer(props) {
       );
     });
   };
+  const [emailDetails, updateEmailDetails] = useState({
+    databaseError: "",
+    emailSent: false,
+  });
+
+
 
   const handleEmailMe = async (e) => {
     e.preventDefault();
-    console.log("forgot password link request");
     try {
       await sendForgotPasswordLink(email.current);
       updateEmailDetails((prevEmailDetails) => {
@@ -76,7 +75,8 @@ function AccountUnblockContainer(props) {
   return React.cloneElement(child, {
     message,
     success,
-    handleEmailMe
+    handleEmailMe,
+    emailDetails
   });
 }
 

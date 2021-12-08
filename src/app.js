@@ -63,7 +63,7 @@ const App = ({ pageConfig, passwordResetConfig }) => {
                           <ResetPassword />
                         </ResetPasswordProvider>
                       </Route>
-                      <Route path="/lo/unblock" exact>
+                      <Route path="/unblock" exact>
                         <AccountUnblock />
                       </Route>
                     </Switch>
