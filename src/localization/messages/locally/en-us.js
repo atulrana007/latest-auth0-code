@@ -92,7 +92,7 @@ const en = {
     Did_not_receive_reset_password_link_request_another_email_forgot_email_need_help_contact_support:
       "If you didn't receive a link, check your spam folder or <a_request_another_mail>request another email</a_request_another_mail>. Forgot which email you used or need help? <a_contact_support>Contact Support</a_contact_support>",
     Enter_new_password: "Enter your new password for {email}.",
-    Password_successfully_reset: "Password successfully reset!",
+    "Password_successfully_reset!" : "Password successfully reset!",
     Close_tab_to_previous_page_to_signin:
       "Close this tab to return to the previous page and sign in.",
     "passwordless.invalid_user_password":
@@ -130,7 +130,6 @@ const en = {
     Link_Expired: "Link expired",
     Reset_password_to_unlock_account:
       "Reset your password or <a_contact_support>Contact Support</a_contact_support> to unlock your account.",
-    "Password_successfully_reset!": "Password successfully reset!",
   },
 };
 export default en;
