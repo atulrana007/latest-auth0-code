@@ -13,6 +13,7 @@ function ForgotPasswordContainer(props) {
     email: "",
     emailError: "",
     emailSent: false,
+    databaseError: "",
   });
   const { setLoginText, setLoginForm, customization } =
     useContext(CommonDataContext);
@@ -61,7 +62,6 @@ function ForgotPasswordContainer(props) {
   };
   const handleEmailMe = async (e) => {
     e.preventDefault();
-    console.log("forgot password link request");
     try {
       const res = await sendForgotPasswordLink(emailDetails.email);
       updateEmailDetails((prevEmailDetails) => {
@@ -70,12 +70,19 @@ function ForgotPasswordContainer(props) {
         return updatedEmailDetails;
       });
     } catch (err) {
-      console.log(err);
-      updateEmailDetails((prevEmailDetails) => {
-        const updatedEmailDetails = { ...prevEmailDetails };
-        updatedEmailDetails.databaseError = err.description;
-        return updatedEmailDetails;
-      });
+      if (err?.error === "too_many_requests") {
+        updateEmailDetails((prevEmailDetails) => {
+          const updatedEmailDetails = { ...prevEmailDetails };
+          updatedEmailDetails.databaseError = "forgotPassword.too_many_requests";
+          return updatedEmailDetails;
+        });
+      } else {
+        updateEmailDetails((prevEmailDetails) => {
+          const updatedEmailDetails = { ...prevEmailDetails };
+          updatedEmailDetails.databaseError = "fallback_error";
+          return updatedEmailDetails;
+        });
+      }
     }
   };
   const fireDifferentPageViewCall = (pageName) => {
@@ -83,7 +90,8 @@ function ForgotPasswordContainer(props) {
     let updatedUtagData = {
       ...utagData,
       [TealiumTagKeyConstants.TEALIUM_NAVIGATION_ELEMENT]: null,
-      [TealiumTagKeyConstants.TEALIUM_PAGE_NAME]: TealiumTagValueConstans.BASE_PAGE_NAME + pageName,
+      [TealiumTagKeyConstants.TEALIUM_PAGE_NAME]:
+        TealiumTagValueConstans.BASE_PAGE_NAME + pageName,
       [TealiumTagKeyConstants.TEALIUM_SITESECTION]: pageName,
     };
     utag.view({

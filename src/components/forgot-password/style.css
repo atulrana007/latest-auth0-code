@@ -124,6 +124,15 @@
   outline: none;
   width: 100%;
 }
+.ErrorDiv {
+  background-color: #ffdbde;
+  color: #890611;
+  padding: 1rem;
+  margin: 1rem 0rem;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
 .Error {
   color: red;
   padding: 0rem 1rem;

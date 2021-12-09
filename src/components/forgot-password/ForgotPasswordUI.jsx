@@ -60,6 +60,16 @@ function ForgotPasswordUI(props) {
               <div className="ForgotPasswordIntroSubHeading">
                 {translate("Enter_email_to_reset_password")}
               </div>
+              {emailDetails.databaseError && (
+                  <div className="ErrorDiv">
+                    <p>
+                      <FormattedMessage
+                        id={emailDetails.databaseError}
+                        defaultMessage="We're sorry, something went wrong."
+                      ></FormattedMessage>
+                    </p>
+                  </div>
+                )}
             </div>
           </div>
           <div className="ForgotPasswordRightWrapper">
