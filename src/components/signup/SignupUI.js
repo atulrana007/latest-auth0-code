@@ -8,6 +8,7 @@ import LoaderScreen from "../../loader/LoaderScreen";
 import { ReactComponent as McAfeeLogo } from "../../svg/Mcafee-Logo.svg";
 import { FormattedMessage } from "react-intl";
 import { useLocation } from "react-router-dom";
+import { ReactComponent as McAfeeLogoForAffiliate } from "../../svg/Mcafee-Logo-For-Affiliate.svg";
 
 const SignupUI = (props) => {
   const {
@@ -91,27 +92,20 @@ const SignupUI = (props) => {
           <div className={styles.leftContainer}>
             {isAffiliateLogo ? (
               <div className="container-header">
-                <span id="n_McafeeLogo" className="container-logo">
-                  <img
-                    id="mcafeeLogo"
-                    alt="McAfee"
-                    title="McAfee"
-                    src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-odrplat-auth0-ui/public/images/McAfee-Document-Logo1.png"
-                    className="logo"
-                  />
-                </span>
+                <McAfeeLogoForAffiliate className={styles.Logo} />
+
                 <span
                   id="n_AffiliateLogo"
                   className="container-logo aff-logo-container"
                 >
                   <span className="logo-seperator">| </span>
+
                   <img
-                    id="affiliateLogo"
                     alt="McAfee"
                     title="Dell"
                     src="https://secureimages.mcafee.com/common/affiliateImages/dell/logo_dell_new_58x59.gif"
-                    width="20"
-                    height="20"
+                    width="30"
+                    height="30"
                   />
                 </span>
               </div>

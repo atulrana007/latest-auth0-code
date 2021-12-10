@@ -5,6 +5,9 @@ import "./style.css";
 import ForgotPasswordEmail from "./ForgotPasswordEmail";
 import { FormattedMessage } from "react-intl";
 import { CommonDataContext } from "../../providers/CommonDataContext";
+import { ReactComponent as McAfeeLogoForAffiliate } from "../../svg/Mcafee-Logo-For-Affiliate.svg";
+import { ReactComponent as McAfeeLogo } from "../../svg/Mcafee-Logo.svg";
+
 function ForgotPasswordUI(props) {
   const {
     emailDetails,
@@ -15,7 +18,7 @@ function ForgotPasswordUI(props) {
     updateEmailDetails,
   } = props;
   const { locale } = useContext(CommonDataContext);
-  const {isAffiliateLogo} = useContext(CommonDataContext);
+  const { isAffiliateLogo } = useContext(CommonDataContext);
   const FORMATVALUES = {
     a_contact_support: (chunks) => (
       <a
@@ -40,20 +43,28 @@ function ForgotPasswordUI(props) {
         <div className="ForgotPasswordContainer">
           <div className="ForgotPasswordLeftWrapper">
             <div className="ForgotPasswordLeftContainer">
-            {isAffiliateLogo?
-                (<div className="container-header">
-                <span className="container-logo" >
-                    <img  alt="McAfee" title="McAfee" src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-odrplat-auth0-ui/public/images/McAfee-Document-Logo1.png" className="logo"/>
-                </span>
-                    <span className="container-logo aff-logo-container">
-                        <span className="logo-seperator">| </span><img  alt="McAfee" title="Dell" src="https://secureimages.mcafee.com/common/affiliateImages/dell/logo_dell_new_58x59.gif" width="20" 
-                height="20"/>
-                    </span>
-            </div>): (<img
-                alt="McAfeeLogo"
-                className="McAfeeLogo"
-                src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-React-Appp/public/images/McAfee-Logo.png"
-              />)}
+              {isAffiliateLogo ? (
+                <div className="container-header">
+                  <McAfeeLogoForAffiliate className="Logo" />
+
+                  <span
+                    id="n_AffiliateLogo"
+                    className="container-logo aff-logo-container"
+                  >
+                    <span className="logo-seperator">| </span>
+
+                    <img
+                      alt="McAfee"
+                      title="Dell"
+                      src="https://secureimages.mcafee.com/common/affiliateImages/dell/logo_dell_new_58x59.gif"
+                      width="30"
+                      height="30"
+                    />
+                  </span>
+                </div>
+              ) : (
+                <McAfeeLogo className="Logo" />
+              )}
               <div className="ForgotPasswordIntro">
                 {translate("Reset_Password")}
               </div>
@@ -61,15 +72,15 @@ function ForgotPasswordUI(props) {
                 {translate("Enter_email_to_reset_password")}
               </div>
               {emailDetails.databaseError && (
-                  <div className="ErrorDiv">
-                    <p>
-                      <FormattedMessage
-                        id={emailDetails.databaseError}
-                        defaultMessage="We're sorry, something went wrong."
-                      ></FormattedMessage>
-                    </p>
-                  </div>
-                )}
+                <div className="ErrorDiv">
+                  <p>
+                    <FormattedMessage
+                      id={emailDetails.databaseError}
+                      defaultMessage="We're sorry, something went wrong."
+                    ></FormattedMessage>
+                  </p>
+                </div>
+              )}
             </div>
           </div>
           <div className="ForgotPasswordRightWrapper">

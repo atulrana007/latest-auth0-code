@@ -2,23 +2,31 @@ const en = {
   ["en-us"]: {
     "login.invalid_user_password":
       "We couldn’t sign you with this email and password. Try again, <a_reset_pass>reset your password</a_reset_pass>, or <a_signin_otp>sign in with a one-time passcode.</a_signin_otp>",
+    "login.invalid_user_password_2":
+      "We couldn’t sign you with this email and password. Try again or <a_reset_pass>reset your password</a_reset_pass>.",
     "login.ACT0104":
-      "For your security, password sign in for <b>{email}</b> has been locked due to too many sign in attempts.",
+      "For your security, we’ve locked password sign in for <b>{email}</b>.",
     "login.ACT0105":
-      "For your security, password sign in for <b>{email}</b> has been locked due to too many sign in attempts.",
-    "login.invalid_passcode":
-      "We couldn’t sign you with this passcode. Try again or <a_rotp>resend code</a_rotp>.",
+      "For your security, we’ve locked password sign in for <b>{email}</b>.",
     "login.password_lock":
-      "For your security, password sign in for <b>{email}</b> has been locked due to too many sign in attempts.",
-    "login.auth0_password_lock":
-      "We just sent an email with a link to unlock your account. You may sign in with a one-time passcode, <a_reset_pass>try resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
+      "For your security, we’ve locked password sign in for <b>{email}</b>.",
     "passwordless.bad.email":
       "Sorry, we couldn’t find an account for this email address.",
+    "passwordless.multiple_resend_otp":
+      "You’ve reached the maximum number of one-time passcode attempts. Wait a few minutes and try again.",
+    "passwordless.passcode_lock":
+      "For your security, we’ve locked passcode sign in for <b>{email}</b>.",
+    "passwordless.invalid_user_password":
+      "We couldn’t sign you with this passcode. Try again or <a_rotp>resend code</a_rotp>.",
     "forgotPassword.too_many_requests":
       "You've reached the maximum number of password change attempts. Wait a few minutes and try again.",
     "signUp.export_restriction":
       "We can’t create an account for <b>{email}</b> because your email is from a country subject to US export restrictions, or your company is on a list of prohibited organizations, either by the US or foreign government agency.",
     Welcome_back_to: "Welcome back to McAfee!",
+<<<<<<< HEAD
+=======
+    Link_already_used: "Looks like this link was already used",
+>>>>>>> c5bc80c091764caeefae1f861d46fc656aee21d6
     fallback_error: "We're sorry, something went wrong",
     email: "Email",
     password: "Password",
@@ -44,7 +52,7 @@ const en = {
     Looks_like_you_already_have_an_account:
       "Looks like you already have an account! Sign in now",
     This_email_already_exists:
-      "This email address is already associated with a McAfee account. Sign in to Continue",
+      "This email address is already associated with a McAfee account. Sign in to Continue.",
     contactUs: "Contact Us",
     privacyNotice: "Privacy Notice",
     FAQs: "FAQs",
@@ -60,7 +68,11 @@ const en = {
     We_will_send_you_a_otp_subtitle: "Enter your email address to continue.",
     Send_new_code: "Send new code",
     By_clicking_Create_my_Account_you_accept_McAfee_License_Agreement_and_Privacy_Notice:
+<<<<<<< HEAD
       "By clicking <b>Create my account</b> you accept <a_McAfee_License>McAfee’s License Agreement</a_McAfee_License> and <a_privacy_notice>Privacy Notice</a_privacy_notice>",
+=======
+      "By clicking <b>Create my account</b>, you accept <a_McAfee_License>McAfee’s License Agreement</a_McAfee_License> and <a_privacy_notice>Privacy Notice</a_privacy_notice>.",
+>>>>>>> c5bc80c091764caeefae1f861d46fc656aee21d6
     We_are_sorry_but_we_could_not_create_your_account:
       "We’re sorry, but we couldn’t create your account",
     Email_us_at:
@@ -70,7 +82,9 @@ const en = {
     You_have_reached_the_maximum_number_of_password_attempts:
       "You’ve reached the maximum number of password attempts",
     You_can_sign_in_with_a_otp_or_to_unlock_your_account_you_may_reset_your_password_or_Contact_Support:
-      "You can sign in with a one-time passcode, or to unlock your account, you may <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
+      "We sent a link to unlock your account. Sign in with a one-time passcode or <a_reset_pass>reset your password</a_reset_pass> to unlock your account.",
+    You_can_sign_in_with_a_otp_or_to_unlock_your_account_you_may_reset_your_password_or_Contact_Support_2:
+      "Sign in with a one-time passcode or <a_reset_pass>reset your password</a_reset_pass> to unlock your account.",
     We_sent_a_otp_to_email: "We sent a one-time passcode to <b>{email}</b>",
     UpperCaseCheck: "1 uppercase letter (A-Z)",
     LowerCaseCheck: "1 lowercase letter (a-z)",
@@ -90,8 +104,9 @@ const en = {
     Password_reset_link_sent:
       "Password reset link sent. Use it within 72 hours to reset your password.",
     Did_not_receive_reset_password_link_request_another_email_forgot_email_need_help_contact_support:
-      "If you didn't receive a link, check your spam folder or <a_request_another_mail>request another email</a_request_another_mail>. Forgot which email you used or need help? <a_contact_support>Contact Support</a_contact_support>",
+      "If you didn't receive a link, check your spam folder or <a_request_another_mail>resend the link</a_request_another_mail>. Need help? <a_contact_support>Contact Support</a_contact_support>",
     Enter_new_password: "Enter your new password for {email}.",
+<<<<<<< HEAD
     "Password_successfully_reset!" : "Password successfully reset!",
     Close_tab_to_previous_page_to_signin:
       "Close this tab to return to the previous page and sign in.",
@@ -99,38 +114,44 @@ const en = {
       "We couldn’t sign you with this passcode. Try again or <a_rotp>resend code</a_rotp>.",
     "passwordless.passcode_lock":
       "For your security, we’ve locked password sign in for <b>{email}</b>",
+=======
+    "Password_successfully_reset!": "Password successfully reset!",
+    Close_tab_to_previous_page_to_signin:
+      "Close this tab to return to the previous page and sign in.",
+>>>>>>> c5bc80c091764caeefae1f861d46fc656aee21d6
     Need_help: "Need help?",
     Contact_support: "Contact support",
     login_lock_title:
       "We’ve temporarily locked your account to protect your identity",
     login_lock_subtitle:
+<<<<<<< HEAD
       "We sent a link to  <b>{email}</b> to unlock your account. Or you can <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support</a_contact_support> to verify your identity and unlock your account.",
     otp_lock_bottom_Message:
       "You may sign in with a password, try <a_reset_pass>resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
+=======
+      "We sent a link to <b>{email}</b> to unlock your account. Or you can <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support</a_contact_support> to verify your identity and unlock your account.",
+>>>>>>> c5bc80c091764caeefae1f861d46fc656aee21d6
     optin_VirusThreats:
-      "I want to receive information about the latest viruses(available in English only).",
+      "I want to receive info about recent viruses (English only).",
     optin_SpecialPromo:
-      " I would like to receive information about McAfee special offers.",
+      "I want to receive info about special offers from McAfee.",
     optin_PartnerPromo:
-      "I would like to receive information about special offers from McAfee partners.",
+      "I want to receive info about offers from McAfee partners.",
     Resending_code: "Resending code...",
     Code_sent: "Code sent.",
-    "passwordless.multiple_resend_otp":
-      "You’ve reached the maximum number of one-time passcode attempts. Wait a few minutes and try again.",
     You_have_reached_the_maximum_number_of_passcode_attempts:
       "You’ve reached the maximum number of passcode attempts",
+    otp_lock_bottom_Message:
+      "Sign in with password or <a_reset_pass>reset your password</a_reset_pass> to unlock your account.",
     We_just_sent_an_email_with_a_link_to_unlock_your_account_You_may_sign_in_with_a_password:
-      "We just sent an email with a link to unlock your account. You may sign in with a password, <a_reset_pass>try resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
-    sorry_no_account_found:
-      "Sorry, we couldn't find an account with this email address.",
+      "We sent a link to unlock your account. Sign in with a <a_signin_otp>one-time passcode</a_signin_otp> or <a_reset_pass>reset your password</a_reset_pass> to unlock your account.",
     Email_is_not_valid: "Email is not valid",
     Your_account_unlocked: "Your account has been unlocked",
-    Signin_to_start_using_protection:
-      "Signin in to start using your protection.",
+    Signin_to_start_using_protection: "Sign in to start using your protection.",
     Link_Expired: "Link expired",
     Reset_password_to_unlock_account:
       "Reset your password or <a_contact_support>Contact Support</a_contact_support> to unlock your account.",
-    Link_already_used: "Looks like this link was already used",
+    password_reset_link_expired: "Password reset link expired",
   },
 };
 export default en;

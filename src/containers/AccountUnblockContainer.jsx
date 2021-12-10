@@ -3,10 +3,7 @@ import { AccountContext } from "../providers/AccountContext";
 import useQuery from "../utils/useQuery";
 import auth0 from "auth0-js";
 
-
 function AccountUnblockContainer(props) {
-
-
   const query = useQuery();
   const parsedHash = new URLSearchParams(window.location.hash.substr(1));
   const message = useRef(query.get("message") || parsedHash.get("message"));
@@ -15,7 +12,6 @@ function AccountUnblockContainer(props) {
   const clientId = useRef(query.get("clientId") || parsedHash.get("clientId"));
   const domain = useRef(query.get("domain") || parsedHash.get("domain"));
 
-  
   const webAuth = new auth0.WebAuth({
     domain: domain.current,
     clientID: clientId.current,
@@ -25,9 +21,9 @@ function AccountUnblockContainer(props) {
     return new Promise((resolve, reject) => {
       webAuth.changePassword(
         {
-          // connection: "AV-Password-Authentication",
+          connection: "AV-Password-Authentication",
           // connection: "Username-Password-Authentication",
-          connection: "Test-CustomDB",
+          // connection: "Test-CustomDB",
           email: email,
         },
         (err, authResult) => {
@@ -49,8 +45,6 @@ function AccountUnblockContainer(props) {
     emailSent: false,
   });
 
-
-
   const handleEmailMe = async (e) => {
     e.preventDefault();
     try {
@@ -69,14 +63,13 @@ function AccountUnblockContainer(props) {
       });
     }
   };
- 
 
   const child = React.Children.only(props.children);
   return React.cloneElement(child, {
     message,
     success,
     handleEmailMe,
-    emailDetails
+    emailDetails,
   });
 }
 
