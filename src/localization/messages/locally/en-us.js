@@ -99,21 +99,15 @@ const en = {
     Did_not_receive_reset_password_link_request_another_email_forgot_email_need_help_contact_support:
       "If you didn't receive a link, check your spam folder or <a_request_another_mail>resend the link</a_request_another_mail>. Need help? <a_contact_support>Contact Support</a_contact_support>",
     Enter_new_password: "Enter your new password for {email}.",
-    "Password_successfully_reset!" : "Password successfully reset!",
+    "Password_successfully_reset!": "Password successfully reset!",
     Close_tab_to_previous_page_to_signin:
       "Close this tab to return to the previous page and sign in.",
-    "passwordless.invalid_user_password":
-      "We couldn’t sign you with this passcode. Try again or <a_rotp>resend code</a_rotp>.",
-    "passwordless.passcode_lock":
-      "For your security, we’ve locked password sign in for <b>{email}</b>",
     Need_help: "Need help?",
     Contact_support: "Contact support",
     login_lock_title:
       "We’ve temporarily locked your account to protect your identity",
     login_lock_subtitle:
       "We sent a link to <b>{email}</b> to unlock your account. Or you can <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support</a_contact_support> to verify your identity and unlock your account.",
-    otp_lock_bottom_Message:
-      "You may sign in with a password, try <a_reset_pass>resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
     optin_VirusThreats:
       "I want to receive info about recent viruses (English only).",
     optin_SpecialPromo:
