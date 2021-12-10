@@ -3,11 +3,13 @@ import translate from "../../localization/translate";
 import { FormattedMessage } from "react-intl";
 import "./style.css";
 import { CommonDataContext } from "../../providers/CommonDataContext";
+import { ReactComponent as McAfeeLogoForAffiliate } from "../../svg/Mcafee-Logo-For-Affiliate.svg";
+import { ReactComponent as McAfeeLogo } from "../../svg/Mcafee-Logo.svg";
 
 function ForgotPasswordEmail(props) {
   const { backToSignIn, updateEmailDetails, emailDetails } = props;
   const { locale } = useContext(CommonDataContext);
-  const {isAffiliateLogo} = useContext(CommonDataContext);
+  const { isAffiliateLogo } = useContext(CommonDataContext);
   const FORMATVALUES = {
     a_contact_support: (chunks) => (
       <a
@@ -34,20 +36,28 @@ function ForgotPasswordEmail(props) {
       <div className="ForgotPasswordLeftWrapper flexGrow limitWidth">
         <div className="ForgotPasswordLeftContainer" style={{ height: "100%" }}>
           <div>
-          {isAffiliateLogo?
-                (<div className="container-header">
-                <span className="container-logo" >
-                    <img  alt="McAfee" title="McAfee" src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-odrplat-auth0-ui/public/images/McAfee-Document-Logo1.png" className="logo"/>
+            {isAffiliateLogo ? (
+              <div className="container-header">
+                <McAfeeLogoForAffiliate className="Logo" />
+
+                <span
+                  id="n_AffiliateLogo"
+                  className="container-logo aff-logo-container"
+                >
+                  <span className="logo-seperator">| </span>
+
+                  <img
+                    alt="McAfee"
+                    title="Dell"
+                    src="https://secureimages.mcafee.com/common/affiliateImages/dell/logo_dell_new_58x59.gif"
+                    width="30"
+                    height="30"
+                  />
                 </span>
-                    <span className="container-logo aff-logo-container">
-                        <span className="logo-seperator">| </span><img  alt="McAfee" title="Dell" src="https://secureimages.mcafee.com/common/affiliateImages/dell/logo_dell_new_58x59.gif" width="20" 
-                height="20"/>
-                    </span>
-            </div>): (<img
-              alt="McAfeeLogo"
-              className="McAfeeLogo"
-              src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-React-Appp/public/images/McAfee-Logo.png"
-            />)}
+              </div>
+            ) : (
+              <McAfeeLogo className="Logo" />
+            )}
           </div>
           <div className="ForgotPasswordIntro">{translate("Check_inbox")}</div>
           <div className="ForgotPasswordIntroSubHeading">
