@@ -116,7 +116,7 @@ function ChangePasswordForm(props) {
                             <PasswordCross className="cancel" />
                           )}
                         </div>
-                        <div className="Ruletext">{item}</div>
+                        <div className="Ruletext">{translate(item)}</div>
                       </div>
                     );
                   })}
