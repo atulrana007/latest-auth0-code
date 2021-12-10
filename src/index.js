@@ -31,12 +31,12 @@ window.LoginWidget = class LoginWidget {
     );
   }
 };
-ReactDOM.render(
-  <BrowserRouter>
-    <App pageConfig={{ clientName: "Custom Client Name" }} />
-  </BrowserRouter>,
-  document.getElementById("root")
-);
+// ReactDOM.render(
+//   <BrowserRouter>
+//     <App pageConfig={{ clientName: "Custom Client Name" }} />
+//   </BrowserRouter>,
+//   document.getElementById("root")
+// );
 
 window.PasswordResetWidget = class PasswordResetWidget {
   init(opts) {

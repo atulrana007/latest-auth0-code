@@ -76,7 +76,8 @@ export default function LoginContainer(props) {
     let updatedUtagData = {
       ...utagData,
       [TealiumTagKeyConstants.TEALIUM_NAVIGATION_ELEMENT]: null,
-      [TealiumTagKeyConstants.TEALIUM_PAGE_NAME]: TealiumTagValueConstans.BASE_PAGE_NAME + pageName,
+      [TealiumTagKeyConstants.TEALIUM_PAGE_NAME]:
+        TealiumTagValueConstans.BASE_PAGE_NAME + pageName,
       [TealiumTagKeyConstants.TEALIUM_SITESECTION]: pageName,
     };
     utag.view({
@@ -532,6 +533,16 @@ export default function LoginContainer(props) {
           ...LoginForm,
           password: "",
           otp: "",
+          isSubmitting: false,
+        });
+      } else if (err?.code === 429) {
+        setLoginError({
+          ...LoginError,
+          databaseError: err?.description,
+          errorCode: "passwordless.multiple_resend_otp",
+        });
+        setLoginForm({
+          ...LoginForm,
           isSubmitting: false,
         });
       } else {

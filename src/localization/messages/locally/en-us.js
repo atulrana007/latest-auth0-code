@@ -130,6 +130,7 @@ const en = {
     Link_Expired: "Link expired",
     Reset_password_to_unlock_account:
       "Reset your password or <a_contact_support>Contact Support</a_contact_support> to unlock your account.",
+    Link_already_used: "Looks like this link was already used",
   },
 };
 export default en;
