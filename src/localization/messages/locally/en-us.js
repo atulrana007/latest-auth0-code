@@ -23,10 +23,7 @@ const en = {
     "signUp.export_restriction":
       "We can’t create an account for <b>{email}</b> because your email is from a country subject to US export restrictions, or your company is on a list of prohibited organizations, either by the US or foreign government agency.",
     Welcome_back_to: "Welcome back to McAfee!",
-<<<<<<< HEAD
-=======
     Link_already_used: "Looks like this link was already used",
->>>>>>> c5bc80c091764caeefae1f861d46fc656aee21d6
     fallback_error: "We're sorry, something went wrong",
     email: "Email",
     password: "Password",
@@ -68,11 +65,7 @@ const en = {
     We_will_send_you_a_otp_subtitle: "Enter your email address to continue.",
     Send_new_code: "Send new code",
     By_clicking_Create_my_Account_you_accept_McAfee_License_Agreement_and_Privacy_Notice:
-<<<<<<< HEAD
-      "By clicking <b>Create my account</b> you accept <a_McAfee_License>McAfee’s License Agreement</a_McAfee_License> and <a_privacy_notice>Privacy Notice</a_privacy_notice>",
-=======
       "By clicking <b>Create my account</b>, you accept <a_McAfee_License>McAfee’s License Agreement</a_McAfee_License> and <a_privacy_notice>Privacy Notice</a_privacy_notice>.",
->>>>>>> c5bc80c091764caeefae1f861d46fc656aee21d6
     We_are_sorry_but_we_could_not_create_your_account:
       "We’re sorry, but we couldn’t create your account",
     Email_us_at:
@@ -106,7 +99,6 @@ const en = {
     Did_not_receive_reset_password_link_request_another_email_forgot_email_need_help_contact_support:
       "If you didn't receive a link, check your spam folder or <a_request_another_mail>resend the link</a_request_another_mail>. Need help? <a_contact_support>Contact Support</a_contact_support>",
     Enter_new_password: "Enter your new password for {email}.",
-<<<<<<< HEAD
     "Password_successfully_reset!" : "Password successfully reset!",
     Close_tab_to_previous_page_to_signin:
       "Close this tab to return to the previous page and sign in.",
@@ -114,23 +106,14 @@ const en = {
       "We couldn’t sign you with this passcode. Try again or <a_rotp>resend code</a_rotp>.",
     "passwordless.passcode_lock":
       "For your security, we’ve locked password sign in for <b>{email}</b>",
-=======
-    "Password_successfully_reset!": "Password successfully reset!",
-    Close_tab_to_previous_page_to_signin:
-      "Close this tab to return to the previous page and sign in.",
->>>>>>> c5bc80c091764caeefae1f861d46fc656aee21d6
     Need_help: "Need help?",
     Contact_support: "Contact support",
     login_lock_title:
       "We’ve temporarily locked your account to protect your identity",
     login_lock_subtitle:
-<<<<<<< HEAD
-      "We sent a link to  <b>{email}</b> to unlock your account. Or you can <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support</a_contact_support> to verify your identity and unlock your account.",
+      "We sent a link to <b>{email}</b> to unlock your account. Or you can <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support</a_contact_support> to verify your identity and unlock your account.",
     otp_lock_bottom_Message:
       "You may sign in with a password, try <a_reset_pass>resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
-=======
-      "We sent a link to <b>{email}</b> to unlock your account. Or you can <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support</a_contact_support> to verify your identity and unlock your account.",
->>>>>>> c5bc80c091764caeefae1f861d46fc656aee21d6
     optin_VirusThreats:
       "I want to receive info about recent viruses (English only).",
     optin_SpecialPromo:
