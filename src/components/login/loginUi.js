@@ -192,7 +192,7 @@ const LoginUI = (props) => {
           <div className={styles.LoginBottomHeading}>
             <p>
               {translate(
-                "login.auth0_password_lock",
+                "You_can_sign_in_with_a_otp_or_to_unlock_your_account_you_may_reset_your_password_or_Contact_Support",
                 "We sent a one-time passcode to <b>{email}</b>",
                 {
                   ...FORMATVALUES,
