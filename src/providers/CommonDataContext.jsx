@@ -59,8 +59,8 @@ const CommonDataProvider = (props) => {
         const filteredData = data.slice(16, -2);
         const jsonData = JSON.parse(filteredData);
         const DB_ARRAY = jsonData?.strategies[0]?.connections.filter(
-          // (item) => item.name === "AV-Password-Authentication"
-          (item) => item.name === "Test-CustomDB"
+          (item) => item.name === "AV-Password-Authentication"
+          // (item) => item.name === "Test-CustomDB"
         );
         console.log("DB ARRAY RECIVED", DB_ARRAY);
         setConn(DB_ARRAY);
@@ -173,7 +173,7 @@ const possibleCustomizationPaths = {
 const getAffiliate = (location) => {
   const parsedHash = new URLSearchParams(window.location.hash.substr(1));
   let query = new URLSearchParams(location);
-  let affiliate = query.get("aff_id") ?? parsedHash.get("aff_id");
+  let affiliate = query.get("affid") ?? parsedHash.get("affid");
   return affiliate;
 };
 

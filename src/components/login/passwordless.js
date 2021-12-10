@@ -41,7 +41,7 @@ const PasswordLessFlow = (props) => {
                 flex: 1,
                 display: "flex",
                 border:
-                  LoginError?.isEmailError === true
+                  LoginError?.isEmailError === true || LoginError?.errorCode
                     ? "1px solid red"
                     : validateEmail(LoginForm.email)
                     ? "1px solid #0CA77D"

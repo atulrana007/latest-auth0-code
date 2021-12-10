@@ -54,13 +54,11 @@ window.PasswordResetWidget = class PasswordResetWidget {
     );
   }
 };
-// new window.PasswordResetWidget().init(
-//   {
-//     passwordResetConfig:{
-//       csrfToken: "custom-token",
-//       email: "custom-email",
-//       tenantName: "custom-domain",
-//       ticket: "8nfPeX3z5M8Ybm0Fd0N5Bff9hSm9gSsc"
-//     }
-//   }
-// )
+// new window.PasswordResetWidget().init({
+//   passwordResetConfig: {
+//     csrfToken: "custom-token",
+//     email: "custom-email",
+//     tenantName: "custom-domain",
+//     ticket: "8nfPeX3z5M8Ybm0Fd0N5Bff9hSm9gSsc",
+//   },
+// });

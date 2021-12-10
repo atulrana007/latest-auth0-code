@@ -153,6 +153,10 @@
 .flexGrow {
   flex-grow: 1;
 }
+.Logo {
+  width: 10rem;
+  height: 7rem;
+}
 
 .ForgotPasswordInputLabel {
   flex: 1;

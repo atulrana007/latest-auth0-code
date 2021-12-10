@@ -12,6 +12,7 @@ import OtpBlockScreen from "./view/OtpBlockScreen";
 import { FormattedMessage } from "react-intl";
 import { ReactComponent as McAfeeLogo } from "../../svg/Mcafee-Logo.svg";
 import { useLocation } from "react-router-dom";
+import { ReactComponent as McAfeeLogoForAffiliate } from "../../svg/Mcafee-Logo-For-Affiliate.svg";
 
 const LoginUI = (props) => {
   const {
@@ -339,22 +340,20 @@ const LoginUI = (props) => {
               <div className={styles.LoginWelcomeContainer}>
                 {isAffiliateLogo ? (
                   <div className="container-header">
-                    <span className="container-logo">
-                      <img
-                        alt="McAfee"
-                        title="McAfee"
-                        src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-odrplat-auth0-ui/public/images/McAfee-Document-Logo1.png"
-                        className="logo"
-                      />
-                    </span>
-                    <span className="container-logo aff-logo-container">
+                    <McAfeeLogoForAffiliate className={styles.Logo} />
+
+                    <span
+                      id="n_AffiliateLogo"
+                      className="container-logo aff-logo-container"
+                    >
                       <span className="logo-seperator">| </span>
+
                       <img
                         alt="McAfee"
                         title="Dell"
                         src="https://secureimages.mcafee.com/common/affiliateImages/dell/logo_dell_new_58x59.gif"
-                        width="20"
-                        height="20"
+                        width="30"
+                        height="30"
                       />
                     </span>
                   </div>

@@ -81,7 +81,7 @@ export const validatePassword = (
   const specialCharacterPolicy = SpecialCharacterPolicy();
   const identicalLessThan2Characters = IdenticalCharacters();
 
-  switch ("fair") {
+  switch (rules.passwordPolicy) {
     case "excellent":
       setIsValid(true);
       if (value !== "") {

@@ -10,7 +10,7 @@ module.exports = {
     main: lModules,
   },
   output: {
-    filename: "bundle_mpc_tenant_16.min.js",
+    filename: "mudit-test-tenant-1.min.js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
