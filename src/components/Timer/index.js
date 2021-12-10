@@ -49,7 +49,7 @@ const Timer = (props) => {
           <span style={{ fontWeight: 700 }}>
             {TimerState.minutes === 0 && TimerState.seconds > 0
               ? TimerState.seconds
-              : TimerState.minutes === 3
+              : TimerState.minutes === 20
               ? TimerState.minutes
               : TimerState.minutes + 1}
           </span>{" "}
