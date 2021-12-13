@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,600;0,800;1,700&display=swap");
 .loaderWrapper {
   display: flex;
   flex-direction: column;
@@ -25,7 +24,7 @@
 }
 .loadingText {
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: "McAfee-Poppins", sans-serif;
   font-size: 2rem;
 }
 .Logo {

@@ -107,11 +107,11 @@ const sk = {
     otp_lock_bottom_Message:
       "You may sign in with a password, try <a_reset_pass>resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
     optin_VirusThreats:
-      "I want to receive information about the latest viruses(available in English only).",
+      "I want to receive info about recent viruses (English only).",
     optin_SpecialPromo:
-      " I would like to receive information about McAfee special offers.",
+      "I want to receive info about special offers from McAfee.",
     optin_PartnerPromo:
-      "I would like to receive information about special offers from McAfee partners.",
+      "I want to receive info about offers from McAfee partners.",
     Resending_code: "Resending code...",
     Code_sent: "Code sent.",
     "passwordless.multiple_resend_otp":

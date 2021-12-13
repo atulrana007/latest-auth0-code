@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../providers/AppContext";
 import { CommonDataContext } from "../../providers/CommonDataContext";
 import styles from "./style.module.css";
 import Login from "./Login";
 import translate from "../../localization/translate";
+import { ReactComponent as McAfeeLogoForAffiliate } from "../../svg/Mcafee-Logo-For-Affiliate.svg";
 
 import LoaderScreen from "../../loader/LoaderScreen";
 import Timer from "../Timer/index";
@@ -12,7 +13,6 @@ import OtpBlockScreen from "./view/OtpBlockScreen";
 import { FormattedMessage } from "react-intl";
 import { ReactComponent as McAfeeLogo } from "../../svg/Mcafee-Logo.svg";
 import { useLocation } from "react-router-dom";
-import { ReactComponent as McAfeeLogoForAffiliate } from "../../svg/Mcafee-Logo-For-Affiliate.svg";
 
 const LoginUI = (props) => {
   const {
@@ -109,9 +109,14 @@ const LoginUI = (props) => {
       </a>
     ),
   };
+  const [firstTime, setFistTime] = useState(true);
+
   useEffect(() => {
-    onLoad();
-  }, []);
+    if (firstTime) {
+      setFistTime(false);
+      onLoad();
+    }
+  }, [onLoad, firstTime]);
   const loginCustomization = LoginForm.customizations;
 
   //   const location = useLocation().search;
@@ -341,13 +346,11 @@ const LoginUI = (props) => {
                 {isAffiliateLogo ? (
                   <div className="container-header">
                     <McAfeeLogoForAffiliate className={styles.Logo} />
-
                     <span
                       id="n_AffiliateLogo"
                       className="container-logo aff-logo-container"
                     >
                       <span className="logo-seperator">| </span>
-
                       <img
                         alt="McAfee"
                         title="Dell"

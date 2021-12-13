@@ -7,6 +7,7 @@ import dadk from "./locally/da-dk";
 import dech from "./locally/de-ch";
 import elgr from "./locally/el-gr";
 import enus from "./locally/en-us";
+import engb from "./locally/en-gb";
 import esar from "./locally/es-ar";
 import escl from "./locally/es-cl";
 import esco from "./locally/es-co";
@@ -76,5 +77,6 @@ const messages = {
   ...trtr,
   ...zhhk,
   ...zhtw,
+  ...engb,
 };
 export default messages;

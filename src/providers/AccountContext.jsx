@@ -7,17 +7,8 @@ const AccountContext = React.createContext({});
 
 const AccountProvider = (props) => {
   const { locale } = props;
-  const [isAuthenticated, setIsAuth] = useState(false);
   const { trackClickEvent } = useContext(TrackingContext);
 
-  const AuthenticateUser = (authToken) => {
-    localStorage.setItem("auth_token", authToken);
-    setIsAuth(true);
-  };
-
-  const storeUserData = (data) => {
-    localStorage.setItem("userData", JSON.stringify(data));
-  };
   console.log("configs", props);
   const webAuth = new auth0.WebAuth({
     domain: props.config.auth0Domain,
@@ -189,9 +180,6 @@ const AccountProvider = (props) => {
         otpLogin,
         loginWithPassword,
         SignupWithPassword,
-        AuthenticateUser,
-        storeUserData,
-        isAuthenticated,
         getSocialLogin,
         sendForgotPasswordLink,
       }}

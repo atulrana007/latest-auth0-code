@@ -3,16 +3,16 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import { BrowserRouter as Router } from "react-router-dom";
-import { CommonDataProvider } from "../../../providers/CommonDataContext";
-import { AppProvider } from "../../../providers/AppContext";
-import LanguageProvider from "../../../localization/languageProvider";
-import { AccountProvider } from "../../../providers/AccountContext";
-import { TrackingProvider } from "../../../providers/TrackingProvider";
-import { SettingProvider } from "../../../providers/SettingProvider";
+import { CommonDataProvider } from "../../providers/CommonDataContext";
+import { AppProvider } from "../../providers/AppContext";
+import LanguageProvider from "../../localization/languageProvider";
+import { AccountProvider } from "../../providers/AccountContext";
+import { TrackingProvider } from "../../providers/TrackingProvider";
+import { SettingProvider } from "../../providers/SettingProvider";
 
 // import axios from "axios";
-import SignupUI from "../SignupUI";
-import SignupContainer from "../../../containers/signupContainer";
+import SignupUI from "../../components/signup/SignupUI";
+import SignupContainer from "../../containers/signupContainer";
 
 beforeAll(() => {
   console.log = () => {};
@@ -25,7 +25,10 @@ const setUp = (props) => {
     <Router>
       <TrackingProvider config={props.pageConfig}>
         <SettingProvider config={props.locale.current}>
-          <CommonDataProvider config={props.pageConfig}>
+          <CommonDataProvider
+            config={props.pageConfig}
+            locale={props.locale.current}
+          >
             <AppProvider>
               <LanguageProvider locale={props.locale.current}>
                 <AccountProvider
@@ -97,8 +100,8 @@ describe("<SignUp/>", () => {
   });
   test("should check if the signup form submit button is rendered properly", () => {
     setUp(props);
-    const signupScreenText = screen.getByText("Create my Account");
-    expect(signupScreenText).toBeInTheDocument();
+    const signupScreenText = screen.getAllByText("Create my account");
+    expect(signupScreenText[0]).toBeInTheDocument();
   });
 });
 

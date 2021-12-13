@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,600;0,800;1,700&display=swap");
 .LoginContainer {
   display: flex;
   flex-direction: column;
@@ -17,7 +16,7 @@
   font-weight: 700;
   margin-bottom: 1rem;
   font-size: 2rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "McAfee-Poppins", sans-serif;
   line-height: 40px;
 }
 .LoginIntroSubHeading {
@@ -436,7 +435,7 @@ input:-webkit-autofill {
 }
 .loadingtext {
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: "McAfee-Poppins", sans-serif;
   font-size: 2rem;
 }
 .Signuppagelink {

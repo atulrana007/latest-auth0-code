@@ -468,6 +468,12 @@ export default function LoginContainer(props) {
           ...LoginForm,
           otpAvailable: true,
         });
+        setLoginError({
+          email: "",
+          isEmailError: "",
+          databaseError: "",
+          errorCode: "",
+        });
         setHideEmail(true);
       }
     } catch (err) {
@@ -527,7 +533,7 @@ export default function LoginContainer(props) {
         setLoginError({
           ...LoginError,
           databaseError: `passwordless.${err?.description}`,
-          errorCode: "sorry_no_account_found",
+          errorCode: "passwordless.bad.email",
         });
         setLoginForm({
           ...LoginForm,
