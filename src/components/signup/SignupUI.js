@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../providers/AppContext";
 import { CommonDataContext } from "../../providers/CommonDataContext";
 import Signup from "./Signup";
@@ -6,9 +6,9 @@ import styles from "./style.module.css";
 import translate from "../../localization/translate";
 import LoaderScreen from "../../loader/LoaderScreen";
 import { ReactComponent as McAfeeLogo } from "../../svg/Mcafee-Logo.svg";
+import { ReactComponent as McAfeeLogoForAffiliate } from "../../svg/Mcafee-Logo-For-Affiliate.svg";
 import { FormattedMessage } from "react-intl";
 import { useLocation } from "react-router-dom";
-import { ReactComponent as McAfeeLogoForAffiliate } from "../../svg/Mcafee-Logo-For-Affiliate.svg";
 
 const SignupUI = (props) => {
   const {
@@ -37,9 +37,14 @@ const SignupUI = (props) => {
   const { SignupText } = useContext(CommonDataContext);
   const { setWhichPage } = useContext(AppContext);
   const { isAffiliateLogo } = useContext(CommonDataContext);
+  const [firstTime, setFistTime] = useState(true);
+
   useEffect(() => {
-    onLoad();
-  }, []);
+    if (firstTime) {
+      setFistTime(false);
+      onLoad();
+    }
+  }, [onLoad, firstTime]);
   const signUpCustomization = SignupForm.customizations;
   //   console.log(signUpCustomization);
 
@@ -99,7 +104,6 @@ const SignupUI = (props) => {
                   className="container-logo aff-logo-container"
                 >
                   <span className="logo-seperator">| </span>
-
                   <img
                     alt="McAfee"
                     title="Dell"

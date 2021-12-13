@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,600;0,800;1,700&display=swap");
 .SignupWrapper {
   margin-top: 0.5rem;
   margin-left: 0.5rem;
@@ -49,7 +48,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "McAfee-Poppins", sans-serif;
 }
 .IntroSubHeading {
   display: flex;
@@ -286,9 +285,11 @@
   margin-top: 1rem;
 }
 .optinField {
-  padding: 0.1rem;
+  border: 1px solid rgb(212, 213, 219);
+  border-radius: 4px;
+  padding: 0.5rem;
   display: flex;
-  margin: 0 0 0 0.6rem;
+  margin: 0.5rem 0rem;
 }
 
 .optinFieldInput {

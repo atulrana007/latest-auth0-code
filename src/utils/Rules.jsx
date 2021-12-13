@@ -6,10 +6,7 @@ function Rules({ count }) {
     UpperCaseCheck: "UpperCaseCheck",
     LowerCaseCheck: "LowerCaseCheck",
     NumberCheck: "NumberCheck",
-    Lower_case_Upper_Case_Numbers:
-      "Lower case (a-z), upper case (A-Z) and numbers (0-9)",
     Length_Check: `Length_Check`,
-    Non_empty_Password_Required: "Non-empty Password Required",
   };
   return Rules;
 }

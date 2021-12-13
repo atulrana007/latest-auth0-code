@@ -1,8 +1,6 @@
 import React, { useRef } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 
-import Authorize from "./components/Authorize";
-
 import Main from "./Main";
 
 import Footer from "./components/Footer/Footer";
@@ -54,10 +52,7 @@ const App = ({ pageConfig, passwordResetConfig }) => {
                       <Route path="/login" exact>
                         {withAccountProvider(<Main />)}
                       </Route>
-                      <Route exact path="/authorize">
-                        {withAccountProvider(<Authorize config={pageConfig} />)}
-                        <Authorize config={pageConfig} />
-                      </Route>
+
                       <Route path="/lo/reset" exact>
                         <ResetPasswordProvider>
                           <ResetPassword />

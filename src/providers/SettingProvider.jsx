@@ -45,8 +45,8 @@ const SettingProvider = (props) => {
         ) {
           setSetting(settingResponse.data.affiliates[props.affiliateId]);
           console.log(
-            "fdhjfdjhfdj",
-            settingResponse.data.affiliates[props.affiliateId]
+            "getting something",
+            settingResponse.data.affiliates[props.affiliateId].affiliate_name
           );
         }
         const localeForMessageLink =

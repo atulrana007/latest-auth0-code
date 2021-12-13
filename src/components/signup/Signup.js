@@ -379,19 +379,6 @@ const Signup = (props) => {
             >
               {(chunks) => <p>{chunks}</p>}
             </FormattedMessage>
-            {/* {translate("By_clicking")}
-              <span style={{ fontWeight: "bold" }}>
-                {" "}
-                {translate("Create_my_Account")},{" "}
-              </span>
-              {translate("you_accept")}{" "}
-              <span style={{ color: "rgb(66, 88, 255)" }}>
-                {translate("McAfee_License_Agreement")}
-              </span>{" "}
-              {translate("and")}{" "}
-              <span style={{ color: "rgb(66, 88, 255)" }}>
-                {translate("Privacy_Notice")}
-              </span> */}
           </div>
           <button
             className={
