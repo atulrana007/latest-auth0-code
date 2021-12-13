@@ -1,0 +1,5 @@
+@font-face {
+  font-family: "McAfee-Poppins";
+  src: local("McAfee-Poppins"),
+    url(fonts/Poppins-ExtraBold.ttf) format("truetype");
+}

@@ -10,7 +10,7 @@ module.exports = {
     main: lModules,
   },
   output: {
-    filename: "mudit-test-tenant-cc-10.min.js",
+    filename: "mpc-custom-domain-changes.min.js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
