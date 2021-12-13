@@ -10,7 +10,7 @@ module.exports = {
     main: lModules,
   },
   output: {
-    filename: "mpc-custom-domain-changes_2.min.js",
+    filename: "mpc-custom-domain-changes_5.min.js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
@@ -40,8 +40,15 @@ module.exports = {
         use: ["script-loader"],
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "file-loader",
+        test: /\.ttf$/,
+        use: [
+          {
+            loader: "ttf-loader",
+            options: {
+              name: "./font/[hash].[ext]",
+            },
+          },
+        ],
       },
     ],
   },

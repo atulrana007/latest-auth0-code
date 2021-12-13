@@ -12,7 +12,7 @@ const LanguageProvider = ({ children, locale }) => {
     <IntlProvider
       textComponent={Fragment}
       locale={locale}
-      messages={localizedContent ? localizedContent : messages["fr-ca"]}
+      messages={localizedContent ? localizedContent : messages[locale]}
       // messages={messages[locale]}
     >
       {children}
