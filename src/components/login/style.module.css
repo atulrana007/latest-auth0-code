@@ -110,6 +110,10 @@ input:-webkit-autofill {
   padding: 1rem;
   font-size: 14px;
   border-radius: 5px;
+  margin: 12px 0px;
+}
+.ErrorDiv p {
+  margin-bottom: 0px;
 }
 .Error {
   color: red;

@@ -11,6 +11,7 @@ const Login = (props) => {
     switchLogin,
     onSubmit,
     LoginError,
+    setLoginError,
     LoginForm,
     hideEmail,
     onToggle,
@@ -34,6 +35,7 @@ const Login = (props) => {
           <PasswordFlow
             onChange={onChange}
             LoginError={LoginError}
+            setLoginError={setLoginError}
             LoginForm={LoginForm}
             validateEmail={validateEmail}
             onSubmit={onSubmit}
@@ -49,6 +51,7 @@ const Login = (props) => {
           <PasswordLessFlow
             onChange={onChange}
             LoginError={LoginError}
+            setLoginError={setLoginError}
             LoginForm={LoginForm}
             validateEmail={validateEmail}
             getOtp={getOtp}

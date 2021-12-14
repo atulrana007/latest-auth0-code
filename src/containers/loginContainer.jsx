@@ -534,6 +534,7 @@ export default function LoginContainer(props) {
           ...LoginError,
           databaseError: `passwordless.${err?.description}`,
           errorCode: "passwordless.bad.email",
+          isEmailError: true,
         });
         setLoginForm({
           ...LoginForm,
@@ -659,6 +660,7 @@ export default function LoginContainer(props) {
     onSubmit,
     LoginForm,
     LoginError,
+    setLoginError,
     Continue,
     validateEmail,
     onPressContinue,

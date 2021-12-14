@@ -21,6 +21,7 @@ const LoginUI = (props) => {
     onToggle,
     onSubmit,
     LoginError,
+    setLoginError,
     LoginForm,
     validateEmail,
     Continue,
@@ -260,6 +261,7 @@ const LoginUI = (props) => {
           <OtpBlockScreen
             onChange={onChange}
             LoginError={LoginError}
+            setLoginError={setLoginError}
             LoginForm={LoginForm}
             validateEmail={validateEmail}
             onSubmit={onSubmit}
@@ -277,6 +279,7 @@ const LoginUI = (props) => {
           <div className={styles.LoginRightWrapper}>
             <Login
               LoginError={LoginError}
+              setLoginError={setLoginError}
               onChange={onChange}
               switchLogin={switchLogin}
               onSubmit={onSubmit}
@@ -307,6 +310,7 @@ const LoginUI = (props) => {
         <div className={styles.LoginRightWrapper}>
           <Login
             LoginError={LoginError}
+            setLoginError={setLoginError}
             onChange={onChange}
             switchLogin={switchLogin}
             onSubmit={onSubmit}

@@ -17,6 +17,7 @@
   border-radius: 0.5rem;
 }
 .timer-inactive {
+  color: red;
   display: flex;
   flex-direction: row;
   background: #ffdbde;

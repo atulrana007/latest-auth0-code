@@ -23,7 +23,7 @@ const CommonDataProvider = (props) => {
   });
   const [LoginError, setLoginError] = useState({
     email: "",
-    isEmailError: "",
+    isEmailError: false,
     databaseError: "",
     errorCode: "",
   });
@@ -108,6 +108,7 @@ const CommonDataProvider = (props) => {
         setLoginError,
         setIsAffiliateLogo,
         setCustomizationData,
+        setLoginError
       }}
     >
       {props.children}
