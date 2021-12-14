@@ -11,6 +11,9 @@ function AccountUnblockContainer(props) {
   const email = useRef(query.get("email") || parsedHash.get("email"));
   const clientId = useRef(query.get("clientId") || parsedHash.get("clientId"));
   const domain = useRef(query.get("domain") || parsedHash.get("domain"));
+  const error = useRef(
+    query.get("error_description") || parsedHash.get("error_description")
+  );
 
   const webAuth = new auth0.WebAuth({
     domain: domain.current,
@@ -70,6 +73,7 @@ function AccountUnblockContainer(props) {
     success,
     handleEmailMe,
     emailDetails,
+    error,
   });
 }
 

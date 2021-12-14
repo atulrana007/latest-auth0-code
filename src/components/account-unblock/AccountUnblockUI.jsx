@@ -3,9 +3,10 @@ import translate from "../../localization/translate";
 import { FormattedMessage } from "react-intl";
 import styles from "./style.module.css";
 import { CommonDataContext } from "../../providers/CommonDataContext";
+import { ReactComponent as McAfeeLogo } from "../../svg/Mcafee-Logo.svg";
 
 function AccountUnblockUI(props) {
-  const { message, success, handleEmailMe } = props;
+  const { message, success, handleEmailMe, error } = props;
   const { locale } = useContext(CommonDataContext);
   const { isAffiliateLogo } = useContext(CommonDataContext);
   console.log(message, success);
@@ -36,11 +37,7 @@ function AccountUnblockUI(props) {
                 </span>
               </div>
             ) : (
-              <img
-                alt="McAfeeLogo"
-                className="McAfeeLogo"
-                src="https://cdn.jsdelivr.net/gh/atulrana007/McAfee-React-Appp/public/images/McAfee-Logo.png"
-              />
+              <McAfeeLogo className={styles.Logo} />
             )}
           </div>
           {success.current === "true" ? (
@@ -92,6 +89,16 @@ function AccountUnblockUI(props) {
               </div>
             </>
           )}
+          {error.current ? (
+            <>
+              <div className="ForgotPasswordIntro">
+                {translate("Something Went Wrong")}
+              </div>
+              <div className="ForgotPasswordIntroSubHeading">
+                {translate(error.current)}
+              </div>
+            </>
+          ) : null}
         </div>
       </div>
     </div>
