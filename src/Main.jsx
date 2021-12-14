@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "./providers/AppContext";
 import Login from "./components/login/index";
 import Signup from "./components/signup/index";
@@ -21,32 +21,36 @@ function Main() {
   // const { setting, localizedContent } = useContext(SettingContext);
   const { utagData, setUtagData } = useContext(TrackingContext);
   const { settingFinal } = useContext(SettingContext);
-
-  const SettingUtagData = () => {
-    console.log("how many times");
-    let utag = window.utag;
-    let updatedUtagData;
-    updatedUtagData = {
-      ...utagData,
-      [TealiumTagKeyConstants.TEALIUM_GLOBAL_COUNTRY]: settingFinal?.country,
-      [TealiumTagKeyConstants.TEALIUM_PAGE_NAME]:
-        TealiumTagValueConstans.BASE_PAGE_NAME +
-        TealiumTagValueConstans.LOGIN_PAGE_NAME,
-      [TealiumTagKeyConstants.TEALIUM_SITESECTION]:
-        TealiumTagValueConstans.LOGIN_PAGE_NAME,
-    };
-    utag.view({
-      ...updatedUtagData,
-      [TealiumTagKeyConstants.TEALIUM_PAGE_PUBLISH_DATE]: new Date(),
-    });
-    setUtagData(updatedUtagData);
-  };
+  const [onPageLoad, setOnPageLoad] = useState(true);
 
   useEffect(() => {
-    if (settingFinal) {
-      SettingUtagData();
+    if (onPageLoad) {
+      setOnPageLoad(false);
+      if (settingFinal) {
+        const SettingUtagData = () => {
+          console.log("how many times");
+          let utag = window.utag;
+          let updatedUtagData;
+          updatedUtagData = {
+            ...utagData,
+            [TealiumTagKeyConstants.TEALIUM_GLOBAL_COUNTRY]:
+              settingFinal?.country,
+            [TealiumTagKeyConstants.TEALIUM_PAGE_NAME]:
+              TealiumTagValueConstans.BASE_PAGE_NAME +
+              TealiumTagValueConstans.LOGIN_PAGE_NAME,
+            [TealiumTagKeyConstants.TEALIUM_SITESECTION]:
+              TealiumTagValueConstans.LOGIN_PAGE_NAME,
+          };
+          utag.view({
+            ...updatedUtagData,
+            [TealiumTagKeyConstants.TEALIUM_PAGE_PUBLISH_DATE]: new Date(),
+          });
+          setUtagData(updatedUtagData);
+        };
+        SettingUtagData();
+      }
     }
-  }, [settingFinal]);
+  }, [setUtagData, settingFinal, utagData, onPageLoad]);
 
   const returnPage = (whichPage) => {
     // if (!setting && !localizedContent) {

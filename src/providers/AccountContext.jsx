@@ -11,8 +11,8 @@ const AccountProvider = (props) => {
 
   console.log("configs", props);
   const webAuth = new auth0.WebAuth({
-    // domain: props.config.auth0Domain,
-    domain: "iddev.mcafee.com",
+    domain: props.config.auth0Domain,
+    // domain: "iddev.mcafee.com",
     clientID: props.config.clientID,
     redirectUri: props.config?.callbackURL,
     responseType: props.config?.extraParams?.response_type,
@@ -54,8 +54,8 @@ const AccountProvider = (props) => {
     };
     return new Promise((resolve, reject) => {
       const variables = {
-        // connection: "AV-Password-Authentication",
-        connection: "Test-CustomDB",
+        connection: "AV-Password-Authentication",
+        // connection: "Test-CustomDB",
         // connection: "Username-Password-Authentication",
         email,
         password,
@@ -123,8 +123,8 @@ const AccountProvider = (props) => {
     return new Promise((resolve, reject) => {
       webAuth.login(
         {
-          // realm: "AV-Password-Authentication",
-          realm: "Test-CustomDB",
+          realm: "AV-Password-Authentication",
+          // realm: "Test-CustomDB",
           // realm: "Username-Password-Authentication",
           username,
           password,
@@ -153,9 +153,9 @@ const AccountProvider = (props) => {
     return new Promise((resolve, reject) => {
       webAuth.changePassword(
         {
-          // connection: "AV-Password-Authentication",
+          connection: "AV-Password-Authentication",
           // connection: "Username-Password-Authentication",
-          connection: "Test-CustomDB",
+          // connection: "Test-CustomDB",
           email: email,
         },
         (err, authResult) => {

@@ -10,7 +10,7 @@ module.exports = {
     main: lModules,
   },
   output: {
-    filename: "mpc-custom-domain-changes_5.min.js",
+    filename: "bundle_auth0dev_0_1.min.js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
