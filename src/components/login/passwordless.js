@@ -46,7 +46,9 @@ const PasswordLessFlow = (props) => {
                   color:
                   LoginError.isEmailError === true
                     ? "red"
-                    : "#848faa",
+                    : validateEmail(LoginForm.email) 
+                    ? "#848faa" 
+                    : "red",
                 }}
               >
                 {translate("email")}
