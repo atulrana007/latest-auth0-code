@@ -33,9 +33,9 @@ const SettingProvider = (props) => {
   useEffect(() => {
     const getSettings = async () => {
       try {
-        // CDN is not working
+        // // CDN is not working
         // const settingResponse = await axios.get(
-        //   `"https://d1aza67fhfglew.cloudfront.net/settings/${props.locale}.json`
+        //   `/settings/${props.locale}.json`
         // );
         const settingResponse = { data: settings[props.locale] };
         setFinalSetting(settingResponse.data);
@@ -46,7 +46,7 @@ const SettingProvider = (props) => {
           setSetting(settingResponse.data.affiliates[props.affiliateId]);
           console.log(
             "getting something",
-            settingResponse.data.affiliates[props.affiliateId].affiliate_name
+            settingResponse.data.affiliates[props.affiliateId]
           );
         }
         const localeForMessageLink =
@@ -54,7 +54,11 @@ const SettingProvider = (props) => {
           props?.locale[props?.locale.length - 2].toUpperCase() +
           props?.locale[props?.locale.length - 1].toUpperCase();
         const localizedFileResponse = await axios.get(
-          `https://d1aza67fhfglew.cloudfront.net/content/${localeForMessageLink}/messages.json`
+          `https://iddev.mcafee.com/content/${localeForMessageLink}/messages.json?culture=${props.locale}`
+        );
+        console.log(
+          "got something in localization link",
+          localizedFileResponse
         );
 
         setLocalizedContent(

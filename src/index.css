@@ -17,6 +17,5 @@ code {
 }
 /* @font-face {
   font-family: "McAfee-Poppins";
-  src: local("Mcafee-Poppins"),
-    url("/src/fonts/Poppins-ExtraBold.ttf") format("truetype");
+  src: local("Mcafee-Poppins"), url("/fonts/Poppins-ExtraBold.ttf");
 } */
