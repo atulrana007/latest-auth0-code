@@ -16,8 +16,8 @@ function AccountUnblockContainer(props) {
   );
 
   const webAuth = new auth0.WebAuth({
-    domain: domain.current,
-    clientID: clientId.current,
+    domain: domain.current || "error",
+    clientID: clientId.current || "error",
   });
 
   const sendForgotPasswordLink = (email) => {
@@ -74,6 +74,8 @@ function AccountUnblockContainer(props) {
     handleEmailMe,
     emailDetails,
     error,
+    domain,
+    clientId,
   });
 }
 
