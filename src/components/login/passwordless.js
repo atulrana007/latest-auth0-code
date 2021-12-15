@@ -130,7 +130,7 @@ const PasswordLessFlow = (props) => {
                   id="otp"
                   name="otp"
                   placeholder={msg}
-                  className={styles.LoginInput}
+                  className={styles.LoginInputOTP}
                   onChange={onChange}
                   value={LoginForm.otp}
                 />
