@@ -210,6 +210,7 @@ function ChangePasswordForm(props) {
             )}
             <div className="forgotPasswordDropDownContainer">
               <button
+                id = "reset-password-button"
                 className={
                   ResetPasswordForm.password !== "" &&
                   ResetPasswordForm.confirmPassword !== "" &&

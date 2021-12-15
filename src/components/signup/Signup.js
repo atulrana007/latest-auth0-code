@@ -381,6 +381,7 @@ const Signup = (props) => {
             </FormattedMessage>
           </div>
           <button
+            id = "create-my-account-button"
             className={
               SignupForm.email !== "" &&
               validateEmail(SignupForm.email) &&

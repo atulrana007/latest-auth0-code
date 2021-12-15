@@ -135,6 +135,7 @@ function ForgotPasswordUI(props) {
             <div className="forgotPasswordDropDownContainer">
               <div className="emailMeBtnWrapper">
                 <button
+                  id = "email-me-button"
                   onClick={handleEmailMe}
                   className={`emailMeBtn
                   ${

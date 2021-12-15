@@ -42,6 +42,7 @@ function OtpBlockScreen(props) {
           </div>
           <>
             <button
+              id = "otp-block-screen-signin-with-otp-button"
               className={styles.SwitchBtn}
               onClick={(e) => blockScreenToggle("with-otp-user-unlocked", e)}
               data-navelement="Sigin With OTP"

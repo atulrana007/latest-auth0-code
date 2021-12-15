@@ -137,6 +137,7 @@ const PasswordLessFlow = (props) => {
             </FormattedMessage>
           </div>
           <div
+            id = "otp-login-resend-code-link"
             className={styles.LoginOtpResendContainer}
             onClick={handleClickResendCode}
             data-nav-element-click="Resend OTP | Failure"
@@ -163,6 +164,7 @@ const PasswordLessFlow = (props) => {
         </div>
       )}
       <button
+        id = "otp-login-continue-button"
         className={styles.RequestOtp}
         onClick={(e) => onSubmit(e)}
         disabled={
@@ -205,6 +207,7 @@ const PasswordLessFlow = (props) => {
               }}
             >
               <a
+                id= "otp-login-contact-support-link"
                 target="_blank"
                 href={`https://home.mcafee.com/root/support.aspx?culture=${locale.toUpperCase()}`}
                 data-nav-element-click="Contact Us"
