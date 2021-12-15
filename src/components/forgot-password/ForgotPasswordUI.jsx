@@ -45,7 +45,7 @@ function ForgotPasswordUI(props) {
             <div className="ForgotPasswordLeftContainer">
               {isAffiliateLogo ? (
                 <div className="container-header">
-                  <McAfeeLogoForAffiliate className="Logo" />
+                  <McAfeeLogoForAffiliate />
 
                   <span
                     id="n_AffiliateLogo"
@@ -63,7 +63,7 @@ function ForgotPasswordUI(props) {
                   </span>
                 </div>
               ) : (
-                <McAfeeLogo className="Logo" />
+                <McAfeeLogo />
               )}
               <div className="ForgotPasswordIntro">
                 {translate("Reset_Password")}
@@ -108,7 +108,7 @@ function ForgotPasswordUI(props) {
                       ? "1px solid #848faa"
                       : " 1px solid #0CA77D",
                   backgroundColor: "#ffff",
-                  borderRadius: "1rem",
+                  borderRadius: "12px",
                   alignItems: "center",
                   height: "100%",
                 }}

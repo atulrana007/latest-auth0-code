@@ -105,7 +105,7 @@ function AccountUnblockUI(props) {
                 </span>
               </div>
             ) : (
-              <McAfeeLogo className={styles.Logo} />
+              <McAfeeLogo />
             )}
           </div>
           {LeftContainer()}

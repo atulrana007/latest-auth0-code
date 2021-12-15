@@ -54,7 +54,7 @@ const PasswordFlow = (props) => {
                   ? "1px solid #0CA77D"
                   : "1px solid #848faa",
               backgroundColor: "#ffff",
-              borderRadius: "1rem",
+              borderRadius: "12px",
             }}
           >
             <OutlineMail

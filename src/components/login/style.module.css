@@ -16,6 +16,7 @@
 .LoginIntro {
   font-weight: 700;
   margin-bottom: 1rem;
+  margin-top: 2rem;
   font-size: 2rem;
   font-family: "Poppins", sans-serif;
   line-height: 40px;
@@ -65,9 +66,10 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  border-radius: 1rem;
+  border-radius: 12px;
   box-shadow: inset 0 2px 2px 0 rgb(0 0 0 / 5%);
   margin: 1rem 0;
+  height: 3rem;
 }
 
 .LoginInputContainerPassword {
@@ -91,10 +93,10 @@
   color: darkgray;
 }
 .LoginInput {
-  padding: 1rem 1rem;
+  padding-right: 1rem;
   border-radius: 1rem;
   flex: 1;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: RGB(38, 41, 77);
   border: none;
   outline: none;
@@ -265,8 +267,8 @@ input:-webkit-autofill {
   margin: 1rem 2rem;
 }
 .Logo {
-  width: 10rem;
-  height: 7rem;
+  width: 5rem;
+  height: 1rem;
 }
 
 .SocialBtnContainer {
@@ -290,10 +292,8 @@ input:-webkit-autofill {
   flex-wrap: wrap;
 }
 .LoginInputLogo {
-  margin: 1.2rem 5px 1.2rem 1rem;
+  margin: 1rem 5px 1rem 1rem;
   display: none;
-  width: 1.6rem;
-  height: 1.6rem;
   color: rgb(175, 174, 174);
 }
 .LoginOptMessageContainer {

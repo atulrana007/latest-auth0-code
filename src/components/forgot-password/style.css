@@ -21,6 +21,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
+  margin-top: 2rem;
   font-family: "Poppins", sans-serif;
   color: #212934;
 }
@@ -154,8 +155,8 @@
   flex-grow: 1;
 }
 .Logo {
-  width: 10rem;
-  height: 7rem;
+  width: 5rem;
+  height: 1rem;
 }
 
 .ForgotPasswordInputLabel {
@@ -183,7 +184,7 @@
   }
   .ForgotPasswordLeftWrapper {
     flex: 1 1;
-    padding-right: 2rem;
+    padding: 1rem;
   }
   .ForgotPasswordRightWrapper {
     flex: 1 1;

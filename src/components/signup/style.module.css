@@ -49,6 +49,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  margin-top: 2rem;
   font-family: "Poppins", sans-serif;
 }
 .IntroSubHeading {
@@ -190,8 +191,8 @@
   cursor: pointer;
 }
 .Logo {
-  width: 10rem;
-  height: 7rem;
+  width: 5rem;
+  height: 1rem;
 }
 .Passwordrulescontainer {
   display: flex;

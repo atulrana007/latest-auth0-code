@@ -349,7 +349,7 @@ const LoginUI = (props) => {
               <div className={styles.LoginWelcomeContainer}>
                 {isAffiliateLogo ? (
                   <div className="container-header">
-                    <McAfeeLogoForAffiliate className={styles.Logo} />
+                    <McAfeeLogoForAffiliate />
                     <span
                       id="n_AffiliateLogo"
                       className="container-logo aff-logo-container"
@@ -365,7 +365,7 @@ const LoginUI = (props) => {
                     </span>
                   </div>
                 ) : (
-                  <McAfeeLogo className={styles.Logo} />
+                  <McAfeeLogo />
                 )}
                 <div className={styles.LoginIntro}>
                   {translate(LoginText.title)}

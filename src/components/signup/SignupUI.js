@@ -97,7 +97,7 @@ const SignupUI = (props) => {
           <div className={styles.leftContainer}>
             {isAffiliateLogo ? (
               <div className="container-header">
-                <McAfeeLogoForAffiliate className={styles.Logo} />
+                <McAfeeLogoForAffiliate />
 
                 <span
                   id="n_AffiliateLogo"
@@ -114,7 +114,7 @@ const SignupUI = (props) => {
                 </span>
               </div>
             ) : (
-              <McAfeeLogo className={styles.Logo} />
+              <McAfeeLogo />
             )}
             {/* <McAfeeLogo className="Logo" /> */}
             <div className={styles.Intro}>{translate(SignupText.title)}</div>
