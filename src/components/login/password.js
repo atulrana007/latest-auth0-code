@@ -109,6 +109,7 @@ const PasswordFlow = (props) => {
               LoginError?.errorCode !== "passwordless.passcode_lock"
                 ? "1px solid #FF3838"
                 : "1px solid #848faa",
+            borderRadius: "12px",
           }}
         >
           {LoginForm.password !== "" ? (

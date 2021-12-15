@@ -1,5 +1,5 @@
 const de = {
-  ["de-ch"]: {
+  ["de-de"]: {
     "login.invalid_user_password":
       "Wir konnten Sie mit dieser E-Mail-Adresse und dem Kennwort nicht anmelden. Versuchen Sie es erneut, <a_reset_pass>setzen Sie Ihr Kennwort zurück</a_reset_pass> oder <a_signin_otp>melden Sie sich mit einem Einmal-Passcode an.</a_signin_otp>",
     "login.invalid_user_password_2":

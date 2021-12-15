@@ -169,8 +169,6 @@ const Signup = (props) => {
               </FormattedMessage>
               <FillEye
                 style={{
-                  height: "2rem",
-                  width: "2rem",
                   marginTop: "0.5rem",
                   cursor: "pointer",
                 }}
@@ -182,8 +180,6 @@ const Signup = (props) => {
               {isValid ? (
                 <TickIcon
                   style={{
-                    height: "2rem",
-                    width: "2rem",
                     marginTop: "0.5rem",
                   }}
                 />
@@ -270,8 +266,6 @@ const Signup = (props) => {
               </FormattedMessage>
               <FillEye
                 style={{
-                  height: "2rem",
-                  width: "2rem",
                   marginTop: "0.7rem",
                   color: "rgb(175, 174, 174)",
                   cursor: "pointer",
@@ -285,8 +279,6 @@ const Signup = (props) => {
               SignupForm.confirmPassword !== "" ? (
                 <TickIcon
                   style={{
-                    height: "2rem",
-                    width: "2rem",
                     marginTop: "0.5rem",
                   }}
                 />
