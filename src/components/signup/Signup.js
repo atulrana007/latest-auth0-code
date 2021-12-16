@@ -59,6 +59,7 @@ const Signup = (props) => {
     ),
     a_reset_pass: (chunks) => (
       <button
+        id ="signup-page-forgot-password-button"
         type="button"
         className={styles.forgotPassword}
         onClick={handleForgotPasswordClick}

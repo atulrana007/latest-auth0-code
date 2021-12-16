@@ -97,7 +97,10 @@ const PasswordFlow = (props) => {
         </div>
       </div>
       {LoginError?.email && (
-        <div className={styles.Error}>{translate(LoginError?.email)}</div>
+        <div 
+          id = "password-flow-login-error"
+          className={styles.Error}>{translate(LoginError?.email)}
+        </div>
       )}
       <>
         <div

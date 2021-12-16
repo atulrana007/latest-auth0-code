@@ -54,6 +54,7 @@ function AccountUnblockUI(props) {
             </div>
             <div className={styles.accountUnblockDropDownContainer}>
               <button
+                id = "account-unblock-email-me-button"
                 className={"emailMeBtn"}
                 style={{ width: "100%", maxWidth: "350px" }}
                 onClick={handleEmailMe}
