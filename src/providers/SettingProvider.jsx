@@ -32,12 +32,16 @@ const SettingProvider = (props) => {
 
   useEffect(() => {
     const getSettings = async () => {
+      const localeForMessageLink =
+        props?.locale.slice(0, -2) +
+        props?.locale[props?.locale.length - 2].toUpperCase() +
+        props?.locale[props?.locale.length - 1].toUpperCase();
       try {
-        // // CDN is not working
-        // const settingResponse = await axios.get(
-        //   `/settings/${props.locale}.json`
-        // );
-        const settingResponse = { data: settings[props.locale] };
+        const settingResponse = await axios.get(
+          `https://d1aza67fhfglew.cloudfront.net/settings/${localeForMessageLink}.json`
+        );
+        console.log("setting", settingResponse);
+        // const settingResponse = { data: settings[props.locale] };
         setFinalSetting(settingResponse.data);
         if (
           settingResponse.data?.affiliates &&
@@ -49,23 +53,22 @@ const SettingProvider = (props) => {
             settingResponse.data.affiliates[props.affiliateId]
           );
         }
-        const localeForMessageLink =
-          props?.locale.slice(0, -2) +
-          props?.locale[props?.locale.length - 2].toUpperCase() +
-          props?.locale[props?.locale.length - 1].toUpperCase();
+      } catch (err) {
+        console.log(err);
+      }
+      try {
         const localizedFileResponse = await axios.get(
-          `https://iddev.mcafee.com/content/${localeForMessageLink}/messages.json?culture=${props.locale}`
+          `https://d1aza67fhfglew.cloudfront.net/content/${localeForMessageLink}/messages.json`
         );
         console.log(
           "got something in localization link",
           localizedFileResponse
         );
-
         setLocalizedContent(
           ExtractingLocalizedContent(localizedFileResponse.data)
         );
-      } catch (err) {
-        console.log(err);
+      } catch (e) {
+        console.log(e);
       }
     };
     getSettings();

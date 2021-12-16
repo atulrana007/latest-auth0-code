@@ -130,7 +130,7 @@ function ForgotPasswordUI(props) {
               </div>
             </div>
             {emailDetails.emailError !== "" && (
-              <div className="Error">{emailDetails.emailError}</div>
+              <div className="Error">{translate(emailDetails.emailError)}</div>
             )}
             <div className="forgotPasswordDropDownContainer">
               <div className="emailMeBtnWrapper">

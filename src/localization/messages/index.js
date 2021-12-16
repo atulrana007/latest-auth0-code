@@ -38,6 +38,7 @@ import svse from "./locally/sv-se";
 import trtr from "./locally/tr-tr";
 import zhhk from "./locally/zh-hk";
 import zhtw from "./locally/zh-tw";
+import zhcn from "./locally/zh-cn";
 
 const messages = {
   ...dm,
@@ -78,5 +79,6 @@ const messages = {
   ...trtr,
   ...zhhk,
   ...zhtw,
+  ...zhcn,
 };
 export default messages;

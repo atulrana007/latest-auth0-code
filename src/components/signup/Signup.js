@@ -170,7 +170,7 @@ const Signup = (props) => {
               </FormattedMessage>
               <FillEye
                 style={{
-                  marginTop: "0.5rem",
+                  marginTop: "0.3rem",
                   cursor: "pointer",
                 }}
                 onClick={() => {
@@ -267,9 +267,8 @@ const Signup = (props) => {
               </FormattedMessage>
               <FillEye
                 style={{
-                  marginTop: "0.7rem",
-                  color: "rgb(175, 174, 174)",
                   cursor: "pointer",
+                  marginTop: "0.3rem",
                 }}
                 onClick={() => {
                   showPassword ? setShowPassword(false) : setShowPassword(true);
@@ -278,11 +277,7 @@ const Signup = (props) => {
               />
               {SignupForm.password === SignupForm.confirmPassword &&
               SignupForm.confirmPassword !== "" ? (
-                <TickIcon
-                  style={{
-                    marginTop: "0.5rem",
-                  }}
-                />
+                <TickIcon />
               ) : null}
             </div>
           </div>

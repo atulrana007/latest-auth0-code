@@ -23,7 +23,7 @@
 }
 .LoginIntroSubHeading {
   color: gray;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1rem;
   font-size: 1.125rem;
   font-weight: 400;
 }
@@ -93,7 +93,7 @@
   color: darkgray;
 }
 .LoginInput {
-  padding-right: 1rem;
+  padding: 1rem;
   border-radius: 12px;
   flex: 1;
   font-size: 1rem;
@@ -490,14 +490,15 @@ input:-webkit-autofill {
   .LoginInputLogo {
     display: flex;
   }
-  .LoginContainer {
-    top: 2rem;
-  }
   .LoginOtpMessage {
     flex-direction: row;
   }
   .BlockUserDiv {
     margin: 6rem 2rem;
+  }
+  .LoginInput {
+    padding: 0rem;
+    padding-right: 1rem;
   }
   .RightLoginContainer {
     flex: 1;

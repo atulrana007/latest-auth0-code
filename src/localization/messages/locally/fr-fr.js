@@ -68,7 +68,7 @@ const fr = {
       "Saisissez votre adresse e-mail pour continuer.",
     Send_new_code: "Envoyer un nouveau code",
     By_clicking_Create_my_Account_you_accept_McAfee_License_Agreement_and_Privacy_Notice:
-      "En cliquant sur <b>Créer mon compte</b>, vous acceptez l'<a_McAfee_License>accord de licence</a_McAfee_License> et la <a_privacy_notice>déclaration de confidentialité</a_privacy_notice> de McAfee.",
+      "En cliquant sur <b>Créer mon compte</b>, vous acceptez l' <a_McAfee_License> accord de licence </a_McAfee_License> et la <a_privacy_notice> déclaration de confidentialité</a_privacy_notice> de McAfee.",
     We_are_sorry_but_we_could_not_create_your_account:
       "Nous sommes désolés, mais nous n'avons pas pu créer votre compte",
     Email_us_at:

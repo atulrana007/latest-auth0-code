@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import translate from "../../localization/translate";
 import { FormattedMessage } from "react-intl";
 import styles from "./style.module.css";
@@ -10,28 +10,29 @@ function AccountUnblockUI(props) {
   const { locale } = useContext(CommonDataContext);
   const { isAffiliateLogo } = useContext(CommonDataContext);
   console.log(message, success);
+  const [isGeneric, setIsGeneric] = useState(false);
   const LeftContainer = () => {
     if (domain.current && clientId.current) {
       if (success.current === "true") {
         return (
-          <>
-            <div className="ForgotPasswordIntro">
+          <div styles={styles.successful}>
+            <div className={styles.Intro}>
               {translate("Your_account_unlocked")}
             </div>
-            <div className="ForgotPasswordIntroSubHeading">
+            <div className={styles.IntroSubHeading}>
               {translate("Signin_to_start_using_protection")}
             </div>
-          </>
+          </div>
         );
       } else {
         return (
           <>
-            <div className="ForgotPasswordIntro">
+            <div className={styles.Intro}>
               {message.current === "This URL can be used only once"
                 ? translate("Link_already_used")
                 : translate("Link_Expired")}
             </div>
-            <div className="ForgotPasswordIntroSubHeading">
+            <div className={styles.IntroSubHeading}>
               <FormattedMessage
                 id="Reset_password_to_unlock_account"
                 defaultMessage={
@@ -40,7 +41,7 @@ function AccountUnblockUI(props) {
                 values={{
                   a_contact_support: (chunks) => (
                     <a
-                      className="contactSupportBtn"
+                      className={styles.contactSupportBtn}
                       target="_blank"
                       href={`https://home.mcafee.com/root/support.aspx?culture=${locale.toUpperCase()}`}
                     >
@@ -54,8 +55,8 @@ function AccountUnblockUI(props) {
             </div>
             <div className={styles.accountUnblockDropDownContainer}>
               <button
-                id = "account-unblock-email-me-button"
-                className={"emailMeBtn"}
+                id="account-unblock-email-me-button"
+                className={styles.emailMeBtn}
                 style={{ width: "100%", maxWidth: "350px" }}
                 onClick={handleEmailMe}
                 data-navelement="Signin-With-password"
@@ -67,22 +68,13 @@ function AccountUnblockUI(props) {
         );
       }
     } else if (error.current) {
-      return (
-        <>
-          <div className="ForgotPasswordIntro">
-            {translate("Something Went Wrong")}
-          </div>
-          <div className="ForgotPasswordIntroSubHeading">
-            {translate(error.current)}
-          </div>
-        </>
-      );
+      setIsGeneric(true);
     }
   };
   return (
-    <div className="ForgotPasswordContainer">
-      <div className="ForgotPasswordLeftWrapper flexGrow limitWidth">
-        <div className="ForgotPasswordLeftContainer" style={{ height: "100%" }}>
+    <div className={styles.Container}>
+      <div>
+        <div className={styles.LeftContainer} style={{ height: "100%" }}>
           <div>
             {isAffiliateLogo ? (
               <div class="container-header">
@@ -109,7 +101,23 @@ function AccountUnblockUI(props) {
               <McAfeeLogo />
             )}
           </div>
-          {LeftContainer()}
+          {isGeneric ? null : LeftContainer()}
+        </div>
+        <div
+          className={isGeneric ? styles.genericErrorPage : styles.linkErrorPage}
+        >
+          <div className={styles.errorDiv}>
+            {isGeneric ? (
+              <>
+                <div className={styles.Intro}>
+                  {translate("Something went wrong on our side...")}
+                </div>
+                <div className={styles.IntroSubHeading}>
+                  {translate("We’re sorry about that, please try again later.")}
+                </div>
+              </>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>
