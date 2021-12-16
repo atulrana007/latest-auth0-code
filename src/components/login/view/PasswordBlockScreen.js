@@ -8,6 +8,7 @@ function PasswordBlockScreen(props) {
     <div className={styles.LoginRightWrapper}>
       <div className={styles.BlockUserDiv}>
         <button
+          id = "password-block-screen-signin-with-otp"
           className={styles.EmailBlockSwitchBtn}
           onClick={(e) => blockScreenToggle("with-otp", e)}
           data-navelement="Sigin With OTP"
@@ -21,6 +22,7 @@ function PasswordBlockScreen(props) {
         <div className={styles.Horizontaldashedline}></div>
 
         <div
+          id = "password-block-screen-signin-with-different-email-address-link"
           className={styles.Signuppagelink}
           onClick={(e) => blockScreenToggle("with-password", e)}
           data-navelement="Signin-redirect-from-blockscreen"

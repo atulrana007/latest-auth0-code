@@ -170,6 +170,7 @@ const LoginUI = (props) => {
           <div className={styles.LoginBottomHeading}>
             <div>{translate("Do_not_have_an_account")}</div>
             <div
+              id = "create-one-now-link"
               className={styles.Loginpagelink}
               onClick={(e) => {
                 changePage(e);
@@ -185,6 +186,7 @@ const LoginUI = (props) => {
       if (blockScreenState.otpBlock && blockScreenState.passwordBlock) {
         return (
           <div
+            id = "both-password-and-otp-lock-sign-in-with-different-email-address-link"
             className={styles.Signuppagelink}
             onClick={(e) => blockScreenToggle("both-locked", e)}
             data-navelement="Signin-redirect-from-blockscreen"
@@ -236,6 +238,7 @@ const LoginUI = (props) => {
             <div className={styles.LoginBottomHeading}>
               <div>{translate("Do_not_have_an_account")}</div>
               <div
+                id = "create-one-now-link-2"
                 className={styles.Loginpagelink}
                 onClick={(e) => {
                   changePage(e);

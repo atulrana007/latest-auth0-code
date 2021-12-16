@@ -22,6 +22,7 @@ const SocialButtons = (props) => {
                                         className="SocialIcons"
                                     >
                                         <button
+                                            id = "social-login-button"
                                             onClick={() => socialBtn(item.name)}
                                             className="SocialBtn"
                                         >

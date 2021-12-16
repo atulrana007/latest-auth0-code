@@ -204,12 +204,15 @@ function ChangePasswordForm(props) {
               </div>
             </div>
             {ResetPasswordError.errorCode && (
-              <div className="Error">
+              <div 
+                id = "reset-password-error"
+                className="Error">
                 {translate(ResetPasswordError.errorCode)}
               </div>
             )}
             <div className="forgotPasswordDropDownContainer">
               <button
+                id = "reset-password-button"
                 className={
                   ResetPasswordForm.password !== "" &&
                   ResetPasswordForm.confirmPassword !== "" &&

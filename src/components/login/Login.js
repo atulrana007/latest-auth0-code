@@ -80,6 +80,7 @@ const Login = (props) => {
         {switchLogin === "login-with-password" && (
           <>
             <button
+              id = "sign-in-with-onetime-passcode-button"
               className={styles.SwitchBtn}
               onClick={onToggle}
               data-navelement="Signin With OTP"
@@ -93,6 +94,7 @@ const Login = (props) => {
         )}
         {switchLogin === "login-with-otp" && (
           <button
+            id= "sign-in-with-password-button"
             className={styles.SwitchBtn}
             onClick={onToggle}
             data-navelement="Signin With Password"

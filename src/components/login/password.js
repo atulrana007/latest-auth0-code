@@ -97,7 +97,10 @@ const PasswordFlow = (props) => {
         </div>
       </div>
       {LoginError?.email && (
-        <div className={styles.Error}>{translate(LoginError?.email)}</div>
+        <div 
+          id = "password-flow-login-error"
+          className={styles.Error}>{translate(LoginError?.email)}
+        </div>
       )}
       <>
         <div
@@ -171,6 +174,7 @@ const PasswordFlow = (props) => {
         </div>
         <div className={styles.forgotPasswordContainer}>
           <button
+            id = "forgot-password-link"
             type="button"
             className={styles.forgotPassword}
             onClick={handleForgotPasswordClick}
@@ -181,6 +185,7 @@ const PasswordFlow = (props) => {
         </div>
       </>
       <button
+        id = "sign-in-button"
         className={styles.SigninWithPassword}
         onClick={(e) => {
           onSubmit(e);

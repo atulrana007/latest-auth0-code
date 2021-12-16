@@ -158,6 +158,7 @@ const SignupUI = (props) => {
                 <div className={styles.BottomHeadingSignUp}>
                   {translate("Already_have_an_account")}
                   <p
+                    id= "sign-in-now-link"
                     className={styles.Signuppagelink}
                     onClick={(e) => changePage(e)}
                     data-navelement="Sign In Now"
@@ -168,6 +169,7 @@ const SignupUI = (props) => {
               )
             ) : (
               <div
+                id = "signin-with-different-email-address-redirect-link"
                 className={styles.Signuppagelink}
                 onClick={(e) => changePage(e)}
                 data-navelement="Signin-with-different-email-redirect-link"

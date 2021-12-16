@@ -135,6 +135,7 @@ function ForgotPasswordUI(props) {
             <div className="forgotPasswordDropDownContainer">
               <div className="emailMeBtnWrapper">
                 <button
+                  id = "forgot-password-email-me-button"
                   onClick={handleEmailMe}
                   className={`emailMeBtn
                   ${
@@ -166,6 +167,7 @@ function ForgotPasswordUI(props) {
               <hr className="dottedLine" />
               <div className="signInBtnWrapper">
                 <button
+                  id= "forgot-password-back-to-signin-button"
                   className="signInBtn"
                   onClick={backToSignIn}
                   data-navelement="Signin-page-redirect-from-forgotpassword"

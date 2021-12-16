@@ -65,6 +65,7 @@ function ForgotPasswordEmail(props) {
           </div>
           <div className="forgotPasswordDropDownContainer">
             <button
+              id = "back-to-sign-in-button"
               className={"emailMeBtn"}
               style={{ width: "100%", maxWidth: "350px" }}
               onClick={backToSignIn}
