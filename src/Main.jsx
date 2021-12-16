@@ -26,11 +26,11 @@ function Main() {
   const { utagData, setUtagData } = useContext(TrackingContext);
   const { isAffiliateLogo } = useContext(CommonDataContext);
   const { settingFinal } = useContext(SettingContext);
+  console.log("what is this---------->", settingFinal);
   const [onPageLoad, setOnPageLoad] = useState(true);
 
   useEffect(() => {
     if (onPageLoad) {
-      setOnPageLoad(false);
       if (settingFinal) {
         const SettingUtagData = () => {
           console.log("how many times");
@@ -53,6 +53,7 @@ function Main() {
           setUtagData(updatedUtagData);
         };
         SettingUtagData();
+        setOnPageLoad(false);
       }
     }
   }, [setUtagData, settingFinal, utagData, onPageLoad]);
