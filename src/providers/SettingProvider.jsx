@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import settings from "../localization/settings";
+// import settings from "../localization/settings";
 const SettingContext = React.createContext({});
 
 const SettingProvider = (props) => {
   const [setting, setSetting] = useState(null);
   const [settingFinal, setFinalSetting] = useState(null);
   const [localizedContent, setLocalizedContent] = useState(null);
+  const [fetchingError, setFetchingError] = useState(false);
 
   const ExtractingLocalizedContent = (jsonData) => {
     const errorMessage = {
@@ -53,10 +54,6 @@ const SettingProvider = (props) => {
             settingResponse.data.affiliates[props.affiliateId]
           );
         }
-      } catch (err) {
-        console.log(err);
-      }
-      try {
         const localizedFileResponse = await axios.get(
           `https://d1aza67fhfglew.cloudfront.net/content/${localeForMessageLink}/messages.json`
         );
@@ -67,8 +64,10 @@ const SettingProvider = (props) => {
         setLocalizedContent(
           ExtractingLocalizedContent(localizedFileResponse.data)
         );
-      } catch (e) {
-        console.log(e);
+        setFetchingError(false);
+      } catch (err) {
+        setFetchingError(true);
+        console.log(err);
       }
     };
     getSettings();
@@ -76,7 +75,7 @@ const SettingProvider = (props) => {
 
   return (
     <SettingContext.Provider
-      value={{ setting, localizedContent, settingFinal }}
+      value={{ setting, localizedContent, settingFinal, fetchingError }}
     >
       {props.children}
     </SettingContext.Provider>
