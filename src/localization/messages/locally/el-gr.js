@@ -2,24 +2,29 @@ const el = {
   ["el-gr"]: {
     "login.invalid_user_password":
       "Δεν μπορέσαμε να σας συνδέσουμε με αυτό το email και τον κωδικό πρόσβασης. Δοκιμάστε ξανά, <a_reset_pass>επαναφέρετε τον κωδικό πρόσβασής σας</a_reset_pass> ή <a_signin_otp>συνδεθείτε με κωδικό μίας χρήσης.</a_signin_otp>",
+    "login.invalid_user_password_2":
+      "Δεν μπορέσαμε να σας συνδέσουμε με αυτό το email και τον κωδικό πρόσβασης. Προσπαθήστε ξανά ή <a_reset_pass>επαναφέρετε τον κωδικό πρόσβασής σας</a_reset_pass>.",
     "login.ACT0104":
-      "Για την ασφάλειά σας, η είσοδος με κωδικό πρόσβασης για το <b>{email}</b> έχει κλειδωθεί λόγω πάρα πολλών προσπαθειών σύνδεσης.",
+      "Για την ασφάλειά σας, έχουμε κλειδώσει τον κωδικό πρόσβασης για σύνδεση στο <b>{email}</b>.",
     "login.ACT0105":
-      "Για την ασφάλειά σας, η είσοδος με κωδικό πρόσβασης για το <b>{email}</b> έχει κλειδωθεί λόγω πάρα πολλών προσπαθειών σύνδεσης.",
-    "login.invalid_passcode":
-      "Δεν μπορέσαμε να σας συνδέσουμε με αυτόν τον κωδικό πρόσβασης. Δοκιμάστε ξανά ή <a_rotp>στείλτε ξανά τον κωδικό</a_rotp>.",
+      "Για την ασφάλειά σας, έχουμε κλειδώσει τον κωδικό πρόσβασης για σύνδεση στο <b>{email}</b>.",
     "login.password_lock":
-      "Για την ασφάλειά σας, η είσοδος με κωδικό πρόσβασης για το <b>{email}</b> έχει κλειδωθεί λόγω πάρα πολλών προσπαθειών σύνδεσης.",
-    "login.auth0_password_lock":
-      "Μόλις σας στείλαμε email με έναν σύνδεσμο για να ξεκλειδώσετε τον λογαριασμό σας. Μπορείτε να συνδεθείτε με έναν κωδικό πρόσβασης μίας χρήσης, <a_reset_pass>να δοκιμάσετε να επαναφέρετε τον κωδικό πρόσβασής σας</a_reset_pass> ή <a_contact_support>να επικοινωνήσετε με την υποστήριξη.</a_contact_support>",
+      "Για την ασφάλειά σας, έχουμε κλειδώσει τον κωδικό πρόσβασης για σύνδεση στο <b>{email}</b>.",
     "passwordless.bad.email":
       "Λυπούμαστε, δεν μπορέσαμε να βρούμε λογαριασμό για αυτήν τη διεύθυνση ηλεκτρονικού ταχυδρομείου.",
+    "passwordless.multiple_resend_otp":
+      "Έχετε συμπληρώσει τον μέγιστο αριθμό επιτρεπόμενων προσπαθειών κωδικού μίας χρήσης. Περιμένετε λίγα λεπτά και δοκιμάστε ξανά.",
+    "passwordless.passcode_lock":
+      "Για την ασφάλειά σας, έχουμε κλειδώσει τον κωδικό πρόσβασης για σύνδεση στο <b>{email}</b>.",
+    "passwordless.invalid_user_password":
+      "Δεν μπορέσαμε να σας συνδέσουμε με αυτόν τον κωδικό πρόσβασης. Δοκιμάστε ξανά ή <a_rotp>στείλτε ξανά τον κωδικό</a_rotp>.",
     "forgotPassword.too_many_requests":
       "Έχετε συμπληρώσει τον μέγιστο αριθμό επιτρεπόμενων προσπαθειών κωδικού πρόσβασης. Περιμένετε λίγα λεπτά και δοκιμάστε ξανά.",
     "signUp.export_restriction":
       "Δεν μπορούμε να δημιουργήσουμε λογαριασμό για τον/την <b>{email}</b> λόγω του ότι η διεύθυνση email σας προέρχεται από χώρα που υπόκειται στους περιορισμούς εξαγωγών των ΗΠΑ ή η εταιρεία σας βρίσκεται σε λίστα απαγορευμένων οργανισμών, είτε από τις ΗΠΑ είτε από ξένη κυβερνητική οργάνωση.",
     Welcome_back_to: "Καλώς ήρθατε ξανά στη McAfee!",
-    fallback_error: "Λυπούμαστε, παρουσιάστηκε πρόβλημα.",
+    Link_already_used: "Φαίνεται ότι αυτός ο σύνδεσμος έχει ήδη χρησιμοποιηθεί",
+    fallback_error: "Λυπούμαστε, παρουσιάστηκε πρόβλημα",
     email: "Ηλεκτρονικό ταχυδρομείο",
     password: "Κωδικός πρόσβασης",
     signIn: "Σύνδεση",
@@ -32,23 +37,23 @@ const el = {
     continue: "Συνέχεια",
     Do_not_have_an_account: "Δεν έχετε λογαριασμό;",
     Enter_your_email_address_set_password_and_well_get_your_account_created:
-      "Εισαγάγετε τη διεύθυνση email σας, ορίστε έναν κωδικό πρόσβασης και θα δημιουργήσουμε τον λογαριασμό σας.",
+      "Εισαγάγετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας και ορίστε έναν κωδικό πρόσβασης για να δημιουργήσετε έναν λογαριασμό.",
     Already_have_an_account: "Διαθέτετε ήδη λογαριασμό;",
     confirm_password: "Επιβεβαίωση κωδικού πρόσβασης",
     ResendCode: "Επαναποστολή κωδικού",
     Create_my_Account: "Δημιουργία λογαριασμού",
     Sign_into_your_McAfee_account: "Σύνδεση στο λογαριασμό McAfee",
-    Signing_you_in: "Σας συνδέουμε...",
+    Signing_you_in: "Γίνεται σύνδεση...",
     Create_one_now: "Δημιουργήστε έναν τώρα",
     Create_your_McAfee_account: "Δημιουργήστε λογαριασμό McAfee",
     Looks_like_you_already_have_an_account:
       "Φαίνεται ότι διαθέτετε ήδη λογαριασμό! Σύνδεση τώρα",
     This_email_already_exists:
-      "Αυτή η διεύθυνση ηλεκτρονικού ταχυδρομείου έχει ήδη συσχετιστεί με έναν λογαριασμό McAfee. Συνδεθείτε για να συνεχίσετε",
+      "Αυτή η διεύθυνση ηλεκτρονικού ταχυδρομείου έχει ήδη συσχετιστεί με έναν λογαριασμό McAfee. Συνδεθείτε για να συνεχίσετε.",
     contactUs: "Επικοινωνήστε μαζί μας",
     privacyNotice: "Νομική γνωστοποίηση περί απορρήτου",
     FAQs: "Συχνές ερωτήσεις",
-    Copyright_Text: "Copyright ©2021 McAfee , LLC",
+    Copyright_Text: "Copyright © 2021 McAfee, LLC",
     If_you_didnt_receive_a_passcode_check_your_spam_folder:
       "Εάν δεν λάβατε κάποιον κωδικό, ελέγξτε τον φάκελο ανεπιθύμητης αλληλογραφίας.",
     we_will_send_otp:
@@ -70,9 +75,11 @@ const el = {
     Sign_in_with_a_different_email_address:
       "Συνδεθείτε με διαφορετική διεύθυνση ηλεκτρονικού ταχυδρομείου",
     You_have_reached_the_maximum_number_of_password_attempts:
-      "Έχετε συμπληρώσει τον μέγιστο αριθμό επιτρεπόμενων προσπαθειών κωδικού πρόσβασης.",
+      "Έχετε συμπληρώσει τον μέγιστο αριθμό επιτρεπόμενων προσπαθειών κωδικού πρόσβασης",
     You_can_sign_in_with_a_otp_or_to_unlock_your_account_you_may_reset_your_password_or_Contact_Support:
-      "Μπορείτε να συνδεθείτε με έναν κωδικό πρόσβασης μίας χρήσης ή για να ξεκλειδώσετε τον λογαριασμό σας, μπορείτε να <a_reset_pass>επαναφέρετε τον κωδικό πρόσβασής σας</a_reset_pass> ή <a_contact_support>να επικοινωνήσετε με την υποστήριξη.</a_contact_support>",
+      "Σας στείλαμε έναν σύνδεσμο για να ξεκλειδώσετε τον λογαριασμό σας. Συνδεθείτε με έναν κωδικό πρόσβασης μίας χρήσης ή <a_reset_pass>επαναφέρετε τον κωδικό πρόσβασής σας</a_reset_pass> για να ξεκλειδώσετε τον λογαριασμό σας.",
+    You_can_sign_in_with_a_otp_or_to_unlock_your_account_you_may_reset_your_password_or_Contact_Support_2:
+      "Συνδεθείτε με έναν κωδικό πρόσβασης μίας χρήσης ή <a_reset_pass>επαναφέρετε τον κωδικό πρόσβασής σας</a_reset_pass> για να ξεκλειδώσετε τον λογαριασμό σας.",
     We_sent_a_otp_to_email:
       "Στείλαμε έναν κωδικό μίας χρήσης στη διεύθυνση <b>{email}</b>",
     UpperCaseCheck: "1 κεφαλαίο γράμμα (A-Z)",
@@ -84,47 +91,51 @@ const el = {
     Reset_Password: "Επαναφορά κωδικού πρόσβασης",
     Enter_email_to_reset_password:
       "Εισαγάγετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου που χρησιμοποιήσατε για να δημιουργήσετε τον λογαριασμό McAfee και θα σας στείλουμε έναν σύνδεσμο για να επαναφέρετε τον κωδικό πρόσβασης.",
-    Forgot_your_password:
-      "Ξεχάσατε ποια διεύθυνση ηλεκτρονικού ταχυδρομείου χρησιμοποιήσατε; ",
-    Contact_support: "Contact support",
-    Go_back_to_signin: "Επιστροφή στη σύνδεση",
+    Forgot_your_password_contact_support:
+      "Ξεχάσατε ποια διεύθυνση ηλεκτρονικού ταχυδρομείου χρησιμοποιήσατε; <a_contact_support>Επικοινωνία με την υποστήριξη</a_contact_support>",
     Email_me: "Να μου αποσταλεί μήνυμα ηλεκτρονικού ταχυδρομείου",
-    Check_inbox: "Ελέγξτε τον φάκελο εισερχομένων σας",
+    Go_back_to_signin: "Επιστροφή στη σύνδεση",
+    Back_to_signin: "Επιστροφή στη σύνδεση",
+    Check_inbox: "Ελέγξτε το φάκελο εισερχομένων σας",
     Password_reset_link_sent:
       "Εστάλη σύνδεσμος επαναφοράς κωδικού πρόσβασης. Χρησιμοποιήστε τον εντός 72 ωρών για να επαναφέρετε τον κωδικό πρόσβασης.",
-    Back_to_signin: "Επιστροφή στη σύνδεση",
-    "Didn't_receive_reset_password_link":
-      "Εάν δεν λάβατε σύνδεσμο, ελέγξτε τον φάκελο ανεπιθύμητης αλληλογραφίας ή <a_request_another_mail>ζητήστε να σας σταλεί άλλο email</a_request_another_mail>. Ξεχάσατε ποια διεύθυνση ηλεκτρονικού ταχυδρομείου χρησιμοποιήσατε ή χρειάζεστε βοήθεια; <a_contact_support>Επικοινωνία με την υποστήριξη</a_contact_support>",
+    Did_not_receive_reset_password_link_request_another_email_forgot_email_need_help_contact_support:
+      "Εάν δεν λάβατε έναν σύνδεσμο, ελέγξτε τον φάκελο ανεπιθύμητης αλληλογραφίας ή <a_request_another_mail>ζητήστε να σας στείλουν ξανά τον σύνδεσμο</a_request_another_mail>. Χρειάζεστε βοήθεια; <a_contact_support>Επικοινωνία με την υποστήριξη</a_contact_support>",
     Enter_new_password:
       "Εισαγάγετε τον νέο σας κωδικό πρόσβασης για το {email}.",
     "Password_successfully_reset!": "Επιτυχής επαναφορά του κωδικού πρόσβασης!",
     Close_tab_to_previous_page_to_signin:
-      "Κλείστε αυτήν την καρτέλα για να επιστρέψετε στην προηγούμενη σελίδα και να συνδεθείτε. ",
-    "passwordless.invalid_user_password":
-      "We couldn’t sign you with this passcode. <a_rotp>Try again or resend code.</a_rotp>",
-    "passwordless.passcode_lock":
-      "For your security, passcode sign in for <b>{email}</b> has been locked due to too many sign in attempts.",
-    Need_help: "Need help?",
+      "Κλείστε αυτήν την καρτέλα για να επιστρέψετε στην προηγούμενη σελίδα και να συνδεθείτε.",
+    Need_help: "Χρειάζεστε βοήθεια;",
+    Contact_support: "Επικοινωνία με την υποστήριξη",
     login_lock_title:
-      "We’ve temporarily locked your account to protect your identity",
+      "Κλειδώσαμε προσωρινά τον λογαριασμό σας για να προστατεύσουμε την ταυτότητά σας",
     login_lock_subtitle:
-      "We sent an email to <b>{email}</b> to unlock your account. Or you can <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support</a_contact_support> to verify your identity and unlock your account.",
-    otp_lock_bottom_Message:
-      "You may sign in with a password, try <a_reset_pass>resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
+      "Στείλαμε έναν σύνδεσμο στο <b>{email}</b> για να ξεκλειδώσετε τον λογαριασμό σας. Εναλλακτικά, μπορείτε να <a_reset_pass>επαναφέρετε τον κωδικό πρόσβασης</a_reset_pass> ή να <a_contact_support>επικοινωνήσετε με την υποστήριξη</a_contact_support> για να επαληθεύσετε την ταυτότητά σας και να ξεκλειδώσετε τον λογαριασμό σας.",
     optin_VirusThreats:
-      "I want to receive information about the latest viruses(available in English only).",
+      "Θέλω να λαμβάνω πληροφορίες σχετικά με πρόσφατους ιούς (μόνο στα αγγλικά).",
     optin_SpecialPromo:
-      " I would like to receive information about McAfee special offers.",
+      "Θέλω να λαμβάνω πληροφορίες σχετικά με ειδικές προσφορές από την McAfee.",
     optin_PartnerPromo:
-      "I would like to receive information about special offers from McAfee partners.",
-    Resending_code: "Resending code...",
-    Code_sent: "Code sent.",
-    "passwordless.multiple_resend_otp":
-      "You’ve reached the maximum number of one-time passcode attempts. Wait a few minutes and try again.",
+      "Θέλω να λαμβάνω πληροφορίες σχετικά με ειδικές προσφορές από συνεργάτες της McAfee.",
+    Resending_code: "Γίνεται επαναποστολή κωδικού...",
+    Code_sent: "Ο κωδικός στάλθηκε.",
     You_have_reached_the_maximum_number_of_passcode_attempts:
-      "You’ve reached the maximum number of passcode attempts",
+      "Έχετε συμπληρώσει τον μέγιστο αριθμό επιτρεπόμενων προσπαθειών κωδικού πρόσβασης",
+    otp_lock_bottom_Message:
+      "Συνδεθείτε με έναν κωδικό πρόσβασης ή <a_reset_pass>επαναφέρετε τον κωδικό πρόσβασής σας</a_reset_pass> για να ξεκλειδώσετε τον λογαριασμό σας.",
     We_just_sent_an_email_with_a_link_to_unlock_your_account_You_may_sign_in_with_a_password:
-      "We just sent an email with a link to unlock your account. You may sign in with a password, <a_reset_pass>try resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
+      "Σας στείλαμε έναν σύνδεσμο για να ξεκλειδώσετε τον λογαριασμό σας. Συνδεθείτε με έναν <a_signin_otp>κωδικό πρόσβασης μίας χρήσης</a_signin_otp> ή <a_reset_pass>επαναφέρετε τον κωδικό πρόσβασής σας</a_reset_pass> για να ξεκλειδώσετε τον λογαριασμό σας.",
+    Email_is_not_valid:
+      "Η διεύθυνση ηλεκτρονικού ταχυδρομείου δεν είναι έγκυρη",
+    Your_account_unlocked: "Ο λογαριασμός σας ξεκλειδώθηκε",
+    Signin_to_start_using_protection:
+      "Συνδεθείτε για να αρχίσετε να χρησιμοποιείτε την προστασία.",
+    Link_Expired: "Ο σύνδεσμος έχει λήξει",
+    Reset_password_to_unlock_account:
+      "Επαναφέρετε τον κωδικό πρόσβασης ή <a_contact_support>επικοινωνήσετε με την υποστήριξη</a_contact_support> για να ξεκλειδώσετε τον λογαριασμό σας.",
+    password_reset_link_expired:
+      "Ο σύνδεσμος επαναφοράς κωδικού πρόσβασης έχει λήξει",
   },
 };
 export default el;

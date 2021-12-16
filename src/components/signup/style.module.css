@@ -8,7 +8,7 @@
 }
 .leftContainer {
   flex: 0.5;
-  padding: 1rem 0rem;
+  padding: 1rem;
 }
 .SignupWelcomeContainer {
   display: flex;
@@ -17,10 +17,10 @@
 }
 .InputAndLogoSignup {
   display: flex;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   flex-direction: row;
   padding: 0.5rem 1rem;
-  border-radius: 18px;
+  border-radius: 12px;
   color: RGB(38, 41, 77);
   font-size: inherit;
   outline: none;
@@ -93,14 +93,14 @@
   margin: 0 3px;
 }
 .Input {
-  padding: 0.5rem 1rem;
+  padding-right: 0.5rem;
   border-radius: 1rem;
-  margin-left: 0.3rem;
+  margin-left: 0.5rem;
   width: 100%;
   background-color: white;
   border: 0px solid white;
   color: RGB(38, 41, 77);
-  font-size: 1.3rem;
+  font-size: 1rem;
   outline: none;
   width: -webkit-fill-available;
 }
@@ -108,19 +108,19 @@
   position: absolute;
   font-weight: 600;
   color: rgb(175, 174, 174);
-  margin-left: 2rem;
-  margin-top: 1.2rem;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
   background-color: #fff;
-  padding: 3px;
+  padding: 2px 2px;
 }
 .InputLabelPass {
   position: absolute;
   font-weight: 600;
   color: rgb(175, 174, 174);
-  margin-left: 2rem;
-  margin-top: 1rem;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
   background-color: #fff;
-  padding: 5px;
+  padding: 2px 2px;
 }
 .RightContainerWrapper {
   flex: 1;
@@ -134,10 +134,10 @@
   position: absolute;
   font-weight: 600;
   color: rgb(175, 174, 174);
-  margin-left: 2rem;
-  margin-top: 1rem;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
   background-color: #fff;
-  padding: 5px;
+  padding: 2px 2px;
 }
 .hr {
   border: none;
@@ -272,15 +272,11 @@
   margin-top: 4px;
 }
 .emailSVG {
-  height: 2rem;
-  width: 2rem;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
   color: rgb(175, 174, 174);
 }
 .lockSVG {
-  height: 2rem;
-  width: 2rem;
-  margin-top: 0.5rem;
+  margin-top: 0.1rem;
   color: rgb(175, 174, 174);
 }
 .optinFieldsWrapper {
@@ -302,7 +298,7 @@
 @media only screen and (min-width: 700px) {
   .SignupWrapper {
     margin-top: 2rem;
-    margin-left: 4rem;
+    margin-left: 3rem;
     flex-direction: row;
   }
   .RightContainerSignup {

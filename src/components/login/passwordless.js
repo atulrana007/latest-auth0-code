@@ -25,13 +25,13 @@ const PasswordLessFlow = (props) => {
 
   useEffect(() => {
     return () => {
-      console.log("Destroying passwordless error")
+      console.log("Destroying passwordless error");
       setLoginError({
         ...LoginError,
-        isEmailError:false
-      })
-    }
-  }, [])
+        isEmailError: false,
+      });
+    };
+  }, []);
 
   return (
     <>
@@ -44,11 +44,11 @@ const PasswordLessFlow = (props) => {
                 style={{
                   // color: validateEmail(LoginForm.email) ? "#0CA77D" : "red",
                   color:
-                  LoginError.isEmailError === true
-                    ? "red"
-                    : validateEmail(LoginForm.email) 
-                    ? "#848faa" 
-                    : "red",
+                    LoginError.isEmailError === true
+                      ? "red"
+                      : validateEmail(LoginForm.email)
+                      ? "#848faa"
+                      : "red",
                 }}
               >
                 {translate("email")}
@@ -63,7 +63,7 @@ const PasswordLessFlow = (props) => {
                     ? "1px solid red"
                     : "1px solid #848faa",
                 backgroundColor: "#ffff",
-                borderRadius: "1rem",
+                borderRadius: "12px",
               }}
             >
               <OutlineMail
@@ -74,7 +74,8 @@ const PasswordLessFlow = (props) => {
               />
               <FormattedMessage id="email">
                 {(msg) => (
-                  <input style={{color: LoginError.isEmailError?"red":""}}
+                  <input
+                    style={{ color: LoginError.isEmailError ? "red" : "" }}
                     type="email"
                     id="email"
                     name="email"
@@ -129,7 +130,7 @@ const PasswordLessFlow = (props) => {
                   id="otp"
                   name="otp"
                   placeholder={msg}
-                  className={styles.LoginInput}
+                  className={styles.LoginInputOTP}
                   onChange={onChange}
                   value={LoginForm.otp}
                 />

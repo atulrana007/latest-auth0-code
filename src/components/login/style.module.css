@@ -94,7 +94,17 @@
 }
 .LoginInput {
   padding-right: 1rem;
-  border-radius: 1rem;
+  border-radius: 12px;
+  flex: 1;
+  font-size: 1rem;
+  color: RGB(38, 41, 77);
+  border: none;
+  outline: none;
+  width: -webkit-fill-available;
+}
+.LoginInputOTP {
+  padding: 1rem;
+  border-radius: 12px;
   flex: 1;
   font-size: 1rem;
   color: RGB(38, 41, 77);

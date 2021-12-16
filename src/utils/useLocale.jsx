@@ -14,7 +14,12 @@ const useLocale = () => {
       lang = localStorage.getItem("lang");
     }
   } else {
-    lang = culture;
+    if (culture.slice(0, 2) === "en") {
+      lang = "en-us";
+    } else {
+      lang = culture;
+    }
+
     localStorage.setItem("lang", lang);
   }
   if (lang) {

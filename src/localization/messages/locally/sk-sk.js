@@ -1,57 +1,62 @@
 const sk = {
   ["sk-sk"]: {
     "login.invalid_user_password":
-      "Prihlásenie s týmto e-mailom a heslom sa nepodarilo. Skúste to znova. <a_reset_pass>Obnovte heslo</a_reset_pass> alebo sa <a_signin_otp>prihláste pomocou jednorazového prístupového kódu.</a_signin_otp>",
+      "Prihlásenie s týmto e-mailom a heslom sa nepodarilo. Skúste znova. <a_reset_pass>Obnovte heslo</a_reset_pass> alebo sa <a_signin_otp>prihláste pomocou jednorazového prístupového kódu.</a_signin_otp>",
+    "login.invalid_user_password_2":
+      "Prihlásenie s týmto e-mailom a heslom sa nepodarilo. Skúste znova alebo <a_reset_pass>obnovte heslo</a_reset_pass>.",
     "login.ACT0104":
-      "Z dôvodu prekročenia pokusov o prihlásenie sme v záujme vášho zabezpečenia zablokovali možnosť prihlásenia heslom pre e-mail <b>{email}</b>.",
+      "V záujme vášho zabezpečenia sme zablokovali prihlásenie heslom do účtu s e-mailom <b>{email}</b>.",
     "login.ACT0105":
-      "Z dôvodu prekročenia pokusov o prihlásenie sme v záujme vášho zabezpečenia zablokovali možnosť prihlásenia heslom pre e-mail <b>{email}</b>.",
-    "login.invalid_passcode":
-      "Prihlásenie s týmto prístupovým kódom sa nepodarilo. Skúste to znova alebo <a_rotp>znova odošlite kód</a_rotp>.",
+      "V záujme vášho zabezpečenia sme zablokovali prihlásenie heslom do účtu s e-mailom <b>{email}</b>.",
     "login.password_lock":
-      "Z dôvodu prekročenia pokusov o prihlásenie sme v záujme vášho zabezpečenia zablokovali možnosť prihlásenia heslom pre e-mail <b>{email}</b>.",
-    "login.auth0_password_lock":
-      "Odkaz na odomknutie účtu sme vám poslali na e-mail. Skúste sa prihlásiť jednorázovým prístupovým kódom, <a_reset_pass>obnoviť heslo</a_reset_pass> alebo <a_contact_support>kontaktujte oddelenie podpory</a_contact_support>.",
+      "V záujme vášho zabezpečenia sme zablokovali prihlásenie heslom do účtu s e-mailom <b>{email}</b>.",
     "passwordless.bad.email":
       "Ľutujeme, nepodarilo sa nám nájsť účet priradený k tejto e-mailovej adrese.",
+    "passwordless.multiple_resend_otp":
+      "Dosiahli ste maximálny počet pokusov o zadanie jednorazového prístupového kódu. Počkajte pár minút a skúste znova.",
+    "passwordless.passcode_lock":
+      "V záujme vášho zabezpečenia sme zablokovali prihlasovanie prístupovým kódom do účtu s e-mailom <b>{email}</b>.",
+    "passwordless.invalid_user_password":
+      "Prihlásenie s týmto prístupovým kódom sa nepodarilo. Skúste znova alebo <a_rotp>znova odošlite kód</a_rotp>.",
     "forgotPassword.too_many_requests":
-      "Dosiahli ste maximálny počet pokusov o zadanie hesla. Počkajte pár minút a skúste to znova.",
+      "Dosiahli ste maximálny počet pokusov o zadanie hesla. Počkajte pár minút a skúste znova.",
     "signUp.export_restriction":
-      "Účet nie je možné vytvoriť, pretože vaša e-mailová adresa <b>{email}</b> bola vytvorená v krajine, na ktorú sa vzťahujú obmedzenia vývozu USA, alebo sa vaša spoločnosť nachádza na zozname krajín, ktoré USA alebo zahraničný vládny úrad označili ako zakázané.",
-    Welcome_back_to: "Vitajte späť v ochrane McAfee!",
+      "Účet priradený k e-mailu <b>{email}</b> nie je možné vytvoriť, pretože vaša e-mailová adresa bola vytvorená v krajine, na ktorú sa vzťahujú obmedzenia vývozu USA, alebo sa vaša spoločnosť nachádza na zozname krajín, ktoré USA alebo zahraničný vládny úrad označili ako zakázané.",
+    Welcome_back_to: "Vitajte späť v ochrane McAfee.",
+    Link_already_used: "Zdá sa, že tento odkaz už bol použitý",
     fallback_error: "Ľutujeme, vyskytol sa problém.",
     email: "E-mail",
     password: "Heslo",
     signIn: "Prihlásiť sa",
-    choose_your_signIn_method_continue: "Vyberte spôsob prihlásenia",
+    choose_your_signIn_method_continue: "Výber spôsobu prihlásenia",
     or: "ALEBO",
-    signIn_with_password: "Prihláste sa pomocou hesla",
+    signIn_with_password: "Prihlásenie pomocou hesla",
     one_time_passcode: "Jednorazový prístupový kód",
     Sign_in_with_a_onetime_passcode: "Prihlásiť sa pomocou jednorazového kódu",
     continue: "Pokračovať",
     Do_not_have_an_account: "Nemáte účet?",
     Enter_your_email_address_set_password_and_well_get_your_account_created:
-      "Zadajte e-mailovú adresu a nastavte si heslo do účtu, ktorý vám vytvoríme.",
-    Already_have_an_account: "Už máte účet?",
-    confirm_password: "Potvrdiť heslo",
+      "Zadajte svoju e-mailovú adresu a vytvorte si heslo do účtu.",
+    Already_have_an_account: "Máte už účet?",
+    confirm_password: "Potvrdenie hesla",
     ResendCode: "Znova odoslať kód",
     Create_my_Account: "Vytvoriť účet",
     Sign_into_your_McAfee_account: "Prihláste sa do účtu McAfee",
-    Signing_you_in: "Prihlasujeme vás…",
+    Signing_you_in: "Prihlasujeme vás...",
     Create_one_now: "Vytvorte si ho.",
     Create_your_McAfee_account: "Vytvorte si účet McAfee",
     Looks_like_you_already_have_an_account:
       "Zdá sa, že účet už máte. Prihlásiť sa",
     This_email_already_exists:
-      "Táto e-mailová adresa je už prepojená s účtom McAfee. Najprv sa prihláste",
+      "Táto e-mailová adresa je už prepojená s účtom McAfee. Ak chcete pokračovať, prihláste sa.",
     contactUs: "Kontaktujte nás",
-    privacyNotice: "Vyhlásenie o používaní osobných údajov",
+    privacyNotice: "Vyhlásenie o používaní osobných údajov",
     FAQs: "Najčastejšie otázky",
-    Copyright_Text: "Copyright ©2021 McAfee , LLC",
+    Copyright_Text: "Copyright © 2021 McAfee, LLC",
     If_you_didnt_receive_a_passcode_check_your_spam_folder:
       "Ak ste prístupový kód nedostali, skontrolujte priečinok nevyžiadanej pošty.",
     we_will_send_otp:
-      "Na vašu e-mailovú adresu vám pošleme jednorazový prístupový kód, pomocou ktorého overíme vašu identitu a prihlásime vás.",
+      "Na e-mailovú adresu vám pošleme jednorazový prístupový kód, pomocou ktorého overíme vašu identitu a prihlásime vás.",
     Sign_in_now: "Prihlásiť sa",
     This_passcode_has_expired: "Tento prístupový kód vypršal.",
     Passcode_expires_in: "Prístupový kód vyprší po",
@@ -59,7 +64,7 @@ const sk = {
     We_will_send_you_a_otp_subtitle: "Najprv zadajte svoju e-mailovú adresu.",
     Send_new_code: "Poslať nový kód",
     By_clicking_Create_my_Account_you_accept_McAfee_License_Agreement_and_Privacy_Notice:
-      "Kliknutím na <b>Vytvoriť účet</b> súhlasíte s dokumentmi: <a_McAfee_License>Licenčná zmluva</a_McAfee_License> a <a_privacy_notice>Vyhlásenie o používaní osobných údajov</a_privacy_notice> spoločnosti McAfee.",
+      "Kliknutím na <b>Vytvoriť účet</b> súhlasíte s dokumentmi <a_McAfee_License>Licenčná zmluva</a_McAfee_License> a <a_privacy_notice>Vyhlásenie o používaní osobných údajov</a_privacy_notice> spoločnosti McAfee.",
     We_are_sorry_but_we_could_not_create_your_account:
       "Ľutujeme, účet sa nepodarilo vytvoriť.",
     Email_us_at:
@@ -69,7 +74,9 @@ const sk = {
     You_have_reached_the_maximum_number_of_password_attempts:
       "Dosiahli ste maximálny počet pokusov o zadanie hesla.",
     You_can_sign_in_with_a_otp_or_to_unlock_your_account_you_may_reset_your_password_or_Contact_Support:
-      "Skúste sa prihlásiť jednorázovým prístupovým kódom, odomknite účet <a>obnovím hesla</a> alebo <a_contact_support>kontaktujte oddelenie podpory</a_contact_support>.",
+      "Odoslali sme vám odkaz na odomknutie účtu. Prihláste sa pomocou jednorazového prístupového kódu alebo <a_reset_pass>obnovte heslo</a_reset_pass> a odomknite svoj účet.",
+    You_can_sign_in_with_a_otp_or_to_unlock_your_account_you_may_reset_your_password_or_Contact_Support_2:
+      "Prihláste sa pomocou jednorazového prístupového kódu alebo <a_reset_pass>obnovte heslo</a_reset_pass> a odomknite svoj účet.",
     We_sent_a_otp_to_email:
       "Jednorazový prístupový kód sme poslali na adresu <b>{email}</b>",
     UpperCaseCheck: "1 veľké písmeno (A – Z)",
@@ -80,46 +87,49 @@ const sk = {
     Forgot_password: "Zabudli ste heslo?",
     Reset_Password: "Obnoviť heslo",
     Enter_email_to_reset_password:
-      "Zadajte e-mailovú adresu, ktorú ste použili pri vytváraní účtu McAfee, a pošleme vám odkaz na obnovenie hesla.",
-    Forgot_your_password: "Zabudli ste, ktorý e-mail ste použili? ",
-    Contact_support: "Contact support",
+      "Zadajte e-mail, ktorý ste použili pri vytváraní účtu McAfee, a pošleme vám odkaz na obnovenie hesla.",
+    Forgot_your_password_contact_support:
+      "Zabudli ste, ktorý e-mail ste použili? <a_contact_support>Kontaktujte oddelenie podpory</a_contact_support>",
+    Email_me: "Odoslať e-mail",
     Go_back_to_signin: "Prejsť späť na prihlásenie",
-    Email_me: "Pošlite mi e-mail",
+    Back_to_signin: "Späť na prihlásenie",
     Check_inbox: "Skontrolujte si doručenú poštu",
     Password_reset_link_sent:
       "Odkaz na obnovenie hesla bol odoslaný. Na obnovenie hesla ho môžete použiť do 72 hodín.",
-    Back_to_signin: "Späť na prihlásenie",
-    "Didn't_receive_reset_password_link":
-      "Ak ste odkaz nedostali, skontrolujte priečinok nevyžiadanej pošty alebo <a_request_another_mail>požiadajte o odoslanie nového e-mailu</a_request_another_mail>. Zabudli ste, ktorý e-mail ste použili, alebo potrebujete pomoc? <a_contact_support>Kontaktujte oddelenie podpory</a_contact_support>",
+    Did_not_receive_reset_password_link_request_another_email_forgot_email_need_help_contact_support:
+      "Ak ste odkaz nedostali, skontrolujte priečinok nevyžiadanej pošty alebo <a_request_another_mail>požiadajte o opätovné odoslanie odkazu</a_request_another_mail>. Potrebujete pomoc? <a_contact_support>Kontaktujte oddelenie podpory</a_contact_support>",
     Enter_new_password: "Zadajte nové heslo pre {email}.",
     "Password_successfully_reset!": "Heslo sme úspešne obnovili.",
     Close_tab_to_previous_page_to_signin:
-      "Zavrite túto kartu a vráťte sa na predchádzajúcu stránku, na ktorej sa môžete prihlásiť. ",
-    "passwordless.invalid_user_password":
-      "We couldn’t sign you with this passcode. <a_rotp>Try again or resend code.</a_rotp>",
-    "passwordless.passcode_lock":
-      "For your security, passcode sign in for <b>{email}</b> has been locked due to too many sign in attempts.",
-    Need_help: "Need help?",
+      "Zavrite túto kartu a vráťte sa na predchádzajúcu stránku, na ktorej sa môžete prihlásiť.",
+    Need_help: "Potrebujete pomoc?",
+    Contact_support: "Kontaktujte oddelenie podpory",
     login_lock_title:
-      "We’ve temporarily locked your account to protect your identity",
+      "V záujme ochrany vašej identity sme dočasne uzamkli váš účet",
     login_lock_subtitle:
-      "We sent an email to <b>{email}</b> to unlock your account. Or you can <a_reset_pass>reset your password</a_reset_pass> or <a_contact_support>Contact Support</a_contact_support> to verify your identity and unlock your account.",
-    otp_lock_bottom_Message:
-      "You may sign in with a password, try <a_reset_pass>resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
+      "Na adresu <b>{email}</b> sme odoslali odkaz, pomocou ktorého odomknete svoj účet. Alebo o overenie identity a odomknutie účtu požiadajte <a_contact_support>oddelenie podpory</a_contact_support>, prípadne si <a_reset_pass>obnovte heslo</a_reset_pass>.",
     optin_VirusThreats:
-      "I want to receive info about recent viruses (English only).",
+      "Chcem dostávať informácie o najnovších vírusoch (dostupné len v angličtine).",
     optin_SpecialPromo:
-      "I want to receive info about special offers from McAfee.",
+      "Chcem dostávať informácie o mimoriadnych ponukách McAfee.",
     optin_PartnerPromo:
-      "I want to receive info about offers from McAfee partners.",
-    Resending_code: "Resending code...",
-    Code_sent: "Code sent.",
-    "passwordless.multiple_resend_otp":
-      "You’ve reached the maximum number of one-time passcode attempts. Wait a few minutes and try again.",
+      "Chcem dostávať informácie o ponukách partnerov McAfee.",
+    Resending_code: "Kód sa znova odosiela...",
+    Code_sent: "Kód bolo odoslaný.",
     You_have_reached_the_maximum_number_of_passcode_attempts:
-      "You’ve reached the maximum number of passcode attempts",
+      "Dosiahli ste maximálny počet pokusov o zadanie prístupového kódu.",
+    otp_lock_bottom_Message:
+      "Prihláste sa pomocou hesla alebo <a_reset_pass>obnovte heslo</a_reset_pass> a odomknite svoj účet.",
     We_just_sent_an_email_with_a_link_to_unlock_your_account_You_may_sign_in_with_a_password:
-      "We just sent an email with a link to unlock your account. You may sign in with a password, <a_reset_pass>try resetting your password</a_reset_pass> or <a_contact_support>Contact Support.</a_contact_support>",
+      "Odoslali sme vám odkaz na odomknutie účtu. Prihláste sa pomocou <a_signin_otp>jednorazového prístupového kódu</a_signin_otp> alebo <a_reset_pass>obnovte heslo</a_reset_pass> a odomknite svoj účet.",
+    Email_is_not_valid: "E-mail nie je platný",
+    Your_account_unlocked: "Váš účet bol uzamknutý",
+    Signin_to_start_using_protection:
+      "Prihláste sa a začnite používať svoju ochranu.",
+    Link_Expired: "Odkaz vypršal",
+    Reset_password_to_unlock_account:
+      "Kontaktujte <a_contact_support>oddelenie podpory</a_contact_support> alebo odomknite účet.",
+    password_reset_link_expired: "Odkaz na obnovenie hesla vypršal",
   },
 };
 export default sk;

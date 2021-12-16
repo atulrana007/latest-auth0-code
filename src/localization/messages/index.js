@@ -5,9 +5,9 @@ import arae from "./locally/ar-ae";
 import cscz from "./locally/cs-cz";
 import dadk from "./locally/da-dk";
 import dech from "./locally/de-ch";
+import dede from "./locally/de-de";
 import elgr from "./locally/el-gr";
 import enus from "./locally/en-us";
-import engb from "./locally/en-gb";
 import esar from "./locally/es-ar";
 import escl from "./locally/es-cl";
 import esco from "./locally/es-co";
@@ -42,6 +42,7 @@ import zhtw from "./locally/zh-tw";
 const messages = {
   ...dm,
   ...arae,
+  ...dede,
   ...cscz,
   ...dadk,
   ...dech,
@@ -77,6 +78,5 @@ const messages = {
   ...trtr,
   ...zhhk,
   ...zhtw,
-  ...engb,
 };
 export default messages;
