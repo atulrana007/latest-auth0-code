@@ -3,7 +3,10 @@ import styles from "./Footer.module.css";
 import translate from "../../localization/translate";
 import { CommonDataContext } from "../../providers/CommonDataContext";
 const Footer = () => {
-  const { locale } = useContext(CommonDataContext);
+  const { locale, affId } = useContext(CommonDataContext);
+  const PRIVACY_NOTICE_LINK = affId
+    ? `https://www.mcafee.com/legal?culture=${locale.toUpperCase()}&affid=${affId}#privacytop`
+    : `https://www.mcafee.com/legal?culture=${locale.toUpperCase()}#privacytop`;
   return (
     <div className={styles.FooterContainer}>
       <div className={styles.FooterLeftWrapper}>
@@ -21,7 +24,7 @@ const Footer = () => {
           {" "}
           <a
             target="_blank"
-            href={`https://www.mcafee.com/legal?culture=${locale.toUpperCase()}#privacytop`}
+            href={PRIVACY_NOTICE_LINK}
             style={{ whiteSpace: "nowrap" }}
             data-nav-element-click="Privacy Notice"
           >

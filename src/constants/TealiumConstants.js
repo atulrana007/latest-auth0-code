@@ -8,6 +8,7 @@ const TealiumTagKeyConstants = {
   TEALIUM_NAVIGATION_ELEMENT: "tm_global_navigation_element",
   TEALIUM_SITESECTION: "tm_global_sitesection",
   TEALIUM_GLOBAL_COUNTRY: "tm_global_country",
+  TEALIUM_GLOBAL_GEO: "tm_global_geo",
 };
 
 const TealiumTagValueConstans = {
@@ -19,7 +20,7 @@ const TealiumTagValueConstans = {
   SIGNIN_BUTTON: "Signin",
   BASE_PAGE_NAME: "[consumer:web]|Auth0|",
   LOGIN_OTP_SUCCESS: "Login Otp Success",
-  LOGIN_PASSWORD_SUCCESS: "Login Password Success"
+  LOGIN_PASSWORD_SUCCESS: "Login Password Success",
 };
 
 export { TealiumTagKeyConstants, TealiumTagValueConstans };

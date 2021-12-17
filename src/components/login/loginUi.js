@@ -45,8 +45,11 @@ const LoginUI = (props) => {
     handleClickResendCode,
     onLoad,
   } = props;
-  const { LoginText, utagData, locale } = useContext(CommonDataContext);
+  const { LoginText, utagData, locale, affId } = useContext(CommonDataContext);
   const { isAffiliateLogo } = useContext(CommonDataContext);
+  const PRIVACY_NOTICE_LINK = affId
+    ? `https://www.mcafee.com/legal?culture=${locale.toUpperCase()}&affid=${affId}#privacytop`
+    : `https://www.mcafee.com/legal?culture=${locale.toUpperCase()}#privacytop`;
 
   const trackClickEvent = (navElement) => {
     let utag = window.utag;
@@ -73,7 +76,7 @@ const LoginUI = (props) => {
         style={{ color: "rgb(66, 88, 255)" }}
         className={styles.external_link}
         target="_blank"
-        href={`https://www.mcafee.com/en-au/consumer-support/policy/legal.html?culture=${locale.toUpperCase()}#eula`}
+        href={`https://www.mcafee.com/legal?culture=${locale.toUpperCase()}#eula`}
         data-nav-element-click="McAfee-License-link-click"
       >
         {chunks}
@@ -103,7 +106,7 @@ const LoginUI = (props) => {
         style={{ color: "rgb(66, 88, 255)" }}
         className={styles.external_link}
         target="_blank"
-        href={`https://www.mcafee.com/legal?culture=${locale.toUpperCase()}&affid=916#privacytop`}
+        href={PRIVACY_NOTICE_LINK}
         data-nav-element-click="Privacy Notice"
       >
         {chunks}
@@ -170,7 +173,7 @@ const LoginUI = (props) => {
           <div className={styles.LoginBottomHeading}>
             <div>{translate("Do_not_have_an_account")}</div>
             <div
-              id = "create-one-now-link"
+              id="create-one-now-link"
               className={styles.Loginpagelink}
               onClick={(e) => {
                 changePage(e);
@@ -186,7 +189,7 @@ const LoginUI = (props) => {
       if (blockScreenState.otpBlock && blockScreenState.passwordBlock) {
         return (
           <div
-            id = "both-password-and-otp-lock-sign-in-with-different-email-address-link"
+            id="both-password-and-otp-lock-sign-in-with-different-email-address-link"
             className={styles.Signuppagelink}
             onClick={(e) => blockScreenToggle("both-locked", e)}
             data-navelement="Signin-redirect-from-blockscreen"
@@ -238,7 +241,7 @@ const LoginUI = (props) => {
             <div className={styles.LoginBottomHeading}>
               <div>{translate("Do_not_have_an_account")}</div>
               <div
-                id = "create-one-now-link-2"
+                id="create-one-now-link-2"
                 className={styles.Loginpagelink}
                 onClick={(e) => {
                   changePage(e);

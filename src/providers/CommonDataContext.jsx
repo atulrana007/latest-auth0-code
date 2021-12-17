@@ -10,7 +10,8 @@ const CommonDataContext = React.createContext({});
 const CommonDataProvider = (props) => {
   // Initializing the states
   const [connections, setConn] = useState([]);
-  const [locale, setLocale] = useState("en-us");
+  const locale = props?.locale || "en-us";
+  const affId = props?.affiliateId || null;
   const [passwordResetConfig, setPasswordResetConfig] = useState({});
   const [LoginText, setLoginText] = useState({
     title: "Sign_into_your_McAfee_account",
@@ -72,7 +73,6 @@ const CommonDataProvider = (props) => {
   };
   useEffect(() => {
     if (props.config) {
-      setLocale(props?.locale);
       getCommonData();
     }
     if (props.passwordResetConfig)
@@ -102,6 +102,7 @@ const CommonDataProvider = (props) => {
         setSignupForm,
         passwordResetConfig,
         locale,
+        affId,
         customization,
         isAffiliateLogo,
         LoginError,

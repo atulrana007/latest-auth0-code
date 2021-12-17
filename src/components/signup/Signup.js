@@ -29,7 +29,10 @@ const Signup = (props) => {
   } = props;
   const [showPassword, setShowPassword] = useState(false);
   const [displayRules, setDisplayRules] = useState(false);
-  const { locale } = useContext(CommonDataContext);
+  const { locale, affId } = useContext(CommonDataContext);
+  const PRIVACY_NOTICE_LINK = affId
+    ? `https://www.mcafee.com/legal?culture=${locale.toUpperCase()}&affid=${affId}#privacytop`
+    : `https://www.mcafee.com/legal?culture=${locale.toUpperCase()}#privacytop`;
 
   const { getKeys, displayableRule } = DisplayRules(
     passwordRules,
@@ -52,14 +55,14 @@ const Signup = (props) => {
         style={{ color: "rgb(66, 88, 255)" }}
         className={styles.external_link}
         target="_blank"
-        href={`https://www.mcafee.com/en-au/consumer-support/policy/legal.html?culture=${locale.toUpperCase()}#eula`}
+        href={`https://www.mcafee.com/legal?culture=${locale.toUpperCase()}#eula`}
       >
         {chunks}
       </a>
     ),
     a_reset_pass: (chunks) => (
       <button
-        id ="signup-page-forgot-password-button"
+        id="signup-page-forgot-password-button"
         type="button"
         className={styles.forgotPassword}
         onClick={handleForgotPasswordClick}
@@ -73,7 +76,7 @@ const Signup = (props) => {
         style={{ color: "rgb(66, 88, 255)" }}
         className={styles.external_link}
         target="_blank"
-        href={`https://www.mcafee.com/legal?culture=${locale.toUpperCase()}&affid=916#privacytop`}
+        href={PRIVACY_NOTICE_LINK}
       >
         {chunks}
       </a>
@@ -369,7 +372,7 @@ const Signup = (props) => {
             </FormattedMessage>
           </div>
           <button
-            id = "create-my-account-button"
+            id="create-my-account-button"
             className={
               SignupForm.email !== "" &&
               validateEmail(SignupForm.email) &&

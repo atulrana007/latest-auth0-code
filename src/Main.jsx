@@ -40,6 +40,7 @@ function Main() {
             ...utagData,
             [TealiumTagKeyConstants.TEALIUM_GLOBAL_COUNTRY]:
               settingFinal?.country,
+            [TealiumTagKeyConstants.TEALIUM_GLOBAL_GEO]: settingFinal?.geo,
             [TealiumTagKeyConstants.TEALIUM_PAGE_NAME]:
               TealiumTagValueConstans.BASE_PAGE_NAME +
               TealiumTagValueConstans.LOGIN_PAGE_NAME,

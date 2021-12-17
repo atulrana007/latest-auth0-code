@@ -42,6 +42,7 @@ const App = ({ pageConfig, passwordResetConfig }) => {
           passwordResetConfig={passwordResetConfig}
           email={emailFill}
           locale={appLocale}
+          affiliateId={affId}
         >
           <AppProvider>
             <LanguageProvider locale={appLocale}>

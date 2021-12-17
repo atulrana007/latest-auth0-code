@@ -31,11 +31,11 @@
   font-weight: 600;
   color: rgb(175, 174, 174);
   margin-left: 2rem;
-  margin-top: 2rem;
   background-color: #fff;
-  padding: 5px;
+  padding: 2px 2px;
   font-size: 0.75rem;
   line-height: 1.25rem;
+  margin-top: -0.7rem;
 }
 
 .Passwordrulescontainer {
