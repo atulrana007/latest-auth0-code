@@ -26,7 +26,6 @@ function Main() {
   const { utagData, setUtagData } = useContext(TrackingContext);
   const { isAffiliateLogo } = useContext(CommonDataContext);
   const { settingFinal } = useContext(SettingContext);
-  console.log("what is this---------->", settingFinal);
   const [onPageLoad, setOnPageLoad] = useState(true);
 
   useEffect(() => {

@@ -3,7 +3,17 @@
         "hideSignUp":false
               },
 	"SignUp":{
-		"hideLoginCTA":true		
-	        }
+		"hideLoginCTA":false		
+	        },
+	"affiliates": {
+		"105": {
+			 "Login":{
+				"hideSignUp":false
+				},
+		"SignUp":{
+			"hideLoginCTA":false		
+				}
+		}
+    }
 }
    

@@ -181,13 +181,7 @@ const Signup = (props) => {
                 }}
                 data-nav-element-click="show-password"
               />
-              {isValid ? (
-                <TickIcon
-                  style={{
-                    marginTop: "0.5rem",
-                  }}
-                />
-              ) : null}
+              {isValid ? <TickIcon /> : null}
             </div>
           </div>
           <div className={styles.Passwordrulescontainer}>

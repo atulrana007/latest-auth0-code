@@ -220,7 +220,7 @@ export default function LoginContainer(props) {
     });
     setLoginError({
       email: "",
-      isEmailError: "",
+      isEmailError: false,
       databaseError: "",
       errorCode: "",
     });
@@ -470,7 +470,7 @@ export default function LoginContainer(props) {
         });
         setLoginError({
           email: "",
-          isEmailError: "",
+          isEmailError: false,
           databaseError: "",
           errorCode: "",
         });
@@ -645,7 +645,7 @@ export default function LoginContainer(props) {
     });
     setLoginError({
       email: "",
-      isEmailError: "",
+      isEmailError: false,
       databaseError: "",
       errorCode: "",
     });

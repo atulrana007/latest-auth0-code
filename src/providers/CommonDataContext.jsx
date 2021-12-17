@@ -119,7 +119,7 @@ const CommonDataProvider = (props) => {
 
 const populateCustomizationData = (location) => {
   const client = getClient(location);
-  const clientCustomization = getClientCustomizations(client);
+  const clientCustomization = getClientCustomizations(client, location);
 
   const queryCustomization = getQueryCustomization(location);
   let customization = "";
@@ -164,8 +164,18 @@ const getClient = (location) => {
   return client;
 };
 
-const getClientCustomizations = (client) => {
-  return possibleCustomizationPaths[client];
+const getClientCustomizations = (client, location) => {
+  let affid = getAffiliate(location);
+  let customizationFromClientJson = possibleCustomizationPaths[client];
+  let clientCustomization;
+  if (
+    customizationFromClientJson !== undefined &&
+    customizationFromClientJson.affiliates !== undefined &&
+    customizationFromClientJson.affiliates[affid] !== undefined
+  )
+    clientCustomization = customizationFromClientJson.affiliates[affid];
+  else clientCustomization = customizationFromClientJson;
+  return clientCustomization;
 };
 
 const possibleCustomizationPaths = {
