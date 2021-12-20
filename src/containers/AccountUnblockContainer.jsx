@@ -6,13 +6,14 @@ import auth0 from "auth0-js";
 function AccountUnblockContainer(props) {
   const query = useQuery();
   const parsedHash = new URLSearchParams(window.location.hash.substr(1));
-  const message = useRef(query.get("message") || parsedHash.get("message"));
+  const message =
+    useRef(query.get("message") || parsedHash.get("message")) || "";
   const success = useRef(query.get("success") || parsedHash.get("success"));
   const email = useRef(query.get("email") || parsedHash.get("email"));
   const clientId = useRef(query.get("clientId") || parsedHash.get("clientId"));
   const domain = useRef(query.get("domain") || parsedHash.get("domain"));
   const error = useRef(
-    query.get("error_description") || parsedHash.get("error_description")
+    query.get("error_description") || parsedHash.get("error_description") || ""
   );
 
   const webAuth = new auth0.WebAuth({

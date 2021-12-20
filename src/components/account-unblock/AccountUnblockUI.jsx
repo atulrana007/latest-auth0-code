@@ -24,49 +24,57 @@ function AccountUnblockUI(props) {
             </div>
           </div>
         );
-      }
-    } else if (domain.current) {
-      return (
-        <>
-          <div className={styles.Intro}>
-            {error.current === "This URL can be used only once"
+      } else {
+        let mainDiv;
+        if (error.current) {
+          mainDiv =
+            error.current === "This URL can be used only once"
               ? translate("Link_already_used")
-              : translate("Link_Expired")}
+              : translate("Link_Expired");
+        } else {
+          mainDiv =
+            message.current === "This URL can be used only once"
+              ? translate("Link_already_used")
+              : translate("Link_Expired");
+        }
+        return (
+          <div styles={styles.failure}>
+            <div className={styles.Intro}>{mainDiv}</div>
+            <div className={styles.IntroSubHeading}>
+              <FormattedMessage
+                id="Reset_password_to_unlock_account"
+                defaultMessage={
+                  "Reset your password or <a_contact_support>Contact Support</a_contact_support> to unlock your account."
+                }
+                values={{
+                  a_contact_support: (chunks) => (
+                    <a
+                      className={styles.contactSupportBtn}
+                      target="_blank"
+                      href={`https://home.mcafee.com/root/support.aspx?culture=${locale.toUpperCase()}`}
+                    >
+                      {chunks}
+                    </a>
+                  ),
+                }}
+              >
+                {(chunks) => <p>{chunks}</p>}
+              </FormattedMessage>
+            </div>
+            <div className={styles.accountUnblockDropDownContainer}>
+              <button
+                id="account-unblock-email-me-button"
+                className={styles.emailMeBtn}
+                style={{ width: "100%", maxWidth: "350px" }}
+                onClick={handleEmailMe}
+                data-navelement="Signin-With-password"
+              >
+                <div>{translate("Reset_Password")}</div>
+              </button>
+            </div>
           </div>
-          <div className={styles.IntroSubHeading}>
-            <FormattedMessage
-              id="Reset_password_to_unlock_account"
-              defaultMessage={
-                "Reset your password or <a_contact_support>Contact Support</a_contact_support> to unlock your account."
-              }
-              values={{
-                a_contact_support: (chunks) => (
-                  <a
-                    className={styles.contactSupportBtn}
-                    target="_blank"
-                    href={`https://home.mcafee.com/root/support.aspx?culture=${locale.toUpperCase()}`}
-                  >
-                    {chunks}
-                  </a>
-                ),
-              }}
-            >
-              {(chunks) => <p>{chunks}</p>}
-            </FormattedMessage>
-          </div>
-          <div className={styles.accountUnblockDropDownContainer}>
-            <button
-              id="account-unblock-email-me-button"
-              className={styles.emailMeBtn}
-              style={{ width: "100%", maxWidth: "350px" }}
-              onClick={handleEmailMe}
-              data-navelement="Signin-With-password"
-            >
-              <div>{translate("Reset_Password")}</div>
-            </button>
-          </div>
-        </>
-      );
+        );
+      }
     } else if (error.current) {
       setIsGeneric(true);
     }
