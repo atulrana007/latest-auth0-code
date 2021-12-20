@@ -106,8 +106,10 @@ const PasswordLessFlow = (props) => {
       )}
       {LoginError?.email && (
         <div 
-          id = "passwordless-login-error"
-          className={styles.Error}>{translate(LoginError?.email)}
+          id = "passwordless-invalid-email-error"
+          className={styles.Error}
+        >
+          {translate(LoginError?.email)}
         </div>
       )}
 

@@ -72,7 +72,10 @@ function ForgotPasswordUI(props) {
                 {translate("Enter_email_to_reset_password")}
               </div>
               {emailDetails.databaseError && (
-                <div className="ErrorDiv">
+                <div 
+                  id = "forgot-password-error-id"
+                  className="ErrorDiv"
+                >
                   <p>
                     <FormattedMessage
                       id={emailDetails.databaseError}
@@ -130,7 +133,12 @@ function ForgotPasswordUI(props) {
               </div>
             </div>
             {emailDetails.emailError !== "" && (
-              <div className="Error">{translate(emailDetails.emailError)}</div>
+              <div 
+                id = "forgot-password-invalid-email-error"
+                className="Error"
+              >
+                  {translate(emailDetails.emailError)}
+              </div>
             )}
             <div className="forgotPasswordDropDownContainer">
               <div className="emailMeBtnWrapper">

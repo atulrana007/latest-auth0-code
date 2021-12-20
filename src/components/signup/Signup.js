@@ -29,6 +29,11 @@ const Signup = (props) => {
   } = props;
   const [showPassword, setShowPassword] = useState(false);
   const [displayRules, setDisplayRules] = useState(false);
+  const [activeInput, setActiveInput] = useState({
+    password: false,
+    confirmPassword: false,
+  });
+
   const { locale, affId } = useContext(CommonDataContext);
   const PRIVACY_NOTICE_LINK = affId
     ? `https://www.mcafee.com/legal?culture=${locale.toUpperCase()}&affid=${affId}#privacytop`
@@ -91,9 +96,7 @@ const Signup = (props) => {
             <div
               className={styles.InputLabel}
               style={{
-                color: `${
-                  SignupError.isEmailError ? "red" : "rgb(175, 174, 174)"
-                }`,
+                color: `${SignupError.isEmailError ? "red" : "#848FAA"}`,
               }}
             >
               {translate("email")}
@@ -103,7 +106,7 @@ const Signup = (props) => {
             className={styles.InputAndLogoSignup}
             style={{
               border: `1px solid ${
-                SignupError.isEmailError ? "red" : "RGB(212, 213, 219)"
+                SignupError.isEmailError ? "red" : "#848FAA"
               }`,
             }}
           >
@@ -123,14 +126,33 @@ const Signup = (props) => {
             </FormattedMessage>
           </div>
           {SignupError.email && (
-            <div className={styles.Error}>{translate(SignupError.email)}</div>
+            <div id="signup-invalid-email-error" className={styles.Error}>
+              {translate(SignupError.email)}
+            </div>
           )}
-          <div>
+          <div
+            onClick={() =>
+              setActiveInput({
+                ...activeInput,
+                password: true,
+              })
+            }
+            onBlur={() =>
+              setActiveInput({
+                ...activeInput,
+                password: false,
+              })
+            }
+          >
             {SignupForm.password !== "" ? (
               <div
                 className={styles.InputLabelPass}
                 style={{
-                  color: isValid ? "#0CA77D" : "rgb(175, 174, 174)",
+                  color: isValid
+                    ? "#0CA77D"
+                    : activeInput.password
+                    ? "#1671EE"
+                    : "#848FAA",
                 }}
               >
                 {translate("password")}
@@ -148,7 +170,11 @@ const Signup = (props) => {
               // }}
               style={{
                 border: `1px solid ${
-                  isValid ? "#0CA77D" : "RGB(212, 213, 219)"
+                  isValid
+                    ? "#0CA77D"
+                    : activeInput.password && SignupForm.password
+                    ? "#1671EE"
+                    : "#848FAA"
                 }`,
               }}
             >
@@ -213,7 +239,20 @@ const Signup = (props) => {
               </>
             ) : null}
           </div>
-          <div>
+          <div
+            onClick={() =>
+              setActiveInput({
+                ...activeInput,
+                confirmPassword: true,
+              })
+            }
+            onBlur={() =>
+              setActiveInput({
+                ...activeInput,
+                confirmPassword: false,
+              })
+            }
+          >
             {SignupForm.confirmPassword !== "" ? (
               <div
                 className={styles.InputLabelCPass}
@@ -222,7 +261,9 @@ const Signup = (props) => {
                     SignupForm.password === SignupForm.confirmPassword &&
                     SignupForm.confirmPassword !== ""
                       ? "#0CA77D"
-                      : "rgb(175, 174, 174)",
+                      : activeInput.confirmPassword
+                      ? "#1671EE"
+                      : "#848FAA",
                 }}
               >
                 {translate("confirm_password")}
@@ -243,7 +284,9 @@ const Signup = (props) => {
                   SignupForm.password === SignupForm.confirmPassword &&
                   SignupForm.confirmPassword !== ""
                     ? "#0CA77D"
-                    : "RGB(212, 213, 219)"
+                    : activeInput.confirmPassword && SignupForm.confirmPassword
+                    ? "#1671EE"
+                    : "#848FAA"
                 }`,
               }}
             >

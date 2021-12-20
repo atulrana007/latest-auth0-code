@@ -413,7 +413,10 @@ const LoginUI = (props) => {
                   />
                 ) : null}
                 {LoginError.errorCode && (
-                  <div className={styles.ErrorDiv}>
+                  <div 
+                    id = "login-error-id"
+                    className={styles.ErrorDiv}
+                  >
                     <p>
                       <FormattedMessage
                         id={LoginError.errorCode}

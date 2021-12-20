@@ -204,7 +204,10 @@ function ChangePasswordForm(props) {
               </div>
             </div>
             {ResetPasswordError.errorCode && (
-              <div id="reset-password-error" className="Error">
+              <div 
+                id="reset-password-error-id" 
+                className="Error"
+              >
                 {translate(ResetPasswordError.errorCode)}
               </div>
             )}

@@ -34,7 +34,7 @@ const PasswordFlow = (props) => {
                     LoginError?.errorCode !== "login.password_lock" &&
                     LoginError?.errorCode !== "passwordless.passcode_lock")
                     ? "#FF3838"
-                    : "#0CA77D",
+                    : "#848FAA",
               }}
             >
               {translate("email")}
@@ -50,9 +50,7 @@ const PasswordFlow = (props) => {
                   LoginError?.errorCode !== "login.password_lock" &&
                   LoginError?.errorCode !== "passwordless.passcode_lock")
                   ? "1px solid #FF3838"
-                  : validateEmail(LoginForm.email)
-                  ? "1px solid #0CA77D"
-                  : "1px solid #848faa",
+                  : "1px solid #848FAA",
               backgroundColor: "#ffff",
               borderRadius: "12px",
             }}
@@ -97,9 +95,8 @@ const PasswordFlow = (props) => {
         </div>
       </div>
       {LoginError?.email && (
-        <div 
-          id = "password-flow-login-error"
-          className={styles.Error}>{translate(LoginError?.email)}
+        <div id="password-flow-invalid-email-error" className={styles.Error}>
+          {translate(LoginError?.email)}
         </div>
       )}
       <>
@@ -111,7 +108,7 @@ const PasswordFlow = (props) => {
               LoginError?.errorCode !== "login.password_lock" &&
               LoginError?.errorCode !== "passwordless.passcode_lock"
                 ? "1px solid #FF3838"
-                : "1px solid #848faa",
+                : "1px solid #848FAA",
             borderRadius: "12px",
           }}
         >
@@ -124,7 +121,7 @@ const PasswordFlow = (props) => {
                   LoginError?.errorCode !== "login.password_lock" &&
                   LoginError?.errorCode !== "passwordless.passcode_lock"
                     ? "#FF3838"
-                    : "",
+                    : "#848FAA",
               }}
             >
               {translate("password")}
@@ -174,7 +171,7 @@ const PasswordFlow = (props) => {
         </div>
         <div className={styles.forgotPasswordContainer}>
           <button
-            id = "forgot-password-link"
+            id="forgot-password-link"
             type="button"
             className={styles.forgotPassword}
             onClick={handleForgotPasswordClick}
@@ -185,7 +182,7 @@ const PasswordFlow = (props) => {
         </div>
       </>
       <button
-        id = "sign-in-button"
+        id="sign-in-button"
         className={styles.SigninWithPassword}
         onClick={(e) => {
           onSubmit(e);

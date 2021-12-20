@@ -128,7 +128,10 @@ const SignupUI = (props) => {
             {SignupError.errorCode ? (
               <>
                 <div className={styles.IntroSubHeadingWithError}>
-                  <div className={styles.ErrorPoints}>
+                  <div 
+                    id = "signup-error-id"
+                    className={styles.ErrorPoints}
+                  >
                     <FormattedMessage
                       id={SignupError.errorCode}
                       defaultMessage="We can’t create an account for <b>{email}</b> because your email is from a country subject to US export restrictions, or your company is on a list of prohibited organizations, either by the US or foreign government agency."
