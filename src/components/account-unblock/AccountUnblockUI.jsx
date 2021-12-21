@@ -24,14 +24,32 @@ function AccountUnblockUI(props) {
             </div>
           </div>
         );
+      } else if (
+        (error.current &&
+          error.current !== "This URL can be used only once" &&
+          error.current !== "Access expired") ||
+        (message.current &&
+          message.current !== "This URL can be used only once" &&
+          message.current !== "Access expired")
+      ) {
+        setIsGeneric(true);
       } else {
         let mainDiv;
-        if (error.current) {
+        if (
+          error.current &&
+          (error.current === "This URL can be used only once" ||
+            error.current === "Access expired")
+        ) {
           mainDiv =
             error.current === "This URL can be used only once"
               ? translate("Link_already_used")
               : translate("Link_Expired");
-        } else {
+        }
+        if (
+          message.current &&
+          (message.current === "This URL can be used only once" ||
+            message.current === "Access expired")
+        ) {
           mainDiv =
             message.current === "This URL can be used only once"
               ? translate("Link_already_used")
@@ -75,8 +93,6 @@ function AccountUnblockUI(props) {
           </div>
         );
       }
-    } else if (error.current) {
-      setIsGeneric(true);
     }
   };
   return (
@@ -118,10 +134,10 @@ function AccountUnblockUI(props) {
             {isGeneric ? (
               <>
                 <div className={styles.Intro}>
-                  {translate("Something went wrong on our side...")}
+                  {translate("Something went wrong")}
                 </div>
                 <div className={styles.IntroSubHeading}>
-                  {translate(error.current)}
+                  {translate(error.current || message.current)}
                 </div>
               </>
             ) : null}

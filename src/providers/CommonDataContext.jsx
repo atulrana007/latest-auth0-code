@@ -56,7 +56,6 @@ const CommonDataProvider = (props) => {
         `https://${props.config.auth0Domain}/client/${props.config.clientID}.js`
       );
       const data = res.data;
-      console.log("network request ---->>>>>>", data);
       if (typeof data === "string") {
         const filteredData = data.slice(16, -2);
         const jsonData = JSON.parse(filteredData);
