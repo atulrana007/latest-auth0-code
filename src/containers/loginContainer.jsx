@@ -127,8 +127,8 @@ export default function LoginContainer(props) {
       }
     }
     setLoginError({
-      ...LoginError,
       email: "",
+      isEmailError: false,
       databaseError: "",
       errorCode: "",
     });

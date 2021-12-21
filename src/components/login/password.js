@@ -134,7 +134,7 @@ const PasswordFlow = (props) => {
               backgroundColor: "#ffff",
             }}
           >
-            <LockOutline className={styles.LoginInputLogo} />
+            <LockOutline className={styles.LoginInputLogoLock} />
             <FormattedMessage id="password">
               {(msg) => (
                 <input
@@ -150,9 +150,7 @@ const PasswordFlow = (props) => {
 
             <FillEye
               style={{
-                height: "2rem",
-                width: "2rem",
-                marginTop: "0.8rem",
+                marginTop: "1.1rem",
                 marginRight: "0.5rem",
                 color: "rgb(175, 174, 174)",
                 cursor: "pointer",
@@ -199,7 +197,7 @@ const PasswordFlow = (props) => {
             !validateEmail(LoginForm.email) ||
             LoginForm.password === "" ||
             LoginForm.isSubmitting
-              ? "gray"
+              ? "#C1C7D2"
               : "",
           cursor: LoginForm.isSubmitting ? "progress" : "pointer",
         }}

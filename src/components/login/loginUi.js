@@ -376,78 +376,79 @@ const LoginUI = (props) => {
                 <div className={styles.LoginIntro}>
                   {translate(LoginText.title)}
                 </div>
-                <div
-                  className={styles.LoginIntroSubHeading}
-                  style={{
-                    display:
-                      blockScreenState.otpBlock &&
-                      blockScreenState.passwordBlock
-                        ? "block"
-                        : (blockScreenState.otpBlock && onlyOTPLock) ||
-                          (blockScreenState.passwordBlock && onlyPasswordLock)
-                        ? "none"
-                        : "block",
-                  }}
-                >
-                  {LoginText?.subtitle &&
-                    translate(
-                      LoginText.subtitle,
-                      "We sent a one-time passcode to <b>{email}</b>",
-                      {
-                        ...FORMATVALUES,
-                        b: (chunks) => <strong>{chunks}</strong>,
-                        email: `${LoginForm.email}`,
-                        a: (chunks) => (
-                          <strong className={styles.important}>{chunks}</strong>
-                        ),
-                      }
-                    )}
-                </div>
-                {otpTimer && !LoginError.errorCode ? (
-                  <Timer
-                    initialMinute={3}
-                    setOtpValid={setOtpValid}
-                    setTimer={setTimer}
-                    TimerState={TimerState}
-                    getOtp={getOtp}
-                  />
-                ) : null}
-                {LoginError.errorCode && (
-                  <div 
-                    id = "login-error-id"
-                    className={styles.ErrorDiv}
+                <div className={styles.SubHeadingWrapper}>
+                  <div
+                    className={styles.LoginIntroSubHeading}
+                    style={{
+                      display:
+                        blockScreenState.otpBlock &&
+                        blockScreenState.passwordBlock
+                          ? "block"
+                          : (blockScreenState.otpBlock && onlyOTPLock) ||
+                            (blockScreenState.passwordBlock && onlyPasswordLock)
+                          ? "none"
+                          : "block",
+                    }}
                   >
-                    <p>
-                      <FormattedMessage
-                        id={LoginError.errorCode}
-                        defaultMessage="We're sorry, something went wrong"
-                        values={{
+                    {LoginText?.subtitle &&
+                      translate(
+                        LoginText.subtitle,
+                        "We sent a one-time passcode to <b>{email}</b>",
+                        {
                           ...FORMATVALUES,
-                          b: (chunks) => (
-                            <strong className={styles.importantBold}>
-                              {chunks}
-                            </strong>
-                          ),
-                          br: (chunks) => (
-                            <strong style={{ color: "#890611" }}>
-                              {chunks}
-                            </strong>
-                          ),
-                          a_rotp: (chunks) => (
-                            <strong
-                              className={styles.important}
-                              onClick={getOtp}
-                              data-nav-element-click="Resend OTP | Failure"
-                            >
-                              {chunks}
-                            </strong>
-                          ),
+                          b: (chunks) => <strong>{chunks}</strong>,
                           email: `${LoginForm.email}`,
-                        }}
-                      ></FormattedMessage>
-                    </p>
+                          a: (chunks) => (
+                            <strong className={styles.important}>
+                              {chunks}
+                            </strong>
+                          ),
+                        }
+                      )}
                   </div>
-                )}
+                  {otpTimer && !LoginError.errorCode ? (
+                    <Timer
+                      initialMinute={3}
+                      setOtpValid={setOtpValid}
+                      setTimer={setTimer}
+                      TimerState={TimerState}
+                      getOtp={getOtp}
+                    />
+                  ) : null}
+                  {LoginError.errorCode ? (
+                    <div id="login-error-id" className={styles.ErrorDiv}>
+                      <p>
+                        <FormattedMessage
+                          id={LoginError.errorCode}
+                          defaultMessage="We're sorry, something went wrong"
+                          values={{
+                            ...FORMATVALUES,
+                            b: (chunks) => (
+                              <strong className={styles.importantBold}>
+                                {chunks}
+                              </strong>
+                            ),
+                            br: (chunks) => (
+                              <strong style={{ color: "#890611" }}>
+                                {chunks}
+                              </strong>
+                            ),
+                            a_rotp: (chunks) => (
+                              <strong
+                                className={styles.important}
+                                onClick={getOtp}
+                                data-nav-element-click="Resend OTP | Failure"
+                              >
+                                {chunks}
+                              </strong>
+                            ),
+                            email: `${LoginForm.email}`,
+                          }}
+                        ></FormattedMessage>
+                      </p>
+                    </div>
+                  ) : null}
+                </div>
                 <div className={styles.HorizontalSignupdashedline}></div>
                 {BottomHeading()}
               </div>

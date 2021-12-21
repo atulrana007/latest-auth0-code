@@ -23,16 +23,6 @@ const PasswordLessFlow = (props) => {
     handleClickResendCode,
   } = props;
 
-  useEffect(() => {
-    return () => {
-      console.log("Destroying passwordless error");
-      setLoginError({
-        ...LoginError,
-        isEmailError: false,
-      });
-    };
-  }, []);
-
   return (
     <>
       {!hideEmail && (
@@ -89,26 +79,12 @@ const PasswordLessFlow = (props) => {
               {LoginError.isEmailError ? (
                 <PasswordCross className={styles.cancel} />
               ) : null}
-              {validateEmail(LoginForm.email) &&
-              LoginText.title === "Looks_like_you_already_have_an_account" ? (
-                <TickIcon
-                  style={{
-                    height: "2rem",
-                    width: "2rem",
-                    marginTop: "0.8rem",
-                    marginRight: "0.2rem",
-                  }}
-                />
-              ) : null}
             </div>
           </div>
         </div>
       )}
       {LoginError?.email && (
-        <div 
-          id = "passwordless-invalid-email-error"
-          className={styles.Error}
-        >
+        <div id="passwordless-invalid-email-error" className={styles.Error}>
           {translate(LoginError?.email)}
         </div>
       )}
@@ -117,33 +93,49 @@ const PasswordLessFlow = (props) => {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             className={styles.LoginInputContainer}
-            style={{ border: `1px solid ${otpValid ? "#848faa" : "red"}` }}
+            style={{
+              border: `1px solid ${
+                otpValid && !LoginError?.errorCode ? "#848faa" : "red"
+              }`,
+            }}
           >
-            {LoginForm.otp !== "" ? (
-              <div
-                className={styles.LoginInputLabel}
-                style={{ color: otpValid ? "#848faa" : "red" }}
-              >
-                {translate("one_time_passcode")}
-              </div>
-            ) : null}
-            <FormattedMessage id="one_time_passcode">
-              {(msg) => (
-                <input
-                  type="text"
-                  pattern="\d*"
-                  id="otp"
-                  name="otp"
-                  placeholder={msg}
-                  className={styles.LoginInputOTP}
-                  onChange={onChange}
-                  value={LoginForm.otp}
-                />
-              )}
-            </FormattedMessage>
+            <div className={styles.InputWrapper}>
+              {LoginForm.otp !== "" ? (
+                <div
+                  className={styles.LoginInputLabel}
+                  style={{
+                    color:
+                      otpValid && !LoginError?.errorCode ? "#848faa" : "red",
+                  }}
+                >
+                  {translate("one_time_passcode")}
+                </div>
+              ) : null}
+              <FormattedMessage id="one_time_passcode">
+                {(msg) => (
+                  <input
+                    type="text"
+                    pattern="\d*"
+                    id="otp"
+                    name="otp"
+                    placeholder={msg}
+                    className={
+                      otpValid && !LoginError?.errorCode
+                        ? styles.LoginInputOTP
+                        : styles.LoginInputOTPFailure
+                    }
+                    onChange={onChange}
+                    value={LoginForm.otp}
+                  />
+                )}
+              </FormattedMessage>
+              {!otpValid || LoginError?.errorCode ? (
+                <PasswordCross className={styles.cancel} />
+              ) : null}
+            </div>
           </div>
           <div
-            id = "otp-login-resend-code-link"
+            id="otp-login-resend-code-link"
             className={styles.LoginOtpResendContainer}
             onClick={handleClickResendCode}
             data-nav-element-click="Resend OTP | Failure"
@@ -170,7 +162,7 @@ const PasswordLessFlow = (props) => {
         </div>
       )}
       <button
-        id = "otp-login-continue-button"
+        id="otp-login-continue-button"
         className={styles.RequestOtp}
         onClick={(e) => onSubmit(e)}
         disabled={
@@ -185,7 +177,7 @@ const PasswordLessFlow = (props) => {
             LoginForm.isSubmitting ||
             !otpValid ||
             (LoginForm.otpAvailable && !LoginForm.otp)
-              ? "gray"
+              ? "#C1C7D2"
               : "",
           cursor: LoginForm.isSubmitting ? "progress" : "pointer",
         }}
@@ -213,7 +205,7 @@ const PasswordLessFlow = (props) => {
               }}
             >
               <a
-                id= "otp-login-contact-support-link"
+                id="otp-login-contact-support-link"
                 target="_blank"
                 href={`https://home.mcafee.com/root/support.aspx?culture=${locale.toUpperCase()}`}
                 data-nav-element-click="Contact Us"

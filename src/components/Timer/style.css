@@ -13,8 +13,9 @@
 .timer-active {
   background: #e2ecfe;
   margin-bottom: 0.2rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: 0.625rem;
+  border-radius: 0.31rem;
+  margin-top: 0.75rem;
 }
 .timer-inactive {
   color: red;
