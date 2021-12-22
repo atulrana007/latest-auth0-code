@@ -106,6 +106,16 @@
   font-weight: 600;
   height: 20px;
 }
+.signInBtnDisabled {
+  color: #c1c7d2;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  height: 20px;
+}
 .signInBtn:focus {
   outline: none;
 }

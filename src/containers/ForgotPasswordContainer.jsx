@@ -3,6 +3,8 @@ import { AccountContext } from "../providers/AccountContext";
 import { AppContext } from "../providers/AppContext";
 import { CommonDataContext } from "../providers/CommonDataContext";
 import { TrackingContext } from "../providers/TrackingProvider";
+import validateEmail from "../utils/validateEmail";
+
 import {
   TealiumTagKeyConstants,
   TealiumTagValueConstans,
@@ -15,6 +17,7 @@ function ForgotPasswordContainer(props) {
     emailSent: false,
     databaseError: "",
   });
+  const [isSending, setIsSending] = useState(false);
   const { setLoginText, setLoginForm, customization } =
     useContext(CommonDataContext);
   const { utagData, setUtagData, trackClickEvent } =
@@ -22,12 +25,6 @@ function ForgotPasswordContainer(props) {
 
   const { sendForgotPasswordLink } = useContext(AccountContext);
   const { setWhichPage } = useContext(AppContext);
-
-  const validateEmail = (email) => {
-    const re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  };
 
   const onBlur = (emailVal) => {
     if (!emailVal) {
@@ -62,6 +59,7 @@ function ForgotPasswordContainer(props) {
   };
   const handleEmailMe = async (e) => {
     e.preventDefault();
+    setIsSending(true);
     try {
       const res = await sendForgotPasswordLink(emailDetails.email);
       updateEmailDetails((prevEmailDetails) => {
@@ -73,7 +71,8 @@ function ForgotPasswordContainer(props) {
       if (err?.error === "too_many_requests") {
         updateEmailDetails((prevEmailDetails) => {
           const updatedEmailDetails = { ...prevEmailDetails };
-          updatedEmailDetails.databaseError = "forgotPassword.too_many_requests";
+          updatedEmailDetails.databaseError =
+            "forgotPassword.too_many_requests";
           return updatedEmailDetails;
         });
       } else {
@@ -84,6 +83,7 @@ function ForgotPasswordContainer(props) {
         });
       }
     }
+    setIsSending(false);
   };
   const fireDifferentPageViewCall = (pageName) => {
     let utag = window.utag;
@@ -127,6 +127,7 @@ function ForgotPasswordContainer(props) {
     backToSignIn,
     validateEmail,
     updateEmailDetails,
+    isSending,
   });
 }
 

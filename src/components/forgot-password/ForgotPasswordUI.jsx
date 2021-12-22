@@ -16,6 +16,7 @@ function ForgotPasswordUI(props) {
     backToSignIn,
     validateEmail,
     updateEmailDetails,
+    isSending,
   } = props;
   const { locale } = useContext(CommonDataContext);
   const { isAffiliateLogo } = useContext(CommonDataContext);
@@ -72,10 +73,7 @@ function ForgotPasswordUI(props) {
                 {translate("Enter_email_to_reset_password")}
               </div>
               {emailDetails.databaseError && (
-                <div 
-                  id = "forgot-password-error-id"
-                  className="ErrorDiv"
-                >
+                <div id="forgot-password-error-id" className="ErrorDiv">
                   <p>
                     <FormattedMessage
                       id={emailDetails.databaseError}
@@ -133,17 +131,14 @@ function ForgotPasswordUI(props) {
               </div>
             </div>
             {emailDetails.emailError !== "" && (
-              <div 
-                id = "forgot-password-invalid-email-error"
-                className="Error"
-              >
-                  {translate(emailDetails.emailError)}
+              <div id="forgot-password-invalid-email-error" className="Error">
+                {translate(emailDetails.emailError)}
               </div>
             )}
             <div className="forgotPasswordDropDownContainer">
               <div className="emailMeBtnWrapper">
                 <button
-                  id = "forgot-password-email-me-button"
+                  id="forgot-password-email-me-button"
                   onClick={handleEmailMe}
                   className={`emailMeBtn
                   ${
@@ -175,10 +170,11 @@ function ForgotPasswordUI(props) {
               <hr className="dottedLine" />
               <div className="signInBtnWrapper">
                 <button
-                  id= "forgot-password-back-to-signin-button"
-                  className="signInBtn"
+                  id="forgot-password-back-to-signin-button"
+                  className={isSending ? "signInBtnDisabled" : "signInBtn"}
                   onClick={backToSignIn}
                   data-navelement="Signin-page-redirect-from-forgotpassword"
+                  disabled={isSending}
                 >
                   {translate("Go_back_to_signin")}
                 </button>

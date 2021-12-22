@@ -15,6 +15,7 @@ function AccountUnblockContainer(props) {
   const error = useRef(
     query.get("error_description") || parsedHash.get("error_description") || ""
   );
+  const [isSending, setIsSending] = useState(false);
 
   const webAuth = new auth0.WebAuth({
     domain: domain.current || "error",
@@ -51,6 +52,7 @@ function AccountUnblockContainer(props) {
 
   const handleEmailMe = async (e) => {
     e.preventDefault();
+    setIsSending(true);
     try {
       await sendForgotPasswordLink(email.current);
       updateEmailDetails((prevEmailDetails) => {
@@ -66,6 +68,7 @@ function AccountUnblockContainer(props) {
         return updatedEmailDetails;
       });
     }
+    setIsSending(false);
   };
 
   const child = React.Children.only(props.children);
@@ -77,6 +80,8 @@ function AccountUnblockContainer(props) {
     error,
     domain,
     clientId,
+    isSending,
+    setIsSending,
   });
 }
 

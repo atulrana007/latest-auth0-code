@@ -6,7 +6,17 @@ import { CommonDataContext } from "../../providers/CommonDataContext";
 import { ReactComponent as McAfeeLogo } from "../../svg/Mcafee-Logo.svg";
 
 function AccountUnblockUI(props) {
-  const { message, success, handleEmailMe, error, domain, clientId } = props;
+  const {
+    message,
+    success,
+    handleEmailMe,
+    error,
+    domain,
+    clientId,
+    emailDetails,
+    isSending,
+    setIsSending,
+  } = props;
   const { locale } = useContext(CommonDataContext);
   const { isAffiliateLogo } = useContext(CommonDataContext);
   console.log(message, success);
@@ -57,39 +67,52 @@ function AccountUnblockUI(props) {
         }
         return (
           <div styles={styles.failure}>
-            <div className={styles.Intro}>{mainDiv}</div>
+            <div className={styles.Intro}>
+              {emailDetails.emailSent ? translate("Check_inbox") : mainDiv}
+            </div>
             <div className={styles.IntroSubHeading}>
-              <FormattedMessage
-                id="Reset_password_to_unlock_account"
-                defaultMessage={
-                  "Reset your password or <a_contact_support>Contact Support</a_contact_support> to unlock your account."
-                }
-                values={{
-                  a_contact_support: (chunks) => (
-                    <a
-                      className={styles.contactSupportBtn}
-                      target="_blank"
-                      href={`https://home.mcafee.com/root/support.aspx?culture=${locale.toUpperCase()}`}
-                    >
-                      {chunks}
-                    </a>
-                  ),
-                }}
-              >
-                {(chunks) => <p>{chunks}</p>}
-              </FormattedMessage>
+              {emailDetails.emailSent ? (
+                translate("Password_reset_link_sent")
+              ) : (
+                <FormattedMessage
+                  id="Reset_password_to_unlock_account"
+                  defaultMessage={
+                    "Reset your password or <a_contact_support>Contact Support</a_contact_support> to unlock your account."
+                  }
+                  values={{
+                    a_contact_support: (chunks) => (
+                      <a
+                        className={styles.contactSupportBtn}
+                        target="_blank"
+                        href={`https://home.mcafee.com/root/support.aspx?culture=${locale.toUpperCase()}`}
+                      >
+                        {chunks}
+                      </a>
+                    ),
+                  }}
+                >
+                  {(chunks) => <p>{chunks}</p>}
+                </FormattedMessage>
+              )}
             </div>
-            <div className={styles.accountUnblockDropDownContainer}>
-              <button
-                id="account-unblock-email-me-button"
-                className={styles.emailMeBtn}
-                style={{ width: "100%", maxWidth: "350px" }}
-                onClick={handleEmailMe}
-                data-navelement="Signin-With-password"
-              >
-                <div>{translate("Reset_Password")}</div>
-              </button>
-            </div>
+            {emailDetails.emailSent ? null : (
+              <div className={styles.accountUnblockDropDownContainer}>
+                <button
+                  id="account-unblock-email-me-button"
+                  className={
+                    isSending ? styles.emailMeBtnDisabled : styles.emailMeBtn
+                  }
+                  style={{ width: "100%", maxWidth: "350px" }}
+                  onClick={(e) => {
+                    handleEmailMe(e);
+                  }}
+                  data-navelement="Signin-With-password"
+                  disabled={isSending}
+                >
+                  <div>{translate("Reset_Password")}</div>
+                </button>
+              </div>
+            )}
           </div>
         );
       }

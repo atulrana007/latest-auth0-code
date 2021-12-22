@@ -7,6 +7,7 @@ import { ReactComponent as PasswordTick } from "../../svg/passwordPolicyTick.svg
 import { ReactComponent as PasswordCross } from "../../svg/passwordPolicyCross.svg";
 import { ReactComponent as TickIcon } from "../../svg/tickIcon.svg";
 import translate from "../../localization/translate";
+import { FormattedMessage } from "react-intl";
 
 function ChangePasswordForm(props) {
   const {
@@ -59,20 +60,24 @@ function ChangePasswordForm(props) {
                     color: "rgb(175, 174, 174)",
                   }}
                 />
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  name="password"
-                  value={ResetPasswordForm.password}
-                  placeholder="Password"
-                  className="ResetPasswordInput"
-                  onChange={onChange}
-                  onFocus={() => {
-                    onClick();
-                    setDisplayRules(true);
-                  }}
-                  onBlur={() => setDisplayRules(false)}
-                />
+                <FormattedMessage id="password">
+                  {(msg) => (
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      name="password"
+                      value={ResetPasswordForm.password}
+                      placeholder={msg}
+                      className="ResetPasswordInput"
+                      onChange={onChange}
+                      onFocus={() => {
+                        onClick();
+                        setDisplayRules(true);
+                      }}
+                      onBlur={() => setDisplayRules(false)}
+                    />
+                  )}
+                </FormattedMessage>
                 <FillEye
                   style={{
                     height: "1.5rem",
@@ -163,16 +168,20 @@ function ChangePasswordForm(props) {
                     color: "rgb(175, 174, 174)",
                   }}
                 />
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  value={ResetPasswordForm.confirmPassword}
-                  placeholder="Confirm Password"
-                  className="ResetPasswordInput"
-                  onChange={onChange}
-                  onBlur={() => setDisplayRules(false)}
-                />
+                <FormattedMessage id="confirm_password">
+                  {(msg) => (
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      value={ResetPasswordForm.confirmPassword}
+                      placeholder={msg}
+                      className="ResetPasswordInput"
+                      onChange={onChange}
+                      onBlur={() => setDisplayRules(false)}
+                    />
+                  )}
+                </FormattedMessage>
                 <FillEye
                   style={{
                     height: "1.5rem",
@@ -204,10 +213,7 @@ function ChangePasswordForm(props) {
               </div>
             </div>
             {ResetPasswordError.errorCode && (
-              <div 
-                id="reset-password-error-id" 
-                className="Error"
-              >
+              <div id="reset-password-error-id" className="Error">
                 {translate(ResetPasswordError.errorCode)}
               </div>
             )}
