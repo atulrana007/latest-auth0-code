@@ -54,9 +54,9 @@ const AccountProvider = (props) => {
     };
     return new Promise((resolve, reject) => {
       const variables = {
-        connection: "AV-Password-Authentication",
+        // connection: "AV-Password-Authentication",
         // connection: "Test-CustomDB",
-        // connection: "Username-Password-Authentication",
+        connection: "Username-Password-Authentication",
         email,
         password,
         ...{ optinFields: optinFields },
@@ -123,9 +123,9 @@ const AccountProvider = (props) => {
     return new Promise((resolve, reject) => {
       webAuth.login(
         {
-          realm: "AV-Password-Authentication",
+          // realm: "AV-Password-Authentication",
           // realm: "Test-CustomDB",
-          // realm: "Username-Password-Authentication",
+          realm: "Username-Password-Authentication",
           username,
           password,
           onRedirecting: function (done) {
@@ -153,8 +153,8 @@ const AccountProvider = (props) => {
     return new Promise((resolve, reject) => {
       webAuth.changePassword(
         {
-          connection: "AV-Password-Authentication",
-          // connection: "Username-Password-Authentication",
+          // connection: "AV-Password-Authentication",
+          connection: "Username-Password-Authentication",
           // connection: "Test-CustomDB",
           email: email,
         },

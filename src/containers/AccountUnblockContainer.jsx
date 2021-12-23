@@ -26,8 +26,8 @@ function AccountUnblockContainer(props) {
     return new Promise((resolve, reject) => {
       webAuth.changePassword(
         {
-          connection: "AV-Password-Authentication",
-          // connection: "Username-Password-Authentication",
+          // connection: "AV-Password-Authentication",
+          connection: "Username-Password-Authentication",
           // connection: "Test-CustomDB",
           email: email,
         },

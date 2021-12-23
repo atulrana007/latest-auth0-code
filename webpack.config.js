@@ -10,7 +10,7 @@ module.exports = {
     main: lModules,
   },
   output: {
-    filename: "bundle_auth0dev_1_4.min.js",
+    filename: "demo-tenant-bundle-default-db.min.js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
