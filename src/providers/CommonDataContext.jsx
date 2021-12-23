@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { TrackingContext } from "./TrackingProvider";
 import { useLocation } from "react-router-dom";
+import configs from "../config";
 
 import axios from "axios";
 
@@ -60,8 +61,7 @@ const CommonDataProvider = (props) => {
         const filteredData = data.slice(16, -2);
         const jsonData = JSON.parse(filteredData);
         const DB_ARRAY = jsonData?.strategies[0]?.connections.filter(
-          // (item) => item.name === "AV-Password-Authentication"
-          (item) => item.name === "Username-Password-Authentication"
+          (item) => item.name === configs.connection
         );
         console.log("DB ARRAY RECIVED", DB_ARRAY);
         setConn(DB_ARRAY);

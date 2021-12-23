@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef } from "react";
 import { AccountContext } from "../providers/AccountContext";
 import useQuery from "../utils/useQuery";
 import auth0 from "auth0-js";
+import configs from "../config";
 
 function AccountUnblockContainer(props) {
   const query = useQuery();
@@ -26,9 +27,7 @@ function AccountUnblockContainer(props) {
     return new Promise((resolve, reject) => {
       webAuth.changePassword(
         {
-          // connection: "AV-Password-Authentication",
-          connection: "Username-Password-Authentication",
-          // connection: "Test-CustomDB",
+          connection: configs.connection,
           email: email,
         },
         (err, authResult) => {

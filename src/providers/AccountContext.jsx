@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import auth0 from "auth0-js";
 import { TrackingContext } from "./TrackingProvider";
 import { TealiumTagValueConstans } from "../constants/TealiumConstants";
+import configs from "../config";
 
 const AccountContext = React.createContext({});
 
@@ -12,7 +13,6 @@ const AccountProvider = (props) => {
   console.log("configs", props);
   const webAuth = new auth0.WebAuth({
     domain: props.config.auth0Domain,
-    // domain: "iddev.mcafee.com",
     clientID: props.config.clientID,
     redirectUri: props.config?.callbackURL,
     responseType: props.config?.extraParams?.response_type,
@@ -54,9 +54,7 @@ const AccountProvider = (props) => {
     };
     return new Promise((resolve, reject) => {
       const variables = {
-        // connection: "AV-Password-Authentication",
-        // connection: "Test-CustomDB",
-        connection: "Username-Password-Authentication",
+        connection: configs.connection,
         email,
         password,
         ...{ optinFields: optinFields },
@@ -123,9 +121,7 @@ const AccountProvider = (props) => {
     return new Promise((resolve, reject) => {
       webAuth.login(
         {
-          // realm: "AV-Password-Authentication",
-          // realm: "Test-CustomDB",
-          realm: "Username-Password-Authentication",
+          realm: configs.connection,
           username,
           password,
           onRedirecting: function (done) {
@@ -153,9 +149,7 @@ const AccountProvider = (props) => {
     return new Promise((resolve, reject) => {
       webAuth.changePassword(
         {
-          // connection: "AV-Password-Authentication",
-          connection: "Username-Password-Authentication",
-          // connection: "Test-CustomDB",
+          connection: configs.connection,
           email: email,
         },
         (err, authResult) => {
