@@ -1,23 +1,23 @@
-.timer-class {
+.timerClass {
   font-size: 1rem;
   color: black;
   display: flex;
   justify-content: flex-start;
 }
-.resend-passcode {
+.resendPasscode {
   margin-left: 0.4rem;
   color: rgb(54, 123, 255);
   cursor: pointer;
 }
 
-.timer-active {
+.timerActive {
   background: #e2ecfe;
   margin-bottom: 0.2rem;
   padding: 0.625rem;
   border-radius: 0.31rem;
   margin-top: 0.75rem;
 }
-.timer-inactive {
+.timerInactive {
   color: red;
   display: flex;
   flex-direction: row;

@@ -201,6 +201,23 @@ input:-webkit-autofill {
   outline: none;
   cursor: pointer;
 }
+.SigninWithPasswordError {
+  margin-top: 1rem;
+  padding: 0rem 1rem;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6rem;
+  font-weight: 600;
+  color: #4258ff;
+  background-color: #fff;
+  border: 2px solid #4258ff;
+  box-shadow: inset 0 2px 2px 0 rgb(0 0 0 / 5%);
+  font-size: inherit;
+  outline: none;
+  cursor: pointer;
+}
 
 .SwitchContainer {
   flex: 1;
@@ -274,15 +291,33 @@ input:-webkit-autofill {
   outline: none;
   cursor: pointer;
 }
-.EmailBlockSwitchBtn {
-  background-color: rgb(54, 123, 255);
+.SwitchBtnError {
+  background-color: #4258ff;
   color: #fff;
-  padding: 1rem 1rem;
+  font-size: 1rem;
+  line-height: 24px;
+  height: 40px;
   display: flex;
   border-radius: 6rem;
-  border: 2px solid rgb(54, 123, 255);
+  border: 2px solid #4258ff;
   justify-content: center;
   align-items: center;
+  box-shadow: inset 0 2px 2px 0 rgb(0 0 0 / 5%);
+  outline: none;
+  cursor: pointer;
+}
+.EmailBlockSwitchBtn {
+  width: 350px;
+  margin-top: 1rem;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6rem;
+  font-weight: 600;
+  color: #fff;
+  background: #4258ff;
+  border: 1px solid RGB(212, 213, 219);
   box-shadow: inset 0 2px 2px 0 rgb(0 0 0 / 5%);
   font-size: inherit;
   outline: none;
@@ -413,10 +448,11 @@ input:-webkit-autofill {
   text-align: center;
 }
 .blockotpinfo {
-  padding: 1rem 0.2rem;
+  width: 352px;
+
   font-style: normal;
-  font-weight: normal;
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 12px;
   line-height: 20px;
   color: #6d7895;
   margin: 1rem 2rem;

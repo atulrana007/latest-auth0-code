@@ -1,0 +1,191 @@
+.ResetPasswordBtnWrapper {
+  display: flex;
+  height: 3rem;
+  margin-bottom: 1.25rem;
+  flex-direction: row;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgb(212, 213, 219);
+  color: RGB(38, 41, 77);
+  font-size: inherit;
+  outline: none;
+  align-items: center;
+}
+.ForgotPasswordContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0rem 3rem;
+  margin-top: 2rem;
+  overflow: hidden;
+  height: 100vh;
+}
+.ResetPasswordLeftContainer {
+  display: flex;
+  flex-direction: column;
+}
+.ResetPasswordRightContainer {
+  display: flex;
+  flex-direction: column;
+  padding-right: 2rem;
+}
+.ResetPasswordContentWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.ForgotPasswordEmailInput {
+  padding-right: 1rem;
+  border-radius: 1rem;
+  flex: 1;
+  font-size: 1.3rem;
+  color: RGB(38, 41, 77);
+  border: none;
+  outline: none;
+  width: -webkit-fill-available;
+}
+.emailMeBtn {
+  cursor: pointer;
+  color: white;
+  padding: 0px 16px;
+  background-color: #4258ff;
+  width: 100%;
+  height: 40px;
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 600;
+  border-radius: 24px;
+  border: none;
+  outline: none;
+}
+.emailMeBtn:focus {
+  outline: none;
+}
+.emailMeBtnDisabled {
+  cursor: pointer;
+  color: white;
+  padding: 0px 16px;
+  background-color: #4258ff;
+  width: 100%;
+  height: 40px;
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 600;
+  border-radius: 24px;
+  border: none;
+  outline: none;
+  background-color: rgb(204, 204, 204);
+}
+
+.ForgotPasswordLeftContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ForgotPasswordIntro {
+  width: fit-content;
+  /* height: 40px; */
+  display: flex;
+  align-items: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+  font-family: "Poppins", sans-serif;
+  color: #212934;
+}
+.ForgotPasswordIntroSubHeading {
+  color: #5a6175;
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+.ForgotPasswordRightWrapper {
+  flex: 1;
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+.Logo {
+  width: 5rem;
+  height: 1rem;
+}
+
+.ResetPasswordInput {
+  margin-left: 0.3rem;
+  width: 100%;
+  background-color: white;
+  border: 0px solid white;
+  color: RGB(38, 41, 77);
+  font-size: 1rem;
+  outline: none;
+}
+.ResetPasswordHeader {
+  position: absolute;
+  font-weight: 600;
+  color: rgb(175, 174, 174);
+  margin-left: 2rem;
+  background-color: #fff;
+  padding: 2px 2px;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  margin-top: -0.7rem;
+}
+
+.Passwordrulescontainer {
+  display: flex;
+}
+.Passwordrules {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1rem;
+  background-color: transparent;
+  border-radius: 1.5rem;
+}
+.Rule {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background-color: #f5f6fa;
+  border-radius: 1rem;
+  padding: 4px 10px;
+  margin: 4px;
+}
+.Ruletext {
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+  color: #4a4f5d;
+}
+
+.tick {
+  color: rgb(54, 230, 54);
+}
+.cancel {
+  color: rgb(185, 70, 70);
+}
+.Logo {
+  margin-top: 1rem;
+}
+@media only screen and (min-width: 700px) {
+  .ResetPasswordContentWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .ForgotPasswordRightWrapper {
+    flex: 1;
+    margin-top: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    width: 50vw;
+  }
+}

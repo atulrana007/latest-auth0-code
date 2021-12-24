@@ -75,7 +75,7 @@ const PasswordFlow = (props) => {
               )}
             </FormattedMessage>
 
-            {validateEmail(LoginForm.email) &&
+            {/* {validateEmail(LoginForm.email) &&
             LoginText.title === "Looks_like_you_already_have_an_account" ? (
               <TickIcon
                 style={{
@@ -85,7 +85,7 @@ const PasswordFlow = (props) => {
                   marginRight: "0.2rem",
                 }}
               />
-            ) : null}
+            ) : null} */}
             {LoginError?.errorCode &&
               LoginError?.errorCode !== "login.password_lock" &&
               LoginError?.errorCode !== "passwordless.passcode_lock" && (
@@ -142,6 +142,7 @@ const PasswordFlow = (props) => {
                   id="password"
                   name="password"
                   placeholder={msg}
+                  value={LoginForm.password}
                   className={styles.LoginInput}
                   onChange={onChange}
                 />
@@ -181,7 +182,18 @@ const PasswordFlow = (props) => {
       </>
       <button
         id="sign-in-button"
-        className={styles.SigninWithPassword}
+        className={
+          LoginError?.errorCode &&
+          LoginError?.errorCode !== "login.password_lock" &&
+          LoginError?.errorCode !== "passwordless.passcode_lock" &&
+          !(
+            !validateEmail(LoginForm.email) ||
+            LoginForm.password === "" ||
+            LoginForm.isSubmitting
+          )
+            ? styles.SigninWithPasswordError
+            : styles.SigninWithPassword
+        }
         onClick={(e) => {
           onSubmit(e);
         }}

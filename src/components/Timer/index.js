@@ -1,15 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import "./style.css";
 import translate from "../../localization/translate";
 import useInterval from "../../utils/useInterval";
+import configs from "../../config";
+import styles from "./style.module.css";
 
 const Timer = (props) => {
   const { setOtpValid, getOtp } = props;
 
   const [TimerState, setTimer] = useState({
-    minutes: 20,
-    seconds: 0,
+    minutes: configs.timer.minutes,
+    seconds: configs.timer.seconds,
   });
   const [stop, setStop] = useState(1000);
 
@@ -31,12 +32,12 @@ const Timer = (props) => {
   }, stop);
 
   return (
-    <div className="timer-class">
+    <div className={styles.timerClass}>
       {TimerState.minutes === 0 && TimerState.seconds === 0 ? (
-        <div className="timer-inactive">
+        <div className={styles.timerInactive}>
           {translate("This_passcode_has_expired")}
           <div
-            className="resend-passcode"
+            className={styles.resendPasscode}
             onClick={getOtp}
             data-nav-element-click="Resend OTP | Expired"
           >
@@ -44,7 +45,7 @@ const Timer = (props) => {
           </div>
         </div>
       ) : (
-        <div className="timer-active">
+        <div className={styles.timerActive}>
           {translate("Passcode_expires_in")}{" "}
           <span style={{ fontWeight: 700 }}>
             {TimerState.minutes === 0 && TimerState.seconds > 0
@@ -54,8 +55,8 @@ const Timer = (props) => {
               : TimerState.minutes + 1}
           </span>{" "}
           {TimerState.minutes === 0 && TimerState.seconds > 0
-            ? "seconds"
-            : "minutes"}
+            ? translate("seconds")
+            : translate("minutes")}
         </div>
       )}
     </div>

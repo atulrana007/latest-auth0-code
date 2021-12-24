@@ -147,6 +147,20 @@
   background-color: #fff;
   padding: 2px 2px;
 }
+.cancel {
+  align-self: center;
+  margin-left: 0.2rem;
+  color: rgb(185, 70, 70);
+}
+.EmailNotMatching {
+  background-color: #ffdbde;
+  margin-top: 1rem;
+  border-radius: 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 0.25rem 0.625rem;
+  color: #890611;
+}
 .hr {
   border: none;
   border-top: 2px dotted rgb(204, 204, 204);

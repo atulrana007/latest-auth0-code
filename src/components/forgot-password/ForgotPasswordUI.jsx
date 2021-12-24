@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import translate from "../../localization/translate";
 import { AiOutlineMail } from "react-icons/ai";
-import "./style.css";
 import ForgotPasswordEmail from "./ForgotPasswordEmail";
 import { FormattedMessage } from "react-intl";
 import { CommonDataContext } from "../../providers/CommonDataContext";
 import { ReactComponent as McAfeeLogoForAffiliate } from "../../svg/Mcafee-Logo-For-Affiliate.svg";
 import { ReactComponent as McAfeeLogo } from "../../svg/Mcafee-Logo.svg";
+import styles from "./style.module.css";
 
 function ForgotPasswordUI(props) {
   const {
@@ -41,9 +41,9 @@ function ForgotPasswordUI(props) {
           emailDetails={emailDetails}
         />
       ) : (
-        <div className="ForgotPasswordContainer">
-          <div className="ForgotPasswordLeftWrapper">
-            <div className="ForgotPasswordLeftContainer">
+        <div className={styles.ForgotPasswordContainer}>
+          <div className={styles.ForgotPasswordLeftWrapper}>
+            <div className={styles.ForgotPasswordLeftContainer}>
               {isAffiliateLogo ? (
                 <div className="container-header">
                   <McAfeeLogoForAffiliate />
@@ -66,14 +66,14 @@ function ForgotPasswordUI(props) {
               ) : (
                 <McAfeeLogo />
               )}
-              <div className="ForgotPasswordIntro">
+              <div className={styles.ForgotPasswordIntro}>
                 {translate("Reset_Password")}
               </div>
-              <div className="ForgotPasswordIntroSubHeading">
+              <div className={styles.ForgotPasswordIntroSubHeading}>
                 {translate("Enter_email_to_reset_password")}
               </div>
               {emailDetails.databaseError && (
-                <div id="forgot-password-error-id" className="ErrorDiv">
+                <div id="forgot-password-error-id" className={styles.ErrorDiv}>
                   <p>
                     <FormattedMessage
                       id={emailDetails.databaseError}
@@ -84,11 +84,11 @@ function ForgotPasswordUI(props) {
               )}
             </div>
           </div>
-          <div className="ForgotPasswordRightWrapper">
-            <div className="ForgotPasswordEmailInputContainer">
+          <div className={styles.ForgotPasswordRightWrapper}>
+            <div className={styles.ForgotPasswordEmailInputContainer}>
               {emailDetails.email !== "" ? (
                 <div
-                  className="ForgotPasswordInputLabel"
+                  className={styles.ForgotPasswordInputLabel}
                   style={{
                     color: validateEmail(emailDetails.email)
                       ? "#0CA77D"
@@ -114,7 +114,7 @@ function ForgotPasswordUI(props) {
                   height: "100%",
                 }}
               >
-                <AiOutlineMail className="ForgotPasswordEmailLogo" />
+                <AiOutlineMail className={styles.ForgotPasswordEmailLogo} />
                 <FormattedMessage id="email">
                   {(msg) => (
                     <input
@@ -123,7 +123,7 @@ function ForgotPasswordUI(props) {
                       name="email"
                       value={emailDetails.email}
                       placeholder={msg}
-                      className="ForgotPasswordEmailInput"
+                      className={styles.ForgotPasswordEmailInput}
                       onChange={handleEmailChange}
                     />
                   )}
@@ -131,21 +131,23 @@ function ForgotPasswordUI(props) {
               </div>
             </div>
             {emailDetails.emailError !== "" && (
-              <div id="forgot-password-invalid-email-error" className="Error">
+              <div
+                id="forgot-password-invalid-email-error"
+                className={styles.Error}
+              >
                 {translate(emailDetails.emailError)}
               </div>
             )}
-            <div className="forgotPasswordDropDownContainer">
-              <div className="emailMeBtnWrapper">
+            <div className={styles.forgotPasswordDropDownContainer}>
+              <div className={styles.emailMeBtnWrapper}>
                 <button
                   id="forgot-password-email-me-button"
                   onClick={handleEmailMe}
-                  className={`emailMeBtn
-                  ${
+                  className={
                     emailDetails.emailError !== "" || emailDetails.email === ""
-                      ? "emailMeBtnDisabled"
-                      : ""
-                  }`}
+                      ? styles.emailMeBtnDisabled
+                      : styles.emailMeBtn
+                  }
                   disabled={
                     emailDetails.emailError !== "" || emailDetails.email === ""
                   }
@@ -154,7 +156,7 @@ function ForgotPasswordUI(props) {
                   {translate("Email_me")}
                 </button>
               </div>
-              <div className="contactSupportWrapper">
+              <div className={styles.contactSupportWrapper}>
                 <FormattedMessage
                   id="Forgot_your_password_contact_support"
                   defaultMessage={translate(
@@ -164,14 +166,18 @@ function ForgotPasswordUI(props) {
                     ...FORMATVALUES,
                   }}
                 >
-                  {(chunks) => <p className="contactSupportText">{chunks}</p>}
+                  {(chunks) => (
+                    <p className={styles.contactSupportText}>{chunks}</p>
+                  )}
                 </FormattedMessage>
               </div>
-              <hr className="dottedLine" />
-              <div className="signInBtnWrapper">
+              <hr className={styles.dottedLine} />
+              <div className={styles.signInBtnWrapper}>
                 <button
                   id="forgot-password-back-to-signin-button"
-                  className={isSending ? "signInBtnDisabled" : "signInBtn"}
+                  className={
+                    isSending ? styles.signInBtnDisabled : styles.signInBtn
+                  }
                   onClick={backToSignIn}
                   data-navelement="Signin-page-redirect-from-forgotpassword"
                   disabled={isSending}

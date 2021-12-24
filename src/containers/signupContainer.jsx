@@ -28,6 +28,10 @@ export default function SignupContainer(props) {
   // Context Data
 
   // Initialized States
+  const [activeInput, setActiveInput] = useState({
+    password: false,
+    confirmPassword: false,
+  });
   const [optinFields, setOptinFields] = useState(null);
   const [isValid, setIsValid] = useState(false);
   const [errorEmail, setErrorEmail] = useState("");
@@ -257,15 +261,32 @@ export default function SignupContainer(props) {
     setPasswordRules(connections[0]);
   };
   const onChange = (e) => {
-    if (e.target.name === "password" && passwordRules) {
-      validatePassword(
-        passwordRules,
-        e.target.value,
-        PasswordPolicyState,
-        setPasswordPolicyState,
-        setIsValid
-      );
+    if (e.target.name === "password" && (passwordRules || true)) {
+      if (e.target.value === "") {
+        setActiveInput({
+          ...activeInput,
+          password: false,
+        });
+      } else {
+        setActiveInput({
+          ...activeInput,
+          password: true,
+        });
+      }
+      // validatePassword(
+      //   passwordRules,
+      //   e.target.value,
+      //   PasswordPolicyState,
+      //   setPasswordPolicyState,
+      //   setIsValid
+      // );
+    } else if (e.target.name === "confirmPassword") {
+      setActiveInput({
+        ...activeInput,
+        confirmPassword: true,
+      });
     }
+
     setSignupForm({
       ...SignupForm,
       [e.target.name]: e.target.value,
@@ -306,6 +327,8 @@ export default function SignupContainer(props) {
     handleOptinsCheckBoxes,
     optinFields,
     validateEmail,
+    activeInput,
     onLoad,
+    setActiveInput,
   });
 }

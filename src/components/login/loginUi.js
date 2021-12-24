@@ -62,6 +62,7 @@ const LoginUI = (props) => {
   const FORMATVALUES = {
     a_contact_support: (chunks) => (
       <a
+        id = "contact-support-anchor-tag-id"
         style={{ color: "rgb(66, 88, 255)" }}
         className={styles.external_link}
         target="_blank"
@@ -73,6 +74,7 @@ const LoginUI = (props) => {
     ),
     a_McAfee_License: (chunks) => (
       <a
+        id = "mcafee-license-anchor-tag-id"
         style={{ color: "rgb(66, 88, 255)" }}
         className={styles.external_link}
         target="_blank"
@@ -84,6 +86,7 @@ const LoginUI = (props) => {
     ),
     a_reset_pass: (chunks) => (
       <strong
+        id= "reset-password-anchor-tag-id"
         className={styles.important}
         style={{ color: "rgb(66, 88, 255)" }}
         onClick={(e) => handleForgotPasswordClick(e)}
@@ -94,6 +97,7 @@ const LoginUI = (props) => {
     ),
     a_signin_otp: (chunks) => (
       <strong
+        id = "sign-in-with-otp-anchor-tag-id"
         className={styles.important}
         onClick={onToggle}
         data-navelement="Sigin With OTP | Error"
@@ -103,6 +107,7 @@ const LoginUI = (props) => {
     ),
     a_privacy_notice: (chunks) => (
       <a
+        id = "privacy-notice-anchor-tag-id"
         style={{ color: "rgb(66, 88, 255)" }}
         className={styles.external_link}
         target="_blank"
@@ -170,32 +175,38 @@ const LoginUI = (props) => {
       //const loginCustomization = LoginForm.customizations;
       return (
         !loginCustomization?.hideSignUp && (
-          <div className={styles.LoginBottomHeading}>
-            <div>{translate("Do_not_have_an_account")}</div>
-            <div
-              id="create-one-now-link"
-              className={styles.Loginpagelink}
-              onClick={(e) => {
-                changePage(e);
-              }}
-              data-navelement="Create Account"
-            >
-              {translate("Create_one_now")}
+          <>
+            <div className={styles.HorizontalSignupdashedline}></div>
+            <div className={styles.LoginBottomHeading}>
+              <div>{translate("Do_not_have_an_account")}</div>
+              <div
+                id="create-one-now-link"
+                className={styles.Loginpagelink}
+                onClick={(e) => {
+                  changePage(e);
+                }}
+                data-navelement="Create Account"
+              >
+                {translate("Create_one_now")}
+              </div>
             </div>
-          </div>
+          </>
         )
       );
     } else {
       if (blockScreenState.otpBlock && blockScreenState.passwordBlock) {
         return (
-          <div
-            id="both-password-and-otp-lock-sign-in-with-different-email-address-link"
-            className={styles.Signuppagelink}
-            onClick={(e) => blockScreenToggle("both-locked", e)}
-            data-navelement="Signin-redirect-from-blockscreen"
-          >
-            {translate("Sign_in_with_a_different_email_address")}
-          </div>
+          <>
+            <div className={styles.HorizontalSignupdashedline}></div>
+            <div
+              id="both-password-and-otp-lock-sign-in-with-different-email-address-link"
+              className={styles.Signuppagelink}
+              onClick={(e) => blockScreenToggle("both-locked", e)}
+              data-navelement="Signin-redirect-from-blockscreen"
+            >
+              {translate("Sign_in_with_a_different_email_address")}
+            </div>
+          </>
         );
       } else if (blockScreenState.passwordBlock && onlyPasswordLock) {
         console.log("inside this one");
@@ -203,7 +214,7 @@ const LoginUI = (props) => {
           <div className={styles.LoginBottomHeading}>
             <p>
               {translate(
-                "You_can_sign_in_with_a_otp_or_to_unlock_your_account_you_may_reset_your_password_or_Contact_Support",
+                "You_can_sign_in_with_a_otp_or_to_unlock_your_account_you_may_reset_your_password_or_Contact_Support_2",
                 "We sent a one-time passcode to <b>{email}</b>",
                 {
                   ...FORMATVALUES,
@@ -217,40 +228,46 @@ const LoginUI = (props) => {
         );
       } else if (blockScreenState.otpBlock && onlyOTPLock) {
         return (
-          <div className={styles.LoginBottomHeading}>
-            <p>
-              {translate(
-                "otp_lock_bottom_Message",
-                "You may sign in with a password, try <a>resetting your password</a> or <b>Contact Support.</b>",
-                {
-                  ...FORMATVALUES,
-                  a: (chunks) => (
-                    <strong className={styles.important}>{chunks}</strong>
-                  ),
-                  b: (chunks) => (
-                    <strong className={styles.important}>{chunks}</strong>
-                  ),
-                }
-              )}
-            </p>
-          </div>
+          <>
+            <div className={styles.HorizontalSignupdashedline}></div>
+            <div className={styles.LoginBottomHeading}>
+              <p>
+                {translate(
+                  "otp_lock_bottom_Message",
+                  "You may sign in with a password, try <a>resetting your password</a> or <b>Contact Support.</b>",
+                  {
+                    ...FORMATVALUES,
+                    a: (chunks) => (
+                      <strong className={styles.important}>{chunks}</strong>
+                    ),
+                    b: (chunks) => (
+                      <strong className={styles.important}>{chunks}</strong>
+                    ),
+                  }
+                )}
+              </p>
+            </div>
+          </>
         );
       } else {
         return (
           !loginCustomization.hideSignUp && (
-            <div className={styles.LoginBottomHeading}>
-              <div>{translate("Do_not_have_an_account")}</div>
-              <div
-                id="create-one-now-link-2"
-                className={styles.Loginpagelink}
-                onClick={(e) => {
-                  changePage(e);
-                }}
-                navElement="Create Account"
-              >
-                {translate("Create_one_now")}
+            <>
+              <div className={styles.HorizontalSignupdashedline}></div>
+              <div className={styles.LoginBottomHeading}>
+                <div>{translate("Do_not_have_an_account")}</div>
+                <div
+                  id="create-one-now-link-2"
+                  className={styles.Loginpagelink}
+                  onClick={(e) => {
+                    changePage(e);
+                  }}
+                  navElement="Create Account"
+                >
+                  {translate("Create_one_now")}
+                </div>
               </div>
-            </div>
+            </>
           )
         );
       }
@@ -449,7 +466,6 @@ const LoginUI = (props) => {
                     </div>
                   ) : null}
                 </div>
-                <div className={styles.HorizontalSignupdashedline}></div>
                 {BottomHeading()}
               </div>
             </div>

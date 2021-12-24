@@ -32,6 +32,8 @@ const SignupUI = (props) => {
     setLoginForm,
     LoginForm,
     onLoad,
+    activeInput,
+    setActiveInput,
   } = props;
   // const { setWhichPage } = useContext(AppContext);
   const { SignupText } = useContext(CommonDataContext);
@@ -128,10 +130,7 @@ const SignupUI = (props) => {
             {SignupError.errorCode ? (
               <>
                 <div className={styles.IntroSubHeadingWithError}>
-                  <div 
-                    id = "signup-error-id"
-                    className={styles.ErrorPoints}
-                  >
+                  <div id="signup-error-id" className={styles.ErrorPoints}>
                     <FormattedMessage
                       id={SignupError.errorCode}
                       defaultMessage="We can’t create an account for <b>{email}</b> because your email is from a country subject to US export restrictions, or your company is on a list of prohibited organizations, either by the US or foreign government agency."
@@ -161,7 +160,7 @@ const SignupUI = (props) => {
                 <div className={styles.BottomHeadingSignUp}>
                   {translate("Already_have_an_account")}
                   <p
-                    id= "sign-in-now-link"
+                    id="sign-in-now-link"
                     className={styles.Signuppagelink}
                     onClick={(e) => changePage(e)}
                     data-navelement="Sign In Now"
@@ -172,7 +171,7 @@ const SignupUI = (props) => {
               )
             ) : (
               <div
-                id = "signin-with-different-email-address-redirect-link"
+                id="signin-with-different-email-address-redirect-link"
                 className={styles.Signuppagelink}
                 onClick={(e) => changePage(e)}
                 data-navelement="Signin-with-different-email-redirect-link"
@@ -196,6 +195,8 @@ const SignupUI = (props) => {
                   handleOptinsCheckBoxes={handleOptinsCheckBoxes}
                   optinFields={optinFields}
                   validateEmail={validateEmail}
+                  activeInput={activeInput}
+                  setActiveInput={setActiveInput}
                 ></Signup>
               ) : null}
             </div>

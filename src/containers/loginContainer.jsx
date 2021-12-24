@@ -96,7 +96,12 @@ export default function LoginContainer(props) {
       });
       setOtpTimer(false);
       setHideEmail(false);
-      setLoginForm({ ...LoginForm, otpAvailable: false, otp: "" });
+      setLoginForm({
+        ...LoginForm,
+        password: "",
+        otpAvailable: false,
+        otp: "",
+      });
       setToggle("login-with-password");
       // trackClickEvent(e.target.getAttribute("data-navelment"));
       trackClickEvent(e.target.getAttribute("data-navelement"));
@@ -422,7 +427,6 @@ export default function LoginContainer(props) {
       }
       setLoginForm({
         ...LoginForm,
-        password: "",
         isSubmitting: false,
       });
       settingCookies();

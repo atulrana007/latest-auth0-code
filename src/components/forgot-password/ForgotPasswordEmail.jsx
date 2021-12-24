@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import translate from "../../localization/translate";
 import { FormattedMessage } from "react-intl";
-import "./style.css";
 import { CommonDataContext } from "../../providers/CommonDataContext";
 import { ReactComponent as McAfeeLogoForAffiliate } from "../../svg/Mcafee-Logo-For-Affiliate.svg";
 import { ReactComponent as McAfeeLogo } from "../../svg/Mcafee-Logo.svg";
+import styles from "./style.module.css";
 
 function ForgotPasswordEmail(props) {
   const { backToSignIn, updateEmailDetails, emailDetails } = props;
@@ -13,7 +13,7 @@ function ForgotPasswordEmail(props) {
   const FORMATVALUES = {
     a_contact_support: (chunks) => (
       <a
-        className="contactSupportBtn"
+        className={styles.contactSupportBtn}
         target="_blank"
         href={`https://home.mcafee.com/root/support.aspx?culture=${locale.toUpperCase()}`}
       >
@@ -22,7 +22,7 @@ function ForgotPasswordEmail(props) {
     ),
     a_request_another_mail: (chunks) => (
       <strong
-        className="contactSupportBtn"
+        className={styles.contactSupportBtn}
         onClick={() => {
           updateEmailDetails({ ...emailDetails, emailSent: false });
         }}
@@ -32,13 +32,16 @@ function ForgotPasswordEmail(props) {
     ),
   };
   return (
-    <div className="ForgotPasswordContainer">
+    <div className={styles.ForgotPasswordContainer}>
       <div className="ForgotPasswordLeftWrapper flexGrow limitWidth">
-        <div className="ForgotPasswordLeftContainer" style={{ height: "100%" }}>
+        <div
+          className={styles.ForgotPasswordLeftContainer}
+          style={{ height: "100%" }}
+        >
           <div>
             {isAffiliateLogo ? (
               <div className="container-header">
-                <McAfeeLogoForAffiliate className="Logo" />
+                <McAfeeLogoForAffiliate />
 
                 <span
                   id="n_AffiliateLogo"
@@ -56,24 +59,26 @@ function ForgotPasswordEmail(props) {
                 </span>
               </div>
             ) : (
-              <McAfeeLogo className="Logo" />
+              <McAfeeLogo />
             )}
           </div>
-          <div className="ForgotPasswordIntro">{translate("Check_inbox")}</div>
-          <div className="ForgotPasswordIntroSubHeading">
+          <div className={styles.ForgotPasswordIntro}>
+            {translate("Check_inbox")}
+          </div>
+          <div className={styles.ForgotPasswordIntroSubHeading}>
             {translate("Password_reset_link_sent")}
           </div>
-          <div className="forgotPasswordDropDownContainer">
+          <div className={styles.forgotPasswordDropDownContainer}>
             <button
-              id = "back-to-sign-in-button"
-              className={"emailMeBtn"}
+              id="back-to-sign-in-button"
+              className={styles.emailMeBtn}
               style={{ width: "100%", maxWidth: "350px" }}
               onClick={backToSignIn}
               data-navelement="Signin With Password"
             >
               <div>{translate("Back_to_signin")}</div>
             </button>
-            <div className="contactSupportWrapper">
+            <div className={styles.contactSupportWrapper}>
               <FormattedMessage
                 id="Didn't_receive_reset_password_link"
                 defaultMessage={
@@ -93,7 +98,9 @@ function ForgotPasswordEmail(props) {
                   ),
                 }}
               >
-                {(chunks) => <p className="contactSupportText">{chunks}</p>}
+                {(chunks) => (
+                  <p className={styles.contactSupportText}>{chunks}</p>
+                )}
               </FormattedMessage>
             </div>
           </div>

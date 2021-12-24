@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./style.css";
 import { DisplayRules } from "../../utils/displayRules";
 import { ReactComponent as LockOutline } from "../../svg/lockIcon.svg";
 import { ReactComponent as FillEye } from "../../svg/eyeIcon.svg";
@@ -8,6 +7,7 @@ import { ReactComponent as PasswordCross } from "../../svg/passwordPolicyCross.s
 import { ReactComponent as TickIcon } from "../../svg/tickIcon.svg";
 import translate from "../../localization/translate";
 import { FormattedMessage } from "react-intl";
+import styles from "./style.module.css";
 
 function ChangePasswordForm(props) {
   const {
@@ -29,14 +29,14 @@ function ChangePasswordForm(props) {
     PasswordPolicyState
   );
   return (
-    <div className="ForgotPasswordRightWrapper">
-      <div className="flexGrow">
-        <form className="InputWrapper" style={{ height: "100%" }}>
+    <div className={styles.ForgotPasswordRightWrapper}>
+      <div className={styles.flexGrow}>
+        <form className={styles.InputWrapper} style={{ height: "100%" }}>
           <>
             <div>
               {ResetPasswordForm.password !== "" ? (
                 <div
-                  className="ResetPasswordHeader"
+                  className={styles.ResetPasswordHeader}
                   style={{
                     color: isValid ? "#0CA77D" : "rgb(175, 174, 174)",
                   }}
@@ -45,7 +45,7 @@ function ChangePasswordForm(props) {
                 </div>
               ) : null}
               <div
-                className="ResetPasswordBtnWrapper"
+                className={styles.ResetPasswordBtnWrapper}
                 style={{
                   border: `1px solid ${
                     isValid ? "#0CA77D" : "RGB(212, 213, 219)"
@@ -68,7 +68,7 @@ function ChangePasswordForm(props) {
                       name="password"
                       value={ResetPasswordForm.password}
                       placeholder={msg}
-                      className="ResetPasswordInput"
+                      className={styles.ResetPasswordInput}
                       onChange={onChange}
                       onFocus={() => {
                         onClick();
@@ -107,21 +107,21 @@ function ChangePasswordForm(props) {
 
             {displayRules && (
               <div
-                className="Passwordrulescontainer"
+                className={styles.Passwordrulescontainer}
                 style={{ marginBottom: "1.5rem" }}
               >
-                <div className="Passwordrules">
+                <div className={styles.Passwordrules}>
                   {displayableRule.map((item, index) => {
                     return (
-                      <div className="Rule" key={index}>
-                        <div className="checkbox">
+                      <div className={styles.Rule} key={index}>
+                        <div className={styles.checkbox}>
                           {PasswordPolicyState[getKeys[index]] ? (
-                            <PasswordTick className="tick" />
+                            <PasswordTick className={styles.tick} />
                           ) : (
-                            <PasswordCross className="cancel" />
+                            <PasswordCross className={styles.cancel} />
                           )}
                         </div>
-                        <div className="Ruletext">
+                        <div className={styles.Ruletext}>
                           {translate(item, "", {
                             leastcount: 8,
                           })}
@@ -135,7 +135,7 @@ function ChangePasswordForm(props) {
             <div>
               {ResetPasswordForm.confirmPassword !== "" ? (
                 <div
-                  className="ResetPasswordHeader"
+                  className={styles.ResetPasswordHeader}
                   style={{
                     color:
                       ResetPasswordForm.password ===
@@ -149,7 +149,7 @@ function ChangePasswordForm(props) {
                 </div>
               ) : null}
               <div
-                className="ResetPasswordBtnWrapper"
+                className={styles.ResetPasswordBtnWrapper}
                 style={{
                   border: `1px solid ${
                     ResetPasswordForm.password ===
@@ -176,7 +176,7 @@ function ChangePasswordForm(props) {
                       name="confirmPassword"
                       value={ResetPasswordForm.confirmPassword}
                       placeholder={msg}
-                      className="ResetPasswordInput"
+                      className={styles.ResetPasswordInput}
                       onChange={onChange}
                       onBlur={() => setDisplayRules(false)}
                     />
@@ -213,11 +213,11 @@ function ChangePasswordForm(props) {
               </div>
             </div>
             {ResetPasswordError.errorCode && (
-              <div id="reset-password-error-id" className="Error">
+              <div id="reset-password-error-id" className={styles.Error}>
                 {translate(ResetPasswordError.errorCode)}
               </div>
             )}
-            <div className="forgotPasswordDropDownContainer">
+            <div className={styles.forgotPasswordDropDownContainer}>
               <button
                 id="reset-password-button"
                 className={
@@ -227,8 +227,8 @@ function ChangePasswordForm(props) {
                     ResetPasswordForm.confirmPassword &&
                   isValid &&
                   !ResetPasswordForm.isSubmitting
-                    ? "emailMeBtn"
-                    : "emailMeBtn emailMeBtnDisabled"
+                    ? styles.emailMeBtn
+                    : styles.emailMeBtnDisabled
                 }
                 onClick={handleResetPassword}
                 disabled={ResetPasswordForm.isSubmitting}

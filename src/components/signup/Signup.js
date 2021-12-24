@@ -5,6 +5,7 @@ import { ReactComponent as LockOutline } from "../../svg/lockIcon.svg";
 import { ReactComponent as FillEye } from "../../svg/eyeIcon.svg";
 import { ReactComponent as PasswordTick } from "../../svg/passwordPolicyTick.svg";
 import { ReactComponent as PasswordCross } from "../../svg/passwordPolicyCross.svg";
+import { ReactComponent as ErrorCross } from "../../svg/errorCross.svg";
 import { DisplayRules } from "../../utils/displayRules";
 import { ReactComponent as TickIcon } from "../../svg/tickIcon.svg";
 import translate from "../../localization/translate";
@@ -26,13 +27,11 @@ const Signup = (props) => {
     handleOptinsCheckBoxes,
     optinFields,
     validateEmail,
+    activeInput,
+    setActiveInput,
   } = props;
   const [showPassword, setShowPassword] = useState(false);
   const [displayRules, setDisplayRules] = useState(false);
-  const [activeInput, setActiveInput] = useState({
-    password: false,
-    confirmPassword: false,
-  });
 
   const { locale, affId } = useContext(CommonDataContext);
   const PRIVACY_NOTICE_LINK = affId
@@ -43,10 +42,26 @@ const Signup = (props) => {
     passwordRules,
     PasswordPolicyState
   );
+  const confirmPasswordColor = () => {
+    if (SignupForm.confirmPassword !== "") {
+      if (SignupForm.password === SignupForm.confirmPassword) {
+        return "#0CA77D";
+      } else if (
+        SignupForm.password.length === SignupForm.confirmPassword.length &&
+        SignupForm.password !== SignupForm.confirmPassword
+      ) {
+        return "#E10A39";
+      }
+      return "#1671EE";
+    } else {
+      return "#848FAA";
+    }
+  };
 
   const values = {
     a_contact_support: (chunks) => (
       <a
+        id = "contact-support-signup-anchor-tag-id"
         style={{ color: "rgb(66, 88, 255)" }}
         className={styles.external_link}
         target="_blank"
@@ -57,6 +72,7 @@ const Signup = (props) => {
     ),
     a_McAfee_License: (chunks) => (
       <a
+        id = "mcafee-license-signup-anchor-tag-id"
         style={{ color: "rgb(66, 88, 255)" }}
         className={styles.external_link}
         target="_blank"
@@ -67,6 +83,7 @@ const Signup = (props) => {
     ),
     a_reset_pass: (chunks) => (
       <button
+        id = "reset-password-signup-anchor-tag-id"
         id="signup-page-forgot-password-button"
         type="button"
         className={styles.forgotPassword}
@@ -78,6 +95,7 @@ const Signup = (props) => {
     ),
     a_privacy_notice: (chunks) => (
       <a
+        id = "privacy-notice-signup-anchor-tag-id"
         style={{ color: "rgb(66, 88, 255)" }}
         className={styles.external_link}
         target="_blank"
@@ -131,12 +149,6 @@ const Signup = (props) => {
             </div>
           )}
           <div
-            onClick={() =>
-              setActiveInput({
-                ...activeInput,
-                password: true,
-              })
-            }
             onBlur={() =>
               setActiveInput({
                 ...activeInput,
@@ -150,7 +162,7 @@ const Signup = (props) => {
                 style={{
                   color: isValid
                     ? "#0CA77D"
-                    : activeInput.password
+                    : SignupForm.password !== ""
                     ? "#1671EE"
                     : "#848FAA",
                 }}
@@ -172,7 +184,7 @@ const Signup = (props) => {
                 border: `1px solid ${
                   isValid
                     ? "#0CA77D"
-                    : activeInput.password && SignupForm.password
+                    : SignupForm.password !== ""
                     ? "#1671EE"
                     : "#848FAA"
                 }`,
@@ -239,13 +251,19 @@ const Signup = (props) => {
               </>
             ) : null}
           </div>
+          {SignupForm.password.length === SignupForm.confirmPassword.length &&
+          SignupForm.password !== SignupForm.confirmPassword ? (
+            <div className={styles.EmailNotMatching}>
+              {translate(
+                "<b>These passwords don’t match.</b> Please try again.",
+                "<b>These passwords don’t match.</b> Please try again.",
+                {
+                  b: (chunks) => <strong>{chunks}</strong>,
+                }
+              )}
+            </div>
+          ) : null}
           <div
-            onClick={() =>
-              setActiveInput({
-                ...activeInput,
-                confirmPassword: true,
-              })
-            }
             onBlur={() =>
               setActiveInput({
                 ...activeInput,
@@ -257,13 +275,7 @@ const Signup = (props) => {
               <div
                 className={styles.InputLabelCPass}
                 style={{
-                  color:
-                    SignupForm.password === SignupForm.confirmPassword &&
-                    SignupForm.confirmPassword !== ""
-                      ? "#0CA77D"
-                      : activeInput.confirmPassword
-                      ? "#1671EE"
-                      : "#848FAA",
+                  color: confirmPasswordColor(),
                 }}
               >
                 {translate("confirm_password")}
@@ -280,14 +292,7 @@ const Signup = (props) => {
               //       : "",
               // }}
               style={{
-                border: `1px solid ${
-                  SignupForm.password === SignupForm.confirmPassword &&
-                  SignupForm.confirmPassword !== ""
-                    ? "#0CA77D"
-                    : activeInput.confirmPassword && SignupForm.confirmPassword
-                    ? "#1671EE"
-                    : "#848FAA"
-                }`,
+                border: `1px solid ${confirmPasswordColor()}`,
               }}
             >
               <LockOutline className={styles.lockSVG} />
@@ -318,6 +323,10 @@ const Signup = (props) => {
               {SignupForm.password === SignupForm.confirmPassword &&
               SignupForm.confirmPassword !== "" ? (
                 <TickIcon />
+              ) : SignupForm.password.length ===
+                  SignupForm.confirmPassword.length &&
+                SignupForm.password !== SignupForm.confirmPassword ? (
+                <ErrorCross className={styles.cancel} />
               ) : null}
             </div>
           </div>
