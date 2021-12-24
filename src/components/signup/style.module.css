@@ -198,8 +198,8 @@
 
 .SubmitButtonActive {
   margin-top: 1rem;
-  padding: 1rem 1rem;
   display: flex;
+  height: 40px;
   align-items: center;
   justify-content: center;
   border-radius: 6rem;
