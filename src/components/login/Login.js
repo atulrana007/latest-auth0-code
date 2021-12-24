@@ -73,7 +73,9 @@ const Login = (props) => {
       <div className={styles.SwitchContainer}>
         <div className={styles.Switch}>
           <div className={styles.Horizontaldashedline}></div>
-          <div className={styles.ordiv}>{translate("or")}</div>
+          {LoginForm.otpAvailable ? null : (
+            <div className={styles.ordiv}>{translate("or")}</div>
+          )}
           <div className={styles.Horizontaldashedline}></div>
         </div>
 
@@ -101,7 +103,9 @@ const Login = (props) => {
         {switchLogin === "login-with-otp" && (
           <button
             id="sign-in-with-password-button"
-            className={styles.SwitchBtn}
+            className={
+              LoginForm.otpAvailable ? styles.SwitchBtnOtp : styles.SwitchBtn
+            }
             onClick={onToggle}
             data-navelement="Signin With Password"
           >

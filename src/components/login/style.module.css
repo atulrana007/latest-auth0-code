@@ -291,6 +291,16 @@ input:-webkit-autofill {
   outline: none;
   cursor: pointer;
 }
+.SwitchBtnOtp {
+  color: #1671ee;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  height: 20px;
+}
 .SwitchBtnError {
   background-color: #4258ff;
   color: #fff;
