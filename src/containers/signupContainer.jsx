@@ -261,7 +261,7 @@ export default function SignupContainer(props) {
     setPasswordRules(connections[0]);
   };
   const onChange = (e) => {
-    if (e.target.name === "password" && (passwordRules || true)) {
+    if (e.target.name === "password" && passwordRules) {
       if (e.target.value === "") {
         setActiveInput({
           ...activeInput,
@@ -273,13 +273,13 @@ export default function SignupContainer(props) {
           password: true,
         });
       }
-      // validatePassword(
-      //   passwordRules,
-      //   e.target.value,
-      //   PasswordPolicyState,
-      //   setPasswordPolicyState,
-      //   setIsValid
-      // );
+      validatePassword(
+        passwordRules,
+        e.target.value,
+        PasswordPolicyState,
+        setPasswordPolicyState,
+        setIsValid
+      );
     } else if (e.target.name === "confirmPassword") {
       setActiveInput({
         ...activeInput,
