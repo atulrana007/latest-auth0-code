@@ -81,13 +81,12 @@
 
 .contactSupportWrapper {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   font-size: 12px;
   line-height: 16px;
   margin: 1rem 0rem;
   color: #6d7895;
-  max-width: 350px;
   text-align: center;
 }
 .contactSupportText {
