@@ -8,15 +8,15 @@ const LanguageProvider = ({ children, locale }) => {
   const { localizedContent } = useContext(SettingContext);
   console.log("localized content", localizedContent);
 
-  return localizedContent ? (
+  return (
     <IntlProvider
       textComponent={Fragment}
       locale={locale}
-      messages={localizedContent}
+      messages={localizedContent ? localizedContent : messages["en-us"]}
       // messages={messages[locale]}
     >
       {children}
     </IntlProvider>
-  ) : null;
+  );
 };
 export default LanguageProvider;

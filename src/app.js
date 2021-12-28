@@ -1,38 +1,21 @@
-import React, { useRef } from "react";
-import { Route, Switch, useLocation } from "react-router-dom";
+import React from "react";
 
-import Main from "./Main";
-
-import Footer from "./components/Footer/Footer";
-import ResetPassword from "./components/reset-password";
-import AccountUnblock from "./components/account-unblock/index";
-
-import { AccountProvider } from "./providers/AccountContext";
-import LanguageProvider from "./localization/languageProvider";
 // import { LOCALES } from "./localization/constants";
 import { CommonDataProvider } from "./providers/CommonDataContext";
 
-import styles from "./app.module.css";
 import { AppProvider } from "./providers/AppContext";
 import { SettingProvider } from "./providers/SettingProvider";
 import { TrackingProvider } from "./providers/TrackingProvider";
-import { ResetPasswordProvider } from "./providers/ResetPasswordContext";
+
 import { useEmail } from "./utils/useEmail";
 import { useLocale } from "./utils/useLocale";
 import { useAffId } from "./utils/useAffId";
+import LanguageWrapper from "./LanguageWrapper";
 
 const App = ({ pageConfig, passwordResetConfig }) => {
   const [emailFill] = useEmail();
   const [appLocale] = useLocale();
   const [affId] = useAffId();
-
-  const withAccountProvider = (Component) => {
-    return (
-      <AccountProvider config={pageConfig} locale={appLocale}>
-        {Component}
-      </AccountProvider>
-    );
-  };
 
   return (
     <TrackingProvider config={pageConfig} affiliateId={affId}>
@@ -45,29 +28,7 @@ const App = ({ pageConfig, passwordResetConfig }) => {
           affiliateId={affId}
         >
           <AppProvider>
-            <LanguageProvider locale={appLocale}>
-              <div className={styles.PageContainer}>
-                <div className={styles.ContentWrap}>
-                  <div id="app">
-                    <Switch>
-                      <Route path="/login" exact>
-                        {withAccountProvider(<Main />)}
-                      </Route>
-
-                      <Route path="/lo/reset" exact>
-                        <ResetPasswordProvider>
-                          <ResetPassword />
-                        </ResetPasswordProvider>
-                      </Route>
-                      <Route path="/unblock" exact>
-                        <AccountUnblock />
-                      </Route>
-                    </Switch>
-                  </div>
-                </div>
-                <Footer />
-              </div>
-            </LanguageProvider>
+            <LanguageWrapper pageConfig={pageConfig} />
           </AppProvider>
         </CommonDataProvider>
       </SettingProvider>
