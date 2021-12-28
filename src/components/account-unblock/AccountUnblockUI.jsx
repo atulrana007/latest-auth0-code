@@ -156,7 +156,7 @@ function AccountUnblockUI(props) {
           <div className={styles.errorDiv}>
             {isGeneric ? (
               <>
-                <div className={styles.Intro}>
+                <div className={styles.IntroGeneric}>
                   {translate("Something went wrong")}
                 </div>
                 <div className={styles.IntroSubHeading}>

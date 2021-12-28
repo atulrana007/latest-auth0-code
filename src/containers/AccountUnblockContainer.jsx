@@ -11,7 +11,12 @@ function AccountUnblockContainer(props) {
     useRef(query.get("message") || parsedHash.get("message")) || "";
   const success = useRef(query.get("success") || parsedHash.get("success"));
   const email = useRef(query.get("email") || parsedHash.get("email"));
-  const clientId = useRef(query.get("clientId") || parsedHash.get("clientId"));
+  const clientId = useRef(
+    query.get("clientId") ||
+      query.get("client_id") ||
+      parsedHash.get("clientId") ||
+      parsedHash.get("client_id")
+  );
   const domain = useRef(query.get("domain") || parsedHash.get("domain"));
   const error = useRef(
     query.get("error_description") || parsedHash.get("error_description") || ""
