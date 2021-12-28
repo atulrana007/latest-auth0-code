@@ -39,7 +39,7 @@ const SettingProvider = (props) => {
         props?.locale[props?.locale.length - 1].toUpperCase();
       try {
         const settingResponse = await axios.get(
-          `/settings/${localeForMessageLink}.json`
+          `https://d1aza67fhfglew.cloudfront.net/settings/${localeForMessageLink}.json`
         );
         console.log("setting", settingResponse);
         // const settingResponse = { data: settings[props.locale] };
@@ -55,7 +55,7 @@ const SettingProvider = (props) => {
           );
         }
         const localizedFileResponse = await axios.get(
-          `/content/${localeForMessageLink}/messages.json`
+          `https://d1aza67fhfglew.cloudfront.net/content/${localeForMessageLink}/messages.json`
         );
         console.log(
           "got something in localization link",
