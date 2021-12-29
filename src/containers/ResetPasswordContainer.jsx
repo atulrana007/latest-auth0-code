@@ -6,7 +6,7 @@ import { validatePassword } from "../validator/PasswordValidator";
 function ResetPasswordContainer(props) {
   const { sendResetPassword } = useContext(ResetPasswordContext);
   const { passwordResetConfig } = useContext(CommonDataContext);
-  const [resetPasswordSuccessful, setResetPasswordSuccessful] = useState(false)
+  const [resetPasswordSuccessful, setResetPasswordSuccessful] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [passwordRules, setPasswordRules] = useState(null);
   const [ResetPasswordForm, setResetPasswordForm] = useState({
@@ -30,9 +30,8 @@ function ResetPasswordContainer(props) {
   });
   const [loader, setLoader] = useState(false);
   const email = useMemo(() => {
-    return passwordResetConfig.email
-
-  }, [passwordResetConfig.email])
+    return passwordResetConfig.email;
+  }, [passwordResetConfig.email]);
 
   const onClick = (e) => {
     const passwordRules = {
@@ -57,13 +56,13 @@ function ResetPasswordContainer(props) {
     });
   };
 
-  const handleResetPassword = async(e) => {
+  const handleResetPassword = async (e) => {
     e.preventDefault();
     setResetPasswordForm({
       ...ResetPasswordForm,
       isSubmitting: true,
     });
-    const { tenantName, csrfToken, ticket, email } = passwordResetConfig || {};
+    const { csrfToken, ticket, email } = passwordResetConfig || {};
     const data = new URLSearchParams({
       _csrf: csrfToken,
       ticket: ticket,
@@ -71,32 +70,29 @@ function ResetPasswordContainer(props) {
       confirmNewPassword: ResetPasswordForm.confirmPassword,
       email: email,
     }).toString();
-    const url = `https://${tenantName}.us.auth0.com/lo/reset?ticket=${ticket}`;
+    const url = `/lo/reset?ticket=${ticket}`;
     const headers = { "content-type": "application/x-www-form-urlencoded" };
-    try{
-      const res = await sendResetPassword(url, data, headers)
-      console.log(res)
+    try {
+      const res = await sendResetPassword(url, data, headers);
+      console.log(res);
       setResetPasswordError({
         ...ResetPasswordError,
-        databaseError: '',
-        errorCode: '',
+        databaseError: "",
+        errorCode: "",
       });
-      setResetPasswordSuccessful(true)
-      
-    }catch(err){
+      setResetPasswordSuccessful(true);
+    } catch (err) {
       setResetPasswordError({
-                ...ResetPasswordError,
-                databaseError: err.description,
-                errorCode: err.statusCode,
-              });
-    }finally{
+        ...ResetPasswordError,
+        databaseError: err.description,
+        errorCode: err.statusCode,
+      });
+    } finally {
       setResetPasswordForm({
         ...ResetPasswordForm,
         isSubmitting: false,
       });
     }
-    
-      
   };
 
   const child = React.Children.only(props.children);
