@@ -1,6 +1,6 @@
 const path = require("path");
 const assets = require("./build/asset-manifest.json");
-
+const webpack = require("webpack");
 const basePath = path.join(__dirname, "build");
 const lModules = assets.entrypoints.map((f) => path.resolve(basePath, f));
 
@@ -10,7 +10,7 @@ module.exports = {
     main: lModules,
   },
   output: {
-    filename: "bundle_0_1_0.min.js",
+    filename: "bundle_9_9.min.js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
@@ -58,4 +58,5 @@ module.exports = {
   // plugins: [
   //   new UglifyJsPlugin(),
   // ]
+  plugins: [new webpack.BannerPlugin("McAfee Auth0 UI Bundle\nVersion 0.0.0")],
 };

@@ -36,7 +36,7 @@ function ForgotPasswordContainer(props) {
     } else if (emailVal && !validateEmail(emailVal)) {
       updateEmailDetails((prevEmailDetails) => {
         const updatedEmailDetails = { ...prevEmailDetails };
-        updatedEmailDetails.emailError = "Email is not valid";
+        updatedEmailDetails.emailError = "Email_is_not_valid";
         return updatedEmailDetails;
       });
     } else {
@@ -68,11 +68,10 @@ function ForgotPasswordContainer(props) {
         return updatedEmailDetails;
       });
     } catch (err) {
-      if (err?.error === "too_many_requests") {
+      if (err?.code === 429) {
         updateEmailDetails((prevEmailDetails) => {
           const updatedEmailDetails = { ...prevEmailDetails };
-          updatedEmailDetails.databaseError =
-            "forgotPassword.too_many_requests";
+          updatedEmailDetails.emailError = "forgotPassword.too_many_requests";
           return updatedEmailDetails;
         });
       } else {
