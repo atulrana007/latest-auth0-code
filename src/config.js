@@ -1,5 +1,5 @@
 const configs = {
-  connection: "AV-Password-Authentication",
+  connection: "Test-CustomDB",
   //   connection: "Username-Password-Authentication",
   timer: {
     minutes: 20,

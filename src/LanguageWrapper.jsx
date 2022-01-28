@@ -4,6 +4,7 @@ import LanguageProvider from "./localization/languageProvider";
 import { Route, Switch, useLocation } from "react-router-dom";
 import { ReactComponent as McAfeeLogo } from "./svg/Mcafee-Logo.svg";
 import LoaderScreen from "./loader/LoaderScreen";
+import MultiFactor from "./components/MultiFactor";
 
 import Main from "./Main";
 
@@ -30,7 +31,7 @@ export default function LanguageWrapper(props) {
     );
   };
 
-  if (!setting && !localizedContent) {
+  if (!setting && !localizedContent && false) {
     return fetchingError ? (
       <LanguageProvider locale={appLocale}>
         <div className={styles.Container}>
@@ -102,6 +103,9 @@ export default function LanguageWrapper(props) {
                   </Route>
                   <Route path="/unblock" exact>
                     <AccountUnblock />
+                  </Route>
+                  <Route path="/mf" exact>
+                    <MultiFactor />
                   </Route>
                 </Switch>
               </div>

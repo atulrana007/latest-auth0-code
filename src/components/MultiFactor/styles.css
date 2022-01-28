@@ -1,0 +1,14 @@
+.left-div-heading {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  line-height: 40px;
+}
+.subHeading {
+  color: #5a6175;
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
