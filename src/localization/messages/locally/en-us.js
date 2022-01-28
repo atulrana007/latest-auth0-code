@@ -53,7 +53,7 @@ const en = {
     contactUs: "Contact Us",
     privacyNotice: "Privacy Notice",
     FAQs: "FAQs",
-    Copyright_Text: "Copyright ©2021 McAfee , LLC",
+    Copyright_Text: "Copyright ©2022 McAfee , LLC",
     If_you_didnt_receive_a_passcode_check_your_spam_folder:
       "If you didn't receive a passcode, check your spam folder.",
     we_will_send_otp:

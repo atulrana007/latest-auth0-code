@@ -15,6 +15,7 @@
   display: flex;
   justify-content: center;
   color: #b1babf;
+  font-size: 0.75rem;
 }
 
 .FooterLinkContainer {
@@ -39,7 +40,7 @@
     white-space: nowrap;
   }
   .FooterLeftWrapper {
-    font-size: 1rem;
+    font-size: 0.75rem;
     justify-content: unset;
   }
 }

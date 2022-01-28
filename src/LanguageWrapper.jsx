@@ -110,7 +110,7 @@ export default function LanguageWrapper(props) {
                 </Switch>
               </div>
             </div>
-            <Footer />
+            {window.location.pathname !== "/mf" && <Footer />}
           </div>
         </LanguageProvider>
       </div>

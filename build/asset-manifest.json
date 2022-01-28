@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.876dd070.chunk.css",
-    "main.js": "/static/js/main.a84960ed.chunk.js",
-    "main.js.map": "/static/js/main.a84960ed.chunk.js.map",
+    "main.css": "/static/css/main.079c0c2c.chunk.css",
+    "main.js": "/static/js/main.d44fab13.chunk.js",
+    "main.js.map": "/static/js/main.d44fab13.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a6f5e420.js",
     "runtime-main.js.map": "/static/js/runtime-main.a6f5e420.js.map",
     "static/js/2.a4860718.chunk.js": "/static/js/2.a4860718.chunk.js",
     "static/js/2.a4860718.chunk.js.map": "/static/js/2.a4860718.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.876dd070.chunk.css.map": "/static/css/main.876dd070.chunk.css.map",
+    "static/css/main.079c0c2c.chunk.css.map": "/static/css/main.079c0c2c.chunk.css.map",
     "static/js/2.a4860718.chunk.js.LICENSE.txt": "/static/js/2.a4860718.chunk.js.LICENSE.txt",
     "static/media/Mcafee-Logo-For-Affiliate.2f9b37f1.svg": "/static/media/Mcafee-Logo-For-Affiliate.2f9b37f1.svg",
     "static/media/Mcafee-Logo.64bfa982.svg": "/static/media/Mcafee-Logo.64bfa982.svg",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.a6f5e420.js",
     "static/js/2.a4860718.chunk.js",
-    "static/css/main.876dd070.chunk.css",
-    "static/js/main.a84960ed.chunk.js"
+    "static/css/main.079c0c2c.chunk.css",
+    "static/js/main.d44fab13.chunk.js"
   ]
 }
