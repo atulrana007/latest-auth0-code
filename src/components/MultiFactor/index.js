@@ -17,7 +17,7 @@ function MultiFactor() {
       </div>
       <div className="left-div-bottom">
         <div className="footer">
-          <Footer />
+          <Footer removePadding />
         </div>
       </div>
     </div>

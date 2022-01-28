@@ -2,19 +2,23 @@ import React, { useContext } from "react";
 import styles from "./Footer.module.css";
 import translate from "../../localization/translate";
 import { CommonDataContext } from "../../providers/CommonDataContext";
-const Footer = () => {
+const Footer = (props) => {
+  const { removePadding } = props;
   const { locale, affId } = useContext(CommonDataContext);
   const PRIVACY_NOTICE_LINK = affId
     ? `https://www.mcafee.com/legal?culture=${locale.toUpperCase()}&affid=${affId}#privacytop`
     : `https://www.mcafee.com/legal?culture=${locale.toUpperCase()}#privacytop`;
   return (
-    <div className={styles.FooterContainer}>
+    <div
+      className={styles.FooterContainer}
+      style={{ padding: removePadding ? "0" : "" }}
+    >
       <div className={styles.FooterLeftWrapper}>
         <div className={styles.FooterLinkContainer}>
           <a
             target="_blank"
             href={`https://home.mcafee.com/root/support.aspx?culture=${locale.toUpperCase()}`}
-            style={{ whiteSpace: "nowrap" }}
+            style={{ whiteSpace: "nowrap", textDecoration: "none" }}
             data-nav-element-click="Contact Us"
           >
             {translate("contactUs")}
@@ -25,7 +29,7 @@ const Footer = () => {
           <a
             target="_blank"
             href={PRIVACY_NOTICE_LINK}
-            style={{ whiteSpace: "nowrap" }}
+            style={{ whiteSpace: "nowrap", textDecoration: "none" }}
             data-nav-element-click="Privacy Notice"
           >
             {" "}
@@ -36,7 +40,7 @@ const Footer = () => {
           <a
             target="_blank"
             href={`https://home.mcafee.com/support/commonFAQ?culture=${locale.toUpperCase()}`}
-            style={{ whiteSpace: "nowrap" }}
+            style={{ whiteSpace: "nowrap", textDecoration: "none" }}
             data-nav-element-click="FAQ Link"
           >
             {translate("FAQs")}{" "}
