@@ -18,7 +18,11 @@ const Footer = (props) => {
           <a
             target="_blank"
             href={`https://home.mcafee.com/root/support.aspx?culture=${locale.toUpperCase()}`}
-            style={{ whiteSpace: "nowrap", textDecoration: "none" }}
+            style={{
+              whiteSpace: "nowrap",
+              textDecoration: "none",
+              color: "#4258ff",
+            }}
             data-nav-element-click="Contact Us"
           >
             {translate("contactUs")}
@@ -29,7 +33,11 @@ const Footer = (props) => {
           <a
             target="_blank"
             href={PRIVACY_NOTICE_LINK}
-            style={{ whiteSpace: "nowrap", textDecoration: "none" }}
+            style={{
+              whiteSpace: "nowrap",
+              textDecoration: "none",
+              color: "#4258ff",
+            }}
             data-nav-element-click="Privacy Notice"
           >
             {" "}
@@ -40,7 +48,11 @@ const Footer = (props) => {
           <a
             target="_blank"
             href={`https://home.mcafee.com/support/commonFAQ?culture=${locale.toUpperCase()}`}
-            style={{ whiteSpace: "nowrap", textDecoration: "none" }}
+            style={{
+              whiteSpace: "nowrap",
+              textDecoration: "none",
+              color: "#4258ff",
+            }}
             data-nav-element-click="FAQ Link"
           >
             {translate("FAQs")}{" "}

@@ -45,7 +45,7 @@
   display: flex;
 }
 .Loginpagelink {
-  color: #1671ee;
+  color: #4258ff;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -159,7 +159,7 @@ input:-webkit-autofill {
 }
 .important {
   font-weight: 400;
-  color: #1671ee;
+  color: #4258ff;
   cursor: pointer;
 }
 .cancel {
