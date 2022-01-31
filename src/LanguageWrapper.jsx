@@ -104,13 +104,13 @@ export default function LanguageWrapper(props) {
                   <Route path="/unblock" exact>
                     <AccountUnblock />
                   </Route>
-                  <Route path="/mf" exact>
+                  <Route path="/u/mfa-sms-enrollment" exact>
                     <MultiFactor />
                   </Route>
                 </Switch>
               </div>
             </div>
-            {window.location.pathname !== "/mf" && (
+            {window.location.pathname !== "/u/mfa-sms-enrollment" && (
               <Footer removePadding={false} />
             )}
           </div>
