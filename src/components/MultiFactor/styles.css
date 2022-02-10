@@ -6,6 +6,12 @@
   font-family: "Poppins", sans-serif;
   line-height: 40px;
 }
+.left-div-bottom {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 5rem;
+  width: 100vw;
+}
 .subHeading {
   color: #5a6175;
   font-size: 1.125rem;
