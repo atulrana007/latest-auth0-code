@@ -105,14 +105,17 @@ export default function LanguageWrapper(props) {
                     <AccountUnblock />
                   </Route>
                   <Route
+                    path={["/u/mfa-sms-enrollment", "/u/mfa-country-codes"]}
+                  >
+                    <MultiFactor />
+                  </Route>
+                  <Route
                     path={[
-                      "/u/mfa-sms-enrollment",
-                      "/u/mfa-country-codes",
                       "/u/mfa-sms-challenge",
                       "/u/mfa-sms-enrollment-verify",
                     ]}
                   >
-                    <MultiFactor />
+                    <MultiFactor Page="confirm-otp" />
                   </Route>
                 </Switch>
               </div>
