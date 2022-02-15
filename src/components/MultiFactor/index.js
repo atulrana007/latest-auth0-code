@@ -30,11 +30,6 @@ function MultiFactor(props) {
           <div className="left-div-heading">{translate(DisplayText.title)}</div>
           <div className="subHeading">{translate(DisplayText.subtitle)}</div>
         </div>
-        <div className="left-div-bottom">
-          <div className="footer">
-            <Footer removePadding />
-          </div>
-        </div>
       </div>
     </div>
   );
