@@ -22,15 +22,27 @@ function MultiFactor(props) {
       };
   }
   return (
-    <div className="inner-left-div">
-      <div>
-        <McAfeeLogo />
-        <div className="left-div-heading">{translate(DisplayText.title)}</div>
-        <div className="subHeading">{translate(DisplayText.subtitle)}</div>
+    <div>
+      {" "}
+      <div className="inner-left-div">
+        <div>
+          <McAfeeLogo />
+          <div className="left-div-heading">{translate(DisplayText.title)}</div>
+          <div className="subHeading">{translate(DisplayText.subtitle)}</div>
+        </div>
+        <div className="left-div-bottom">
+          <div className="footer">
+            <Footer removePadding />
+          </div>
+        </div>
       </div>
-      <div className="left-div-bottom">
-        <div className="footer">
-          <Footer removePadding />
+      <div class="right-div">
+        <div class="table">
+          <div class="cell">
+            <div class="content">
+              {"{"}%- auth0:widget -%{"}"}
+            </div>
+          </div>
         </div>
       </div>
     </div>
