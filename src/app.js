@@ -12,7 +12,7 @@ import { useLocale } from "./utils/useLocale";
 import { useAffId } from "./utils/useAffId";
 import LanguageWrapper from "./LanguageWrapper";
 
-const App = ({ pageConfig, passwordResetConfig }) => {
+const App = ({ pageConfig, passwordResetConfig, footer }) => {
   const [emailFill] = useEmail();
   const [appLocale] = useLocale();
   const [affId] = useAffId();
@@ -28,7 +28,7 @@ const App = ({ pageConfig, passwordResetConfig }) => {
           affiliateId={affId}
         >
           <AppProvider>
-            <LanguageWrapper pageConfig={pageConfig} />
+            <LanguageWrapper pageConfig={pageConfig} footer={footer} />
           </AppProvider>
         </CommonDataProvider>
       </SettingProvider>

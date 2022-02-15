@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {%- auth0:head -%}
+    <title>2nd Factor Authentication</title>
+    <link href="https://d1aza67fhfglew.cloudfront.net/fonts/Poppins-ExtraBold.ttf" rel="stylesheet">
+    <link rel="shortcut icon" href="https://secureimages.mcafee.com/common/strongMail/mcafee_shield.png">
+    <style type="text/css">
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 0rem;
+        }
+
+        .FooterContainer {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.75rem;
+        }
+
+        .link {
+            text-decoration: none;
+            color: #4258ff;
+        }
+
+        .link:active {
+            color: #4258ff;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            color: #4258ff;
+            text-decoration: none;
+        }
+
+        .FooterLeftWrapper {
+            flex: 1;
+            display: flex;
+            font-size: 0.75rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .FooterRightWrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            color: #b1babf;
+        }
+
+        .FooterLinkContainer {
+            color: #4258ff;
+            padding: 0 1rem;
+            cursor: pointer;
+            border-right: 1px solid lightgray;
+            white-space: nowrap;
+        }
+
+        .FooterLinkContainer:last-child {
+            border-right: unset;
+            white-space: nowrap;
+        }
+
+        .footer {
+            position: absolute;
+            width: 100vw;
+        }
+
+
+
+        .left-div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 17.2rem;
+            margin: 1rem;
+        }
+
+        .right-div {
+            flex: 1;
+        }
+
+
+        .left-div-heading {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-family: "Poppins", sans-serif;
+            line-height: 40px;
+        }
+
+        .table {
+            display: table;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+        }
+
+        .cell {
+            display: table-cell;
+
+        }
+
+        .content {
+            padding: 25px 0px 25px 0px;
+            width: var(--prompt-width)
+                /* login widget width */
+        }
+
+        .subHeading {
+            color: #5a6175;
+            font-size: 1.125rem;
+            font-weight: 400;
+            font-family: "Poppins", sans-serif;
+        }
+
+        @media only screen and (min-width: 320px) {}
+
+        @media only screen and (min-width: 700px) {
+            .content {
+                padding: 25px 0px 25px 0px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 280px;
+                /* login widget width */
+            }
+
+            .wrapper {
+                display: flex;
+                flex-direction: row;
+                margin: 3rem;
+            }
+
+            .left-div {
+                flex: 1;
+            }
+
+
+
+            .FooterContainer {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                background-color: #ffffff;
+                white-space: nowrap;
+                font-family: "Poppins", sans-serif;
+            }
+
+            .FooterLeftWrapper {
+                font-size: 0.75rem;
+                justify-content: unset;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="left-div">
+            <div id="root"></div>
+        </div>
+        <div class="right-div">
+            <div class="table">
+                <div class="cell">
+                    <div class="content">
+                        {%- auth0:widget -%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script
+        src="https://cdn.jsdelivr.net/gh/atulrana007/latest-auth0-code/dist/bundle_to_Test_my_tenant_07.min.js"></script>
+    <script>
+        new window.LoginWidget().init({
+            pageConfig: {}
+        });    </script>
+</body>
+
+</html>

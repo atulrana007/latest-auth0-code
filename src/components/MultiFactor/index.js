@@ -36,15 +36,6 @@ function MultiFactor(props) {
           </div>
         </div>
       </div>
-      <div class="right-div">
-        <div class="table">
-          <div class="cell">
-            <div class="content">
-              {"{"}%- auth0:widget -%{"}"}
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

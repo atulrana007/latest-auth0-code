@@ -31,6 +31,27 @@ window.LoginWidget = class LoginWidget {
     );
   }
 };
+window.MFAWidget = class MFAWidget {
+  init(opts) {
+    const pageConfig = opts.pageConfig;
+    if (!pageConfig) {
+      throw new Error("pageConfig must be provided in opts");
+    }
+
+    ReactDOM.render(
+      <BrowserRouter>
+        <App pageConfig={pageConfig} />
+      </BrowserRouter>,
+      document.getElementById("root")
+    );
+    ReactDOM.render(
+      <BrowserRouter>
+        <App footer />
+      </BrowserRouter>,
+      document.getElementById("footer")
+    );
+  }
+};
 // ReactDOM.render(
 //   <BrowserRouter>
 //     <App pageConfig={{ clientName: "Custom Client Name" }} />

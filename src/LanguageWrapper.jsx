@@ -88,42 +88,46 @@ export default function LanguageWrapper(props) {
     return (
       <div>
         <LanguageProvider locale={appLocale}>
-          <div className={styles.PageContainer}>
-            <div className={styles.ContentWrap}>
-              <div id="app">
-                <Switch>
-                  <Route path="/login" exact>
-                    {withAccountProvider(<Main />)}
-                  </Route>
+          {props?.footer ? (
+            <Footer removePadding />
+          ) : (
+            <div className={styles.PageContainer}>
+              <div className={styles.ContentWrap}>
+                <div id="app">
+                  <Switch>
+                    <Route path="/login" exact>
+                      {withAccountProvider(<Main />)}
+                    </Route>
 
-                  <Route path="/lo/reset" exact>
-                    <ResetPasswordProvider>
-                      <ResetPassword />
-                    </ResetPasswordProvider>
-                  </Route>
-                  <Route path="/unblock" exact>
-                    <AccountUnblock />
-                  </Route>
-                  <Route
-                    path={["/u/mfa-sms-enrollment", "/u/mfa-country-codes"]}
-                  >
-                    <MultiFactor />
-                  </Route>
-                  <Route
-                    path={[
-                      "/u/mfa-sms-challenge",
-                      "/u/mfa-sms-enrollment-verify",
-                    ]}
-                  >
-                    <MultiFactor Page="confirm-otp" />
-                  </Route>
-                </Switch>
+                    <Route path="/lo/reset" exact>
+                      <ResetPasswordProvider>
+                        <ResetPassword />
+                      </ResetPasswordProvider>
+                    </Route>
+                    <Route path="/unblock" exact>
+                      <AccountUnblock />
+                    </Route>
+                    <Route
+                      path={["/u/mfa-sms-enrollment", "/u/mfa-country-codes"]}
+                    >
+                      <MultiFactor />
+                    </Route>
+                    <Route
+                      path={[
+                        "/u/mfa-sms-challenge",
+                        "/u/mfa-sms-enrollment-verify",
+                      ]}
+                    >
+                      <MultiFactor Page="confirm-otp" />
+                    </Route>
+                  </Switch>
+                </div>
               </div>
+              {!window.location.pathname.includes("/u/mfa") && (
+                <Footer removePadding={false} />
+              )}
             </div>
-            {!window.location.pathname.includes("/u/mfa") && (
-              <Footer removePadding={false} />
-            )}
-          </div>
+          )}
         </LanguageProvider>
       </div>
     );
