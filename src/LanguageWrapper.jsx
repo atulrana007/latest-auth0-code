@@ -89,7 +89,7 @@ export default function LanguageWrapper(props) {
       <div>
         <LanguageProvider locale={appLocale}>
           {props?.footer ? (
-            <Footer removePadding />
+            <Footer />
           ) : (
             <div className={styles.PageContainer} id="PageContainer">
               <div className={styles.ContentWrap}>
@@ -123,9 +123,7 @@ export default function LanguageWrapper(props) {
                   </Switch>
                 </div>
               </div>
-              {!window.location.pathname.includes("/u/mfa") && (
-                <Footer removePadding={false} />
-              )}
+              {!window.location.pathname.includes("/u/mfa") && <Footer />}
             </div>
           )}
         </LanguageProvider>
