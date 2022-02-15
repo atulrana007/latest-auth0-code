@@ -91,7 +91,7 @@ export default function LanguageWrapper(props) {
           {props?.footer ? (
             <Footer removePadding />
           ) : (
-            <div className={styles.PageContainer}>
+            <div className={styles.PageContainer} id="PageContainer">
               <div className={styles.ContentWrap}>
                 <div id="app">
                   <Switch>
