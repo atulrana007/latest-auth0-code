@@ -16,6 +16,7 @@ import { ResetPasswordProvider } from "./providers/ResetPasswordContext";
 import { SettingContext } from "./providers/SettingProvider";
 import translate from "./localization/translate";
 import { useLocale } from "./utils/useLocale";
+import SessionLogout from "./components/SessionStop/SessionLogout";
 
 export default function LanguageWrapper(props) {
   const [appLocale] = useLocale();
@@ -30,7 +31,48 @@ export default function LanguageWrapper(props) {
       </AccountProvider>
     );
   };
+  const PageSelection = () => {
+    if (props?.footer) {
+      return <Footer />;
+    } else if (props?.mfaConfig?.logout) {
+      return <SessionLogout config={props?.mfaConfig} />;
+    } else {
+      return (
+        <div className={styles.PageContainer} id="PageContainer">
+          <div className={styles.ContentWrap}>
+            <div id="app">
+              <Switch>
+                <Route path="/login" exact>
+                  {withAccountProvider(<Main />)}
+                </Route>
 
+                <Route path="/lo/reset" exact>
+                  <ResetPasswordProvider>
+                    <ResetPassword />
+                  </ResetPasswordProvider>
+                </Route>
+                <Route path="/unblock" exact>
+                  <AccountUnblock />
+                </Route>
+                <Route path={["/u/mfa-sms-enrollment", "/u/mfa-country-codes"]}>
+                  <MultiFactor />
+                </Route>
+                <Route
+                  path={[
+                    "/u/mfa-sms-challenge",
+                    "/u/mfa-sms-enrollment-verify",
+                  ]}
+                >
+                  <MultiFactor Page="confirm-otp" />
+                </Route>
+              </Switch>
+            </div>
+          </div>
+          {!window.location.pathname.includes("/u/mfa") && <Footer />}
+        </div>
+      );
+    }
+  };
   if (!setting && !localizedContent && false) {
     return fetchingError ? (
       <LanguageProvider locale={appLocale}>
@@ -88,44 +130,7 @@ export default function LanguageWrapper(props) {
     return (
       <div>
         <LanguageProvider locale={appLocale}>
-          {props?.footer ? (
-            <Footer />
-          ) : (
-            <div className={styles.PageContainer} id="PageContainer">
-              <div className={styles.ContentWrap}>
-                <div id="app">
-                  <Switch>
-                    <Route path="/login" exact>
-                      {withAccountProvider(<Main />)}
-                    </Route>
-
-                    <Route path="/lo/reset" exact>
-                      <ResetPasswordProvider>
-                        <ResetPassword />
-                      </ResetPasswordProvider>
-                    </Route>
-                    <Route path="/unblock" exact>
-                      <AccountUnblock />
-                    </Route>
-                    <Route
-                      path={["/u/mfa-sms-enrollment", "/u/mfa-country-codes"]}
-                    >
-                      <MultiFactor />
-                    </Route>
-                    <Route
-                      path={[
-                        "/u/mfa-sms-challenge",
-                        "/u/mfa-sms-enrollment-verify",
-                      ]}
-                    >
-                      <MultiFactor Page="confirm-otp" />
-                    </Route>
-                  </Switch>
-                </div>
-              </div>
-              {!window.location.pathname.includes("/u/mfa") && <Footer />}
-            </div>
-          )}
+          {PageSelection()}
         </LanguageProvider>
       </div>
     );

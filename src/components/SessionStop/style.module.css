@@ -1,0 +1,19 @@
+.wrapper {
+  margin: 0;
+  padding: 0;
+}
+.linkLogout {
+  text-decoration: none;
+  color: #4258ff;
+  cursor: pointer;
+}
+.linkLogout:hover {
+  text-decoration: none;
+  color: #4258ff;
+  cursor: pointer;
+}
+.linkLogout:active {
+  text-decoration: none;
+  color: #4258ff;
+  cursor: pointer;
+}

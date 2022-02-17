@@ -33,14 +33,14 @@ window.LoginWidget = class LoginWidget {
 };
 window.MFAWidget = class MFAWidget {
   init(opts) {
-    const pageConfig = opts.pageConfig;
-    if (!pageConfig) {
-      throw new Error("pageConfig must be provided in opts");
+    const mfaConfig = { ...opts.mfaConfig, logout: true };
+    if (!opts.mfaConfig) {
+      throw new Error("mfaConfig must be provided in opts");
     }
 
     ReactDOM.render(
       <BrowserRouter>
-        <App pageConfig={pageConfig} />
+        <App pageConfig={{}} />
       </BrowserRouter>,
       document.getElementById("root")
     );
@@ -50,11 +50,20 @@ window.MFAWidget = class MFAWidget {
       </BrowserRouter>,
       document.getElementById("footer")
     );
+    ReactDOM.render(
+      <BrowserRouter>
+        <App mfaConfig={mfaConfig} />
+      </BrowserRouter>,
+      document.getElementById("logout")
+    );
   }
 };
 // ReactDOM.render(
 //   <BrowserRouter>
-//     <App pageConfig={{ clientName: "Custom Client Name" }} />
+//     <App
+//       pageConfig={{ clientName: "Custom Client Name" }}
+//       mfaConfig={{ id: "123", logout: true }}
+//     />
 //   </BrowserRouter>,
 //   document.getElementById("root")
 // );
