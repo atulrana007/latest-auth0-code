@@ -31,6 +31,7 @@ export default function LanguageWrapper(props) {
       </AccountProvider>
     );
   };
+  console.log("------mfa", props?.mfaConfig);
   const PageSelection = () => {
     if (props?.footer) {
       return <Footer />;
