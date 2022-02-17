@@ -17,11 +17,10 @@ import { SettingContext } from "./providers/SettingProvider";
 import translate from "./localization/translate";
 import { useLocale } from "./utils/useLocale";
 import SessionLogout from "./components/SessionStop/SessionLogout";
-import { useHistory } from "react-router-dom";
 
 export default function LanguageWrapper(props) {
   const [appLocale] = useLocale();
-  const history = useHistory();
+  const history = useLocation();
 
   const { setting, localizedContent, fetchingError, isAffiliateLogo } =
     useContext(SettingContext);
