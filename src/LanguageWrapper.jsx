@@ -37,11 +37,12 @@ export default function LanguageWrapper(props) {
   const PageSelection = () => {
     if (props?.footer) {
       return <Footer />;
-    } else if (
-      props?.mfaConfig?.logout &&
-      history.pathname === "/u/mfa-sms-challenge"
-    ) {
-      return <SessionLogout config={props?.mfaConfig} />;
+    } else if (props?.mfaConfig?.logout) {
+      return (
+        history.pathname === "/u/mfa-sms-challenge" && (
+          <SessionLogout config={props?.mfaConfig} />
+        )
+      );
     } else {
       return (
         <div className={styles.PageContainer} id="PageContainer">
