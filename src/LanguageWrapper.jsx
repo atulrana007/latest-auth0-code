@@ -33,15 +33,15 @@ export default function LanguageWrapper(props) {
       </AccountProvider>
     );
   };
+  console.log("pathName", history.pathname);
   console.log("------mfa", props?.mfaConfig);
   const PageSelection = () => {
     if (props?.footer) {
       return <Footer />;
-    } else if (
-      props?.mfaConfig?.logout &&
-      history.pathname === "/u/mfa-sms-challenge"
-    ) {
-      return <SessionLogout config={props?.mfaConfig} />;
+    } else if (history.pathname === "/u/mfa-sms-challenge") {
+      return (
+        props?.mfaConfig?.logout && <SessionLogout config={props?.mfaConfig} />
+      );
     } else {
       return (
         <div className={styles.PageContainer} id="PageContainer">
