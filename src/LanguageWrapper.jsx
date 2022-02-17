@@ -17,9 +17,11 @@ import { SettingContext } from "./providers/SettingProvider";
 import translate from "./localization/translate";
 import { useLocale } from "./utils/useLocale";
 import SessionLogout from "./components/SessionStop/SessionLogout";
+import { useHistory } from "react-router-dom";
 
 export default function LanguageWrapper(props) {
   const [appLocale] = useLocale();
+  const history = useHistory();
 
   const { setting, localizedContent, fetchingError, isAffiliateLogo } =
     useContext(SettingContext);
@@ -35,7 +37,10 @@ export default function LanguageWrapper(props) {
   const PageSelection = () => {
     if (props?.footer) {
       return <Footer />;
-    } else if (props?.mfaConfig?.logout) {
+    } else if (
+      props?.mfaConfig?.logout &&
+      history.pathname === "/u/mfa-sms-challenge"
+    ) {
       return <SessionLogout config={props?.mfaConfig} />;
     } else {
       return (
