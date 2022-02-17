@@ -37,10 +37,11 @@ window.MFAWidget = class MFAWidget {
     if (!opts.mfaConfig) {
       throw new Error("mfaConfig must be provided in opts");
     }
+    console.log("what are these", mfaConfig);
 
     ReactDOM.render(
       <BrowserRouter>
-        <App pageConfig={{}} />
+        <App pageConfig={{ clientID: mfaConfig.id }} />
       </BrowserRouter>,
       document.getElementById("root")
     );
@@ -52,7 +53,7 @@ window.MFAWidget = class MFAWidget {
     );
     ReactDOM.render(
       <BrowserRouter>
-        <App mfaConfig={mfaConfig} />
+        <App pageConfig={{ clientID: mfaConfig.id }} mfaConfig={mfaConfig} />
       </BrowserRouter>,
       document.getElementById("logout")
     );
