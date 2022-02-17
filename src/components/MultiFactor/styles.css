@@ -25,6 +25,34 @@
   position: absolute;
   width: 100vw;
 }
+.time-message {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0.625rem;
+
+  position: static;
+  left: 0%;
+  right: 39.83%;
+  top: 73.68%;
+  bottom: 0%;
+
+  /* Blue/$blue-100 */
+  background: #e2e7fe;
+  border-radius: 5px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  margin: 12px 0px;
+  width: fit-content;
+  color: #4258ff;
+}
+.time-message-text {
+  margin: 0;
+  padding: 0;
+}
 
 @media only screen and (min-width: 700px) {
   .left-div {
